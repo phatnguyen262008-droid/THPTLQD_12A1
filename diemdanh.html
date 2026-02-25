@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Học sinh - Điểm danh</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{ overflow:auto; }
+    .student-wrap{ max-width: 1080px; margin: 28px auto; padding: 0 16px; }
+    .student-top{
+      display:flex; align-items:center; justify-content: space-between; gap: 12px;
+      margin-bottom: 16px;
+    }
+    .student-top h1{ margin:0; font-size: 22px; letter-spacing: -0.2px; }
+
+    /* Back button */
+    .back-btn{
+      text-decoration:none;
+      padding:8px 14px;
+      border-radius:12px;
+      font-weight:800;
+      font-size:14px;
+      background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+      color:#fff;
+      box-shadow:0 6px 14px rgba(14,165,233,.25);
+      transition:.15s;
+      white-space: nowrap;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .back-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 18px rgba(14,165,233,.35);
+    }
+    body.dark .back-btn{
+      background:linear-gradient(135deg,#0ea5e9,#0284c7);
+    }
+
+    .hero{
+      border-radius: 22px;
+      padding: 18px 18px;
+      background: linear-gradient(135deg, rgba(14,165,233,.14), rgba(56,189,248,.08));
+      border: 1px solid rgba(15,23,42,.08);
+      margin-bottom: 16px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    body.dark .hero{ border-color: rgba(255,255,255,.10); background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(2,6,23,.0)); }
+    .hero .title{ display:flex; align-items:center; gap: 12px; }
+    .hero .title .emoji{ font-size: 34px; filter: drop-shadow(0 10px 18px rgba(0,0,0,.15)); }
+    .hero .title h2{ margin:0; font-size: 20px; }
+    .hero .title p{ margin:2px 0 0 0; color: var(--muted); font-size: 13px; }
+    body.dark .hero .title p{ color: #cbd5e1; }
+
+    .student-grid{ display:grid; grid-template-columns: 1.25fr .75fr; gap: 16px; }
+    @media (max-width: 860px){ .student-grid{ grid-template-columns: 1fr; } }
+    .note{ font-size: 13px; color: var(--muted); margin-top: 8px; }
+    .row{ display:flex; gap: 10px; align-items:center; flex-wrap: wrap; }
+    .row > *{ flex: 1; min-width: 180px; }
+    .btn-row{ display:flex; gap: 10px; justify-content:flex-end; margin-top: 12px; }
+    .pill{ display:inline-flex; align-items:center; gap:8px; padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background: rgba(255,255,255,.7); }
+    body.dark .pill{ border-color: rgba(255,255,255,.14); background: rgba(255,255,255,.06); color:#e5e7eb; }
+    .success{ color:#16a34a; font-weight: 800; }
+    .danger{ color:#ef4444; font-weight: 800; }
+    body.dark .success{ color:#34d399; }
+    body.dark .danger{ color:#fb7185; }
+    canvas{ width: 100%; height: 220px; display:block; }
+
+    .seg{ display:flex; gap:10px; margin-top:6px; }
+    .seg button{
+      flex:1;
+      border-radius: 14px;
+      padding: 10px 12px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.7);
+      font-weight: 800;
+      cursor: pointer;
+      transition: .15s;
+    }
+    .seg button:hover{ transform: translateY(-1px); }
+    body.dark .seg button{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); color:#e5e7eb; }
+    .seg button.active.present{ background: rgba(34,197,94,.14); border-color: rgba(34,197,94,.35); }
+    .seg button.active.absent{ background: rgba(239,68,68,.14); border-color: rgba(239,68,68,.35); }
+
+    .mini{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
+    .mini .pill{ font-weight: 800; }
+
+    /* Notifications */
+    .noti-wrap{ margin-top: 16px; }
+    .noti-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom: 10px; }
+    .noti-head h3{ margin:0; }
+    .noti-actions{ display:flex; gap:10px; align-items:center; }
+    .btn-ghost{
+      border-radius: 12px;
+      padding: 8px 12px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.7);
+      cursor: pointer;
+      font-weight: 800;
+      transition: .15s;
+    }
+    .btn-ghost:hover{ transform: translateY(-1px); }
+    body.dark .btn-ghost{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); color:#e5e7eb; }
+
+    .noti-list{ display:flex; flex-direction:column; gap:10px; }
+    .noti-item{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.7);
+    }
+    body.dark .noti-item{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+    .noti-left{ display:flex; flex-direction:column; gap:4px; min-width: 0; }
+    .noti-name{ font-weight: 900; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .noti-meta{ font-size: 13px; color: var(--muted); }
+    body.dark .noti-meta{ color:#cbd5e1; }
+    .noti-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border-radius:999px;
+      padding: 8px 12px;
+      font-weight: 900;
+      white-space: nowrap;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.6);
+      height: fit-content;
+    }
+    body.dark .noti-badge{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+    .noti-badge.present{ color:#16a34a; }
+    .noti-badge.absent{ color:#ef4444; }
+    body.dark .noti-badge.present{ color:#34d399; }
+    body.dark .noti-badge.absent{ color:#fb7185; }
+
+    .pulse{
+      animation: pulseIn .9s ease both;
+    }
+    @keyframes pulseIn{
+      from{ transform: translateY(6px); opacity:0; }
+      to{ transform: translateY(0); opacity:1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="student-wrap">
+    <div class="student-top">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a href="index.html" class="back-btn">⬅ Quay lại</a>
+        <h1 style="margin:0;">✅ Học sinh điểm danh</h1>
+      </div>
+
+      <label class="switch" title="Dark mode">
+        <input type="checkbox" id="darkToggleStudent">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="hero">
+      <div class="title">
+        <div class="emoji">🏫</div>
+        <div>
+          <h2 style="margin:0;">Trường THPT Lê Quý Đôn – Đắk Lắk</h2>
+          <p>Chọn ngày + chọn tên + bấm Có mặt/Vắng rồi gửi. Dữ liệu lưu trong máy (localStorage).</p>
+        </div>
+      </div>
+      <div class="pill" style="white-space:nowrap;">⚡ Nhanh • Gọn • Dễ dùng</div>
+    </div>
+
+    <div class="student-grid">
+      <div class="card">
+        <h3 style="margin:0 0 12px 0;">Gửi điểm danh</h3>
+
+        <div class="row">
+          <div>
+            <label style="font-size:12px; font-weight:700; text-transform:uppercase; color:#94a3b8;">Ngày</label>
+            <input id="attDate" class="input-field" type="date" style="margin-top:6px;">
+          </div>
+
+          <div>
+            <label style="font-size:12px; font-weight:700; text-transform:uppercase; color:#94a3b8;">Họ tên</label>
+            <select id="attStudent" class="input-field" style="margin-top:6px;">
+              <option value="">-- Chọn tên (nếu có danh sách) --</option>
+            </select>
+            <div class="note">Nếu danh sách trống, bạn có thể nhập tên ở ô bên dưới.</div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div>
+            <label style="font-size:12px; font-weight:700; text-transform:uppercase; color:#94a3b8;">Nhập tên (tuỳ chọn)</label>
+            <input id="attStudentText" class="input-field" placeholder="VD: Nguyễn Văn A" style="margin-top:6px;">
+          </div>
+
+          <div>
+            <label style="font-size:12px; font-weight:700; text-transform:uppercase; color:#94a3b8;">Trạng thái</label>
+            <select id="attStatus" class="input-field" style="margin-top:6px; display:none;">
+              <option value="present">Có mặt</option>
+              <option value="absent">Vắng</option>
+            </select>
+            <div class="seg" aria-label="Chọn trạng thái">
+              <button id="btnPresent" type="button" class="present active">✅ Có mặt</button>
+              <button id="btnAbsent" type="button" class="absent">❌ Vắng</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:10px;">
+          <label style="font-size:12px; font-weight:700; text-transform:uppercase; color:#94a3b8;">Ghi chú (tuỳ chọn)</label>
+          <input id="attNote" class="input-field" placeholder="VD: đau bụng, kẹt xe..." style="margin-top:6px;">
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-gradient" id="btnSubmit" type="button">Gửi điểm danh</button>
+        </div>
+
+        <div id="statusLine" class="pill" style="margin-top:14px; display:none;"></div>
+
+        <div class="mini">
+          <div class="pill" id="previewName">👤 Tên: <strong>—</strong></div>
+          <div class="pill" id="previewDate">📅 Ngày: <strong>—</strong></div>
+          <div class="pill" id="previewStatus">📌 Trạng thái: <strong>✅ Có mặt</strong></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 12px 0;">Thống kê vắng (7 ngày gần nhất)</h3>
+        <canvas id="chart"></canvas>
+        <div class="note">Biểu đồ tự cập nhật khi có người điểm danh (kể cả mở ở tab khác).</div>
+      </div>
+    </div>
+
+    <!-- ✅ Notifications -->
+    <div class="noti-wrap">
+      <div class="card">
+        <div class="noti-head">
+          <h3>🔔 Thông báo điểm danh</h3>
+          <div class="noti-actions">
+            <button id="btnRefreshNoti" class="btn-ghost" type="button">Làm mới</button>
+            <button id="btnClearNoti" class="btn-ghost" type="button">Xoá lịch sử</button>
+          </div>
+        </div>
+
+        <div class="note" style="margin:0 0 10px 0;">
+          Hiển thị các lượt điểm danh mới nhất (lấy từ localStorage). Những bạn đã điểm danh trước đó cũng sẽ hiện ở đây.
+        </div>
+
+        <div id="notifyEmpty" class="pill" style="display:none;">Chưa có ai điểm danh.</div>
+        <div id="notifyList" class="noti-list"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function(){
+  const THEME_KEY = "theme";
+  const KEY = "attendanceRecords_v1";
+  const STUDENTS_KEY = "students_v1";
+
+  // render limit
+  const NOTI_LIMIT = 12;
+
+  function applyTheme(){
+    const theme = localStorage.getItem(THEME_KEY) || "light";
+    document.body.classList.toggle("dark", theme === "dark");
+    const t = document.getElementById("darkToggleStudent");
+    if(t) t.checked = theme === "dark";
+  }
+  function toggleTheme(){
+    const isDark = !document.body.classList.contains("dark");
+    localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
+    applyTheme();
+    drawChart();
+  }
+
+  function todayISO(){
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth()+1).padStart(2,'0');
+    const dd = String(d.getDate()).padStart(2,'0');
+    return `${yyyy}-${mm}-${dd}`;
+  }
+
+  function loadStudents(){
+    try{
+      const raw = localStorage.getItem(STUDENTS_KEY);
+      const arr = raw ? JSON.parse(raw) : [];
+      const sel = document.getElementById("attStudent");
+      if(!sel) return;
+      while(sel.options.length > 1) sel.remove(1);
+      arr.forEach(s=>{
+        const name = s?.name || s?.ten || s?.hoten || s?.fullName || "";
+        if(!name) return;
+        const opt = document.createElement("option");
+        opt.value = name;
+        opt.textContent = name;
+        sel.appendChild(opt);
+      });
+    }catch(e){}
+  }
+
+  function getRecords(){
+    try{ return JSON.parse(localStorage.getItem(KEY) || "{}"); }
+    catch(e){ return {}; }
+  }
+  function setRecords(obj){ localStorage.setItem(KEY, JSON.stringify(obj)); }
+
+  function upsertAttendance(date, studentName, status, note){
+    const records = getRecords();
+    if(!records[date]) records[date] = {};
+    records[date][studentName] = { status, note: note || "", ts: Date.now() };
+    setRecords(records);
+  }
+
+  function toast(ok, text){
+    const el = document.getElementById("statusLine");
+    if(!el) return;
+    el.style.display = "inline-flex";
+    el.innerHTML = ok ? `✅ <span class="success">${text}</span>` : `⚠️ <span class="danger">${text}</span>`;
+    setTimeout(()=>{ el.style.display = "none"; }, 2200);
+  }
+
+  function drawChart(){
+    const canvas = document.getElementById("chart");
+    if(!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const dpr = window.devicePixelRatio || 1;
+
+    // Ensure layout is ready
+    const cw = Math.max(300, canvas.clientWidth || 300);
+    const ch = Math.max(220, canvas.clientHeight || 220);
+
+    const w = canvas.width = cw * dpr;
+    const h = canvas.height = ch * dpr;
+
+    ctx.clearRect(0,0,w,h);
+
+    const records = getRecords();
+    const days = [];
+    for(let i=6;i>=0;i--){
+      const d = new Date();
+      d.setDate(d.getDate()-i);
+      days.push(d.toISOString().slice(0,10));
+    }
+    const vals = days.map(d=>{
+      const day = records[d] || {};
+      return Object.values(day).filter(x=>x && x.status === "absent").length;
+    });
+
+    const padL = 42*dpr, padR = 16*dpr, padT = 16*dpr, padB = 28*dpr;
+    const maxV = Math.max(1, ...vals);
+    const chartW = w - padL - padR;
+    const chartH = h - padT - padB;
+
+    // axes
+    ctx.lineWidth = 1*dpr;
+    ctx.strokeStyle = (getComputedStyle(document.body).getPropertyValue("--muted") || "#64748b").trim();
+    ctx.beginPath();
+    ctx.moveTo(padL, padT);
+    ctx.lineTo(padL, padT + chartH);
+    ctx.lineTo(padL + chartW, padT + chartH);
+    ctx.stroke();
+
+    const gap = chartW / vals.length;
+    const barW = gap * 0.55;
+    const primary = (getComputedStyle(document.documentElement).getPropertyValue("--primary") || "#38bdf8").trim();
+
+    vals.forEach((v, i)=>{
+      const x = padL + i*gap + (gap-barW)/2;
+      const bh = (v/maxV) * (chartH * 0.92);
+      const y = padT + chartH - bh;
+
+      ctx.fillStyle = primary;
+      ctx.globalAlpha = 0.85;
+      ctx.fillRect(x, y, barW, bh);
+
+      ctx.globalAlpha = 0.95;
+      ctx.fillStyle = getComputedStyle(document.body).color || "#111827";
+      ctx.font = `${12*dpr}px Inter, sans-serif`;
+
+      const dd = days[i].slice(8,10);
+      ctx.fillText(dd, x + barW/2 - 6*dpr, padT + chartH + 18*dpr);
+      ctx.fillText(String(v), x + barW/2 - 3*dpr, y - 6*dpr);
+    });
+
+    ctx.globalAlpha = 1;
+  }
+  function syncStudentsFromTable(){
+  const tbody = document.getElementById("student-list");
+  if(!tbody) return;
+
+  const names = [...tbody.querySelectorAll("tr td:nth-child(2) strong")]
+    .map(el => (el.textContent || "").trim())
+    .filter(Boolean);
+
+  const payload = names.map(name => ({ name }));
+  localStorage.setItem("students_v1", JSON.stringify(payload));
+};
+
+  function getChosenName(){
+    const selName = (document.getElementById("attStudent")?.value || "").trim();
+    const typedName = (document.getElementById("attStudentText")?.value || "").trim();
+    return typedName || selName;
+  }
+
+  function syncPreview(){
+    const name = getChosenName() || "—";
+    const date = document.getElementById("attDate")?.value || "—";
+    const status = document.getElementById("attStatus")?.value || "present";
+    const pn = document.querySelector("#previewName strong");
+    const pd = document.querySelector("#previewDate strong");
+    const ps = document.querySelector("#previewStatus strong");
+    if(pn) pn.textContent = name;
+    if(pd) pd.textContent = date;
+    if(ps) ps.textContent = status === "absent" ? "❌ Vắng" : "✅ Có mặt";
+  }
+
+  function setSegStatus(val){
+    const sel = document.getElementById("attStatus");
+    if(sel) sel.value = val;
+    const bp = document.getElementById("btnPresent");
+    const ba = document.getElementById("btnAbsent");
+    if(bp && ba){
+      bp.classList.toggle("active", val === "present");
+      ba.classList.toggle("active", val === "absent");
+    }
+    syncPreview();
+  }
+
+  function formatTime(ts){
+    try{
+      const d = new Date(ts);
+      const hh = String(d.getHours()).padStart(2,'0');
+      const mm = String(d.getMinutes()).padStart(2,'0');
+      return `${hh}:${mm}`;
+    }catch(e){ return ""; }
+  }
+
+  function flattenRecords(){
+    const records = getRecords();
+    const out = [];
+    Object.keys(records || {}).forEach(date=>{
+      const day = records[date] || {};
+      Object.keys(day).forEach(name=>{
+        const x = day[name] || {};
+        out.push({
+          date,
+          name,
+          status: x.status || "present",
+          note: x.note || "",
+          ts: x.ts || 0
+        });
+      });
+    });
+    out.sort((a,b)=>(b.ts||0)-(a.ts||0));
+    return out;
+  }
+
+  function renderNotifications(pulseTop=false){
+    const list = document.getElementById("notifyList");
+    const empty = document.getElementById("notifyEmpty");
+    if(!list || !empty) return;
+
+    const items = flattenRecords().slice(0, NOTI_LIMIT);
+    list.innerHTML = "";
+
+    if(items.length === 0){
+      empty.style.display = "inline-flex";
+      return;
+    }
+    empty.style.display = "none";
+
+    items.forEach((it, idx)=>{
+      const row = document.createElement("div");
+      row.className = "noti-item" + ((pulseTop && idx===0) ? " pulse" : "");
+      const badgeText = it.status === "absent" ? "❌ Vắng" : "✅ Có mặt";
+      row.innerHTML = `
+        <div class="noti-left">
+          <div class="noti-name">👤 ${escapeHtml(it.name)}</div>
+          <div class="noti-meta">📅 ${it.date} • ⏱ ${formatTime(it.ts)}${it.note ? " • 📝 " + escapeHtml(it.note) : ""}</div>
+        </div>
+        <div class="noti-badge ${it.status === "absent" ? "absent" : "present"}">${badgeText}</div>
+      `;
+      list.appendChild(row);
+    });
+  }
+
+  function escapeHtml(str){
+    return String(str||"").replace(/[&<>"']/g, s=>({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[s]));
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    applyTheme();
+    loadStudents();
+
+    const date = document.getElementById("attDate");
+    if(date) date.value = todayISO();
+
+    // segmented status
+    document.getElementById("btnPresent")?.addEventListener("click", ()=>setSegStatus("present"));
+    document.getElementById("btnAbsent")?.addEventListener("click", ()=>setSegStatus("absent"));
+    setSegStatus("present");
+
+    // preview sync
+    ["attDate","attStudent","attStudentText","attNote"].forEach(id=>{
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.addEventListener("input", syncPreview);
+      el.addEventListener("change", syncPreview);
+    });
+    syncPreview();
+
+    document.getElementById("darkToggleStudent")?.addEventListener("change", toggleTheme);
+
+    document.getElementById("btnSubmit")?.addEventListener("click", ()=>{
+      const d = (document.getElementById("attDate")?.value || "").trim();
+      const name = getChosenName();
+      const status = document.getElementById("attStatus")?.value || "present";
+      const note = (document.getElementById("attNote")?.value || "").trim();
+
+      if(!d){ toast(false, "Vui lòng chọn ngày"); return; }
+      if(!name){ toast(false, "Vui lòng chọn/nhập họ tên"); return; }
+
+      upsertAttendance(d, name, status, note);
+      toast(true, "Đã lưu điểm danh");
+
+      syncPreview();
+      drawChart();
+      renderNotifications(true);
+    });
+
+    document.getElementById("btnRefreshNoti")?.addEventListener("click", ()=>{
+      renderNotifications(false);
+      drawChart();
+      toast(true, "Đã làm mới");
+    });
+
+    document.getElementById("btnClearNoti")?.addEventListener("click", ()=>{
+      localStorage.removeItem(KEY);
+      renderNotifications(false);
+      drawChart();
+      toast(true, "Đã xoá lịch sử");
+    });
+
+    // Update when another tab writes
+    window.addEventListener("storage", (e)=>{
+      if(e && (e.key === KEY || e.key === THEME_KEY || e.key === STUDENTS_KEY)){
+        if(e.key === THEME_KEY) applyTheme();
+        if(e.key === STUDENTS_KEY) loadStudents();
+        drawChart();
+        renderNotifications(true);
+      }
+    });
+
+    window.addEventListener("resize", ()=>requestAnimationFrame(drawChart));
+
+    // initial render (after layout)
+    requestAnimationFrame(()=>{
+      drawChart();
+      renderNotifications(false);
+    });
+  });
+})();
+</script>
+</body>
+</html>

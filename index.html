@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Quản Lý Lớp - Tổng quan</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body oncontextmenu="return false;">
+<div class="layout">
+    <div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="logo" style="font-size: 18px; font-weight: bold; margin-bottom: 20px;">🎓 Quản Lí Lớp</div>
+      
+      <div class="menu">
+        <h4>Trang chủ</h4>
+		<a class="active" href="#" onclick="showPage('truong-hoc', this)">Trường học</a>
+        <a href="#" onclick="showPage('tong-quan', this)">Tổng quan</a>
+        <a href="#" onclick="showPage('hoc-sinh', this)">Quản lý học sinh</a>
+        <a href="diemdanh.html">Điểm danh</a>
+<a href="#" onclick="showPage('thoi-khoa-bieu', this)">Thời khóa biểu</a>
+        
+        <h4>TIỆN ÍCH</h4>
+        <a href="#" onclick="showPage('thong-bao', this)">Thông Báo</a>
+        <a href="#" onclick="showPage('tai-lieu', this)">Tài Liệu</a>
+        <a href="#" onclick="showPage('tin-nhan', this)">Tin Nhắn</a>
+        
+        <h4>HỆ THỐNG</h4>
+        <a href="#" onclick="showPage('cai-dat', this)">Cài đặt</a>
+      </div>
+      <div class="semester"><small>Năm học 2025–2026</small><br><strong>Học kỳ 1</strong></div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <button class="icon-btn sidebar-toggle" type="button" aria-label="Mở menu" onclick="toggleSidebar()">☰</button>
+
+        <input class="search" placeholder="Tìm kiếm học sinh, lớp..." />
+
+        <div class="topbar-right">
+          <label class="switch" title="Dark mode">
+            <input type="checkbox" id="darkToggle" onchange="toggleDarkMode()">
+            <span class="slider"></span>
+          </label>
+          <div class="user-name">Ng The Phat</div>
+        </div>
+      </div>
+
+<section id="truong-hoc" class="page" style="width: 100%; font-family: 'Inter', sans-serif; background: #f1f5f9; padding: 40px 0;">
+    <div style="margin-bottom: 40px; text-align: center; max-width: 1100px; margin-left:auto; margin-right:auto; padding: 0 18px;">
+    <h2 style="margin: 0; font-size: 36px; color: #0f172a; font-weight: 800; letter-spacing: -1px; line-height: 1.2;">
+        🏫 Trường THPT Lê Quý Đôn - Đắk Lắk
+    </h2>
+    
+    <div style="width: 60px; height: 4px; background: #f59e0b; margin: 15px auto; border-radius: 2px;"></div>
+    
+    <p style="color:#64748b;">
+        Cổng thông tin chính thức dành riêng cho cán bộ, giáo viên và học sinh nhà trường.
+    </p>
+</div>
+    <div class="container-truong-hoc">
+        <div style="position: relative;">
+            <article class="card" style="
+                overflow: hidden;
+                border-radius: 24px;
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+                background: white;
+            ">
+                <div style="
+                    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/Anhgioithieu.png');
+                    background-size: cover;
+                    background-position: center;
+                    padding: 60px 40px;
+                    color: white;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                ">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div style="font-size: 50px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">🏫</div>
+                        <div>
+                            <h3 style="margin: 0; color: white; font-size: 28px; font-weight: 800; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">
+                                Website Trường THPT Lê Quý Đôn
+                            </h3>
+                            <p style="margin: 5px 0 0; opacity: 1; font-size: 14px; font-weight: 500; text-shadow: 1px 1px 5px rgba(0,0,0,0.8);">
+                                🌐 c3lequydon.daklak.edu.vn
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://c3lequydon.daklak.edu.vn/" 
+                       target="_blank" 
+                       style="
+                            background: #ea580c; 
+                            color: white; 
+                            text-decoration: none; 
+                            padding: 15px 30px; 
+                            border-radius: 50px; 
+                            font-weight: 700; 
+                            font-size: 16px;
+                            box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
+                            transition: 0.3s;
+                            text-transform: uppercase;
+                       ">
+                        Truy cập ngay
+                    </a>
+                </div>
+                
+                <div style="padding: 30px 40px; background: white;">
+                    <p style="margin: 0; color: #475569; font-size: 16px; line-height: 1.6;">
+                        Nhấn vào nút bên trên để đi tới trang thông tin chính thức. Tại đây bạn có thể tra cứu điểm thi, lịch học và các tin tức mới nhất từ Ban Giám Hiệu.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+<!-- GIỚI THIỆU NHÀ TRƯỜNG -->
+<article class="card" style="
+    margin-top:40px;
+    background:rgb(153, 209, 235);
+    padding:50px;
+    border-radius:24px;
+    box-shadow:0 20px 25px -5px rgba(0,0,0,0.1);
+">
+
+    <!-- ẢNH GIỚI THIỆU -->
+    <img src="images/truong1.jpg" style="
+        width:100%;
+        height:380px;
+        object-fit:cover;
+        border-radius:20px;
+        margin-bottom:35px;
+    ">
+
+    <!-- TIÊU ĐỀ -->
+    <h3 style="
+        font-size:32px;
+        font-weight:800;
+        color:#0f172a;
+        margin:0 0 20px 0;
+    ">
+        🎓 Trường THPT Lê Quý Đôn – Đắk Lắk
+    </h3>
+
+    <!-- NỘI DUNG -->
+    <p style="
+        font-size:16px;
+        color:#334155;
+        line-height:1.9;
+        margin:0;
+    ">
+        Tọa lạc tại phường Buôn Ma Thuột, tỉnh Đắk Lắk, Trường THPT Lê Quý Đôn là
+        trường trung học phổ thông công lập được thành lập năm 2000. Trải qua
+        <strong>26 năm xây dựng và phát triển (2000 – 2026)</strong>, nhà trường đã
+        từng bước khẳng định vị thế là một cơ sở giáo dục ổn định, uy tín,
+        được phụ huynh tin tưởng và học sinh lựa chọn.
+    </p>
+
+    <p style="
+        font-size:16px;
+        color:#334155;
+        line-height:1.9;
+        margin-top:15px;
+    ">
+        Từ những ngày đầu còn nhiều khó khăn, đến nay nhà trường không ngừng
+        đổi mới, nâng cao chất lượng giáo dục, hướng đến phát triển toàn diện
+        học sinh về <strong>tri thức – kỹ năng – nhân cách</strong>.
+    </p>
+
+</article>
+<div style="
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+    font-family:'Segoe UI',sans-serif;
+">
+ <!-- QUY MÔ + CSVC -->
+<div style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+    margin-bottom:40px;
+">
+
+    <article class="card" style="
+        background:#dde9aa;
+        padding:28px;
+        border-radius:22px;
+        box-shadow:0 20px 25px -5px rgba(0,0,0,0.1);
+    ">
+        <h3 style="font-size:22px;font-weight:700;color:#0f172a;">
+            👨‍🏫 Quy mô & đội ngũ
+        </h3>
+        <p style="margin-top:12px;font-size:16px;color:#475569;line-height:1.8;">
+            Nhà trường có <strong>40 lớp – 1.738 học sinh</strong> cùng
+            <strong>103 cán bộ, giáo viên, nhân viên</strong>.
+        </p>
+    </article>
+
+    <article class="card" style="
+        background:#71ecca;
+        padding:28px;
+        border-radius:22px;
+        box-shadow:0 8px 24px rgba(0,0,0,0.06);
+    ">
+        <h3 style="font-size:22px;font-weight:700;color:#0f172a;">
+            🏫 Cơ sở vật chất
+        </h3>
+        <p style="margin-top:12px;font-size:16px;color:#475569;line-height:1.8;">
+            Trường có <strong>43 phòng học kiên cố</strong>, phòng bộ môn hiện đại.
+        </p>
+    </article>
+
+</div>
+    <!-- CHẤT LƯỢNG -->
+    <article class="card" style="
+        background:#eeb9b9;
+        padding:28px;
+        display:flex;
+        flex-wrap:wrap;
+        gap:40px;
+        align-items:center;
+        margin-bottom:50px;
+        border-radius:22px;
+        
+    ">
+        <div style="flex:1;min-width:300px;">
+            <h3 style="font-size:26px;font-weight:800;color:#0f172a;">
+                📜 Chất lượng giáo dục & thành tích
+            </h3>
+            <p style="margin-top:15px;font-size:16px;color:#475569;line-height:1.9;">
+                Nhà trường chú trọng giáo dục đại trà gắn với mũi nhọn. Riêng HKI
+                năm học 2025–2026 có <strong>07 học sinh đội tuyển quốc gia</strong>,
+                <strong>155 học sinh giỏi cấp trường</strong>, <strong>23 sản phẩm
+                khoa học kỹ thuật</strong>. Công tác dạy học đẩy mạnh CNTT, AI,
+                tổ chức học 2 buổi/ngày, CLB học thuật và năng khiếu.
+            </p>
+        </div>
+
+        <div style="flex:1;min-width:280px;">
+            <img src="images/truong2.jpg" style="
+                width:100%;
+                border-radius:24px;
+                box-shadow:0 10px 25px rgba(0,0,0,0.15);
+            ">
+        </div>
+    </article>
+
+    <!-- ĐỊNH HƯỚNG -->
+    <article class="card" style="
+        display:flex;
+        flex-wrap:wrap;
+        gap:40px;
+        align-items:center;
+        margin-bottom:50px;
+        background:#ddf4bd;
+        border-radius:22px;
+    ">
+        <div style="flex:1;min-width:280px;">
+            <img src="images/truong3.jpg" style="
+                width:100%;
+                border-radius:24px;
+                box-shadow:0 10px 25px rgba(0,0,0,0.15);
+            ">
+        </div>
+
+        <div style="flex:1;min-width:300px;">
+            <h3 style="font-size:26px;font-weight:800;color:#0f172a;">
+                🏆 Định hướng phát triển
+            </h3>
+            <p style="margin-top:15px;font-size:16px;color:#475569;line-height:1.9;">
+                Nhà trường tiếp tục phát huy truyền thống 26 năm, đẩy mạnh
+                chuyển đổi số, STEM, xây dựng môi trường học đường
+                <strong>kỷ cương – an toàn – hạnh phúc</strong>.
+            </p>
+
+            <ul style="margin-top:15px;font-size:16px;color:#334155;line-height:1.8;">
+                <li>🏅 Tập thể Lao động Xuất sắc nhiều năm</li>
+                <li>📘 Học sinh giỏi tỉnh & quốc gia tăng đều</li>
+                <li>👨‍🏫 Giáo viên đạt nhiều giải thưởng chuyên môn</li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- THƯ VIỆN ẢNH -->
+    <div>
+        <h3 style="font-size:28px;font-weight:800;color:#0f172a;">
+            📸 Hình ảnh hoạt động
+        </h3>
+
+        <div style="
+            margin-top:20px;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;
+        ">
+
+            <img src="images/truong5.jpg" style="width:100%;border-radius:18px;">
+            <img src="images/truong6.jpg" style="width:100%;border-radius:18px;">
+            <img src="images/truong7.jpg" style="width:100%;border-radius:18px;">
+            <img src="images/truong8.jpg" style="width:100%;border-radius:18px;">
+        </div>
+    </div>
+
+</div>
+<!-- GIÁO VIÊN TIÊU BIỂU -->
+<div style="
+    margin-top:40px;
+    background:linear-gradient(135deg,#fff7ed,#ffffff);
+    padding:60px;
+    border-radius:28px;
+    box-shadow:0 25px 40px -10px rgba(0,0,0,0.15);
+">
+
+    <h3 style="font-size:32px;font-weight:900;color:#0f172a;margin-top:0;">
+        🌟 Đội ngũ giáo viên tiêu biểu
+    </h3>
+    <div style="width:70px;height:5px;background:#f59e0b;margin:18px 0 50px;border-radius:3px;"></div>
+
+        <!-- GV 1 -->
+       <article class="card" style="
+            display:flex;
+            gap:35px;
+            align-items:center;
+            background:white;
+            padding:30px;
+            border-radius:24px;
+            box-shadow:0 15px 30px rgba(0,0,0,0.12);
+            flex-wrap:wrap;
+            border-left:6px solid #f59e0b;
+            transition:0.3s;
+        ">
+            <div style="position:relative;">
+                <img src="images/gv1.jpg" style="width:220px;height:260px;object-fit:cover;border-radius:20px;">
+                <div style="position:absolute;top:-12px;left:-12px;background:#f59e0b;color:white;font-weight:800;padding:10px 14px;border-radius:14px;">01</div>
+            </div>
+
+            <div style="flex:1;min-width:260px;">
+                <h4 style="margin:0;font-size:24px;font-weight:900;color:#0f172a;">Lê Thị Hồng Hạnh</h4>
+                <p style="margin:8px 0;color:#ea580c;font-weight:800;">⚛️ Giáo viên Vật lí</p>
+                <p style="color:#475569;line-height:1.8;font-size:15.5px;">
+                    Giáo viên Vật lí tận tâm, chuyên môn vững vàng, luôn đổi mới phương pháp giảng dạy
+                    giúp học sinh hiểu sâu và yêu thích môn học.
+                </p>
+
+                <a href="gv/gv1.html" style="
+                    display:inline-block;
+                    margin-top:14px;
+                    padding:12px 22px;
+                    background:#f59e0b;
+                    color:white;
+                    text-decoration:none;
+                    font-weight:700;
+                    border-radius:30px;
+                    box-shadow:0 6px 15px rgba(245,158,11,0.4);
+                ">
+                    🔍 Xem chi tiết
+                </a>
+            </div>
+       </article>
+        <!-- GV 2 -->
+        <article class="card" style="
+            display:flex;
+            gap:35px;
+            align-items:center;
+            background:white;
+            padding:30px;
+            border-radius:24px;
+            box-shadow:0 15px 30px rgba(0,0,0,0.12);
+            flex-wrap:wrap;
+            border-left:6px solid #38bdf8;
+        ">
+            <div style="position:relative;">
+                <img src="images/gv2.jpg" style="width:220px;height:260px;object-fit:cover;border-radius:20px;">
+                <div style="
+                    position:absolute;
+                    top:-12px;
+                    left:-12px;
+                    background:#38bdf8;
+                    color:white;
+                    font-weight:800;
+                    padding:10px 14px;
+                    border-radius:14px;
+                ">02</div>
+            </div>
+
+            <div style="flex:1;min-width:260px;">
+                <h4 style="margin:0;font-size:24px;font-weight:900;">
+                    Huỳnh Thị Thanh Hương
+                </h4>
+                <p style="margin:8px 0;color:#0284c7;font-weight:800;">
+                    💻 Giáo viên Tin học
+                </p>
+                <p style="color:#475569;line-height:1.8;font-size:15.5px;">
+                    Cô Huỳnh Thị Thanh Hương là giáo viên Tin học có chuyên môn cao, am hiểu sâu
+                    về công nghệ thông tin và phương pháp giảng dạy hiện đại. Cô chú trọng rèn
+                    luyện tư duy logic, kỹ năng sử dụng máy tính và khả năng ứng dụng công nghệ
+                    vào học tập, tạo động lực cho học sinh chủ động khám phá tri thức.
+                </p>
+                <a href="gv/gv2.html" style="
+                    display:inline-block;
+                    margin-top:14px;
+                    padding:12px 22px;
+                    background:#0284c7;
+                    color:white;
+                    text-decoration:none;
+                    font-weight:700;
+                    border-radius:30px;
+                    box-shadow:0 6px 15px rgba(27, 67, 154, 0.4);
+                ">
+                    🔍 Xem chi tiết
+                </a>
+            </div>
+        </article>
+
+        <!-- GV 3 -->
+        <article class="card" style="
+            display:flex;
+            gap:35px;
+            align-items:center;
+            background:white;
+            padding:30px;
+            border-radius:24px;
+            box-shadow:0 15px 30px rgba(0,0,0,0.12);
+            flex-wrap:wrap;
+            border-left:6px solid #22c55e;
+        ">
+            <div style="position:relative;">
+                <img src="images/gv3.jpg" style="width:220px;height:260px;object-fit:cover;border-radius:20px;">
+                <div style="
+                    position:absolute;
+                    top:-12px;
+                    left:-12px;
+                    background:#22c55e;
+                    color:white;
+                    font-weight:800;
+                    padding:10px 14px;
+                    border-radius:14px;
+                ">03</div>
+            </div>
+
+            <div style="flex:1;min-width:260px;">
+                <h4 style="margin:0;font-size:24px;font-weight:900;">
+                    Nguyễn Văn Danh
+                </h4>
+                <p style="margin:8px 0;color:#16a34a;font-weight:800;">
+                    📐 Giáo viên Toán học
+                </p>
+                <p style="color:#475569;line-height:1.8;font-size:15.5px;">
+                    Thầy Nguyễn Văn Danh là giáo viên Toán học có chuyên môn vững vàng và tinh
+                    thần trách nhiệm cao. Thầy chú trọng phát triển tư duy logic, khả năng phân
+                    tích và giải quyết vấn đề cho học sinh, góp phần nâng cao chất lượng dạy và
+                    học môn Toán của nhà trường.
+                </p>
+                            <a href="gv/gv3.html" style="
+                    display:inline-block;
+                    margin-top:14px;
+                    padding:12px 22px;
+                    background:#16a34a;
+                    color:white;
+                    text-decoration:none;
+                    font-weight:700;
+                    border-radius:30px;
+                    box-shadow:0 6px 15px rgba(37, 141, 16, 0.4);
+                ">
+                    🔍 Xem chi tiết
+                </a>
+            </div>
+
+            </article>
+    </div>
+</section>
+<section id="tong-quan" class="page active" style="width: 100%;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; width: 100%;">
+        <div>
+            <h2 style="margin: 0; font-size: 2rem; color: #2d3436;">Tổng quan Lớp 12A1</h2>
+            <p style="color:#636e72;">Chào mừng bạn đến với hệ thống quản lý lớp học rực rỡ!</p>
+        </div>
+        <span class="badge" style="background: var(--grad-danger); color: white; padding: 10px 20px;">Trạng thái: Học sinh</span>
+    </div>
+
+    <div class="cards" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px;">
+        <div class="card primary">
+            <h3>Tổng số học sinh</h3>
+            <div class="value">43</div>
+            <small>↑ 4.4% so với năm trước</small>
+        </div>
+        <div class="card success">
+            <h3 style="color: #2bcbba">Điểm trung bình</h3>
+            <div class="value">8.4</div>
+            <small style="color: #2bcbba">↑ Tuyệt vời!</small>
+        </div>
+        <div class="card warning">
+            <h3 style="color: #f7b731">Học sinh giỏi</h3>
+            <div class="value">33</div>
+            <small style="color: #f7b731">76.7% của lớp</small>
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-bottom: 20px;">
+        <div class="card">
+            <h3>Thời Khóa Biểu - Thứ 2</h3>
+            <div class="schedule-grid">
+                <div class="schedule-item sc-cc"><span>Chào Cờ</span> <span>07:00</span></div>
+                <div class="schedule-item sc-hdtn"><span>HĐTN HN</span> <span>07:45</span></div>
+                <div class="schedule-item sc-sinh"><span>Sinh Học</span> <span>08:45</span></div>
+                <div class="schedule-item sc-li"><span>Vật Lí</span> <span>09:30</span></div>
+				<div class="schedule-item sc-tin"><span>Tin Học</span> <span>10:20</span></div>
+            </div>
+            <button class="btn-primary" 
+				style="margin-top: 20px; width: 100%; cursor: pointer; border: none; border-radius: 8px; padding: 10px; background: #6366f1; color: white;" 
+				onclick="showPage('thoi-khoa-bieu')">
+				Xem toàn bộ tuần
+			</button>
+        </div>
+
+        <div class="card">
+            <h3>Thông báo mới</h3>
+            <div style="margin-top: 15px;">
+                <p><strong>📌 Nghỉ Phép</strong></p>
+                <hr style="border: 0; border-top: 1px solid #eee;">
+                <p style="color: #ff7675;"><strong>⚠️ Thông Báo:</strong> Bạn Bảo Lâm vắng, lý do nhập viện.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-bottom" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%;">
+        <div class="card" style="margin: 0; width: 100%;">
+            <h3 style="margin-bottom: 15px;">Biến động nhân sự</h3>
+            <div class="list-item" style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                <span>Huỳnh Khánh Việt</span> <span class="badge" style="background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 6px; font-size: 12px;">Chuyển đến</span>
+            </div>
+            <div class="list-item" style="padding: 12px 0; display: flex; justify-content: space-between; align-items: center;">
+                <span>Đoàn Thị Bích Châu</span> <span style="background: #fee2e2; color: #b91c1c; padding: 4px 12px; border-radius: 6px; font-size: 12px;">Chuyển trường</span>
+            </div>
+        </div>
+
+        <div class="card" style="margin: 0; width: 100%;">
+            <h3 style="margin-bottom: 15px;">Lịch trực tuần</h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="schedule CC" style="background: #f8fafc; padding: 10px; border-radius: 8px; border-left: 4px solid #6366f1;">Tổ 1: Vệ sinh lớp học</div>
+                <div class="schedule Toan" style="background: #f8fafc; padding: 10px; border-radius: 8px; border-left: 4px solid #10b981;">Tổ 2: Tưới cây hành lang</div>
+                <div class="schedule Van" style="background: #f8fafc; padding: 10px; border-radius: 8px; border-left: 4px solid #f59e0b;">Tổ 3: Sắp xếp bàn ghế</div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="height: 30px;"></div>
+</section>
+
+<section id="hoc-sinh" class="page" style="width: 100%;">
+    <div class="toolbar">
+        <div>
+            <h2 style="margin:0">👥 Danh sách Lớp 12A1</h2>
+            <small>Sĩ số: 43 học sinh | 42 hiện diện</small>
+        </div>
+        <input class="search" placeholder="🔍 Tìm tên học sinh..." onkeyup="filterStudents(this)" />
+    </div>
+
+    <div class="table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th width="50">STT</th>
+                    <th>Họ và Tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
+                    <th>Chức vụ</th>
+                    <th>Trạng thái</th>
+                    <th style="text-align:right">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="student-list">
+                <tr><td><span class="stt-circle">01</span></td><td><strong>Nguyễn Quỳnh An</strong></td><td>05/04/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">02</span></td><td><strong>Đỗ Thị Kim Anh</strong></td><td>24/01/2008</td><td><span class="gender-nu">Nữ</span></td><td>Lớp Trưởng</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">03</span></td><td><strong>Kiều Tuấn Kiệt Anh</strong></td><td>26/01/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">04</span></td><td><strong>Nguyễn Hà Châu Anh</strong></td><td>30/06/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">05</span></td><td><strong>Nguyễn Ngọc Ánh</strong></td><td>08/11/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">06</span></td><td><strong>Nguyễn Đức Duy</strong></td><td>04/02/2008</td><td><span class="gender-nam">Nam</span></td><td>Ủy viên</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">07</span></td><td><strong>Đặng Bá Đạt</strong></td><td>10/08/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">08</span></td><td><strong>Đỗ Tiến Đạt</strong></td><td>23/04/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">09</span></td><td><strong>Nguyễn Đình Gia Huy</strong></td><td>10/10/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">10</span></td><td><strong>H'Kathy Niê</strong></td><td>22/03/2008</td><td><span class="gender-nu">Nữ</span></td><td>Phó Bí Thư</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">11</span></td><td><strong>Vĩnh Bảo Hoàng Kha</strong></td><td>01/01/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">12</span></td><td><strong>Phạm Thị Vân Khánh</strong></td><td>26/01/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">13</span></td><td><strong>Nguyễn Đăng Khoa</strong></td><td>28/10/2008</td><td><span class="gender-nam">Nam</span></td><td>Lớp Phó Lao Động</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">14</span></td><td><strong>Nguyễn Đình Khoa</strong></td><td>29/12/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">15</span></td><td><strong>Phan Bảo Lâm</strong></td><td>26/11/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="nonbadge">Vắng học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">16</span></td><td><strong>Nguyễn Hoàng My</strong></td><td>18/09/2008</td><td><span class="gender-nu">Nữ</span></td><td>Lớp Phó Học Tập</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">17</span></td><td><strong>Lê Nguyễn Hạo Nam</strong></td><td>04/04/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">18</span></td><td><strong>Nguyễn Hoàng Kim Ngân</strong></td><td>25/04/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">19</span></td><td><strong>Lê Quang Nhật</strong></td><td>04/01/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">20</span></td><td><strong>Đặng Thị Yến Nhi</strong></td><td>10/09/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">21</span></td><td><strong>Lê Ngọc Bảo Nhi</strong></td><td>31/01/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">22</span></td><td><strong>Nguyễn Thị Kiều Oanh</strong></td><td>26/10/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">23</span></td><td><strong>Phan Lê Hồng Oanh</strong></td><td>13/07/2008</td><td><span class="gender-nu">Nữ</span></td><td>Bí Thư</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">24</span></td><td><strong>Nguyễn Thế Phát</strong></td><td>26/02/2008</td><td><span class="gender-nu">Nam</span></td><td>Tổ Trưởng Tổ 1</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">25</span></td><td><strong>Nguyễn Cao Phong</strong></td><td>11/11/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">26</span></td><td><strong>Huỳnh Ngọc Phúc</strong></td><td>20/06/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">27</span></td><td><strong>Lê Thị Thảo Phương</strong></td><td>23/12/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">28</span></td><td><strong>Đào Hữu Phước</strong></td><td>19/04/2008</td><td><span class="gender-nam">Nam</span></td><td>Tổ Trưởng Tổ 4</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">29</span></td><td><strong>Nguyễn Xuân Quang</strong></td><td>05/11/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">30</span></td><td><strong>Lê Đình Anh Quân</strong></td><td>19/10/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">31</span></td><td><strong>Thái Anh Quân</strong></td><td>28/10/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">32</span></td><td><strong>Nguyễn Quốc</strong></td><td>25/01/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">33</span></td><td><strong>Vũ Mai Thảo</strong></td><td>27/09/2008</td><td><span class="gender-nu">Nữ</span></td><td>Tổ Trưởng Tổ 2</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">34</span></td><td><strong>Chung Chí Thiện</strong></td><td>09/04/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">35</span></td><td><strong>Trương Văn Thịnh</strong></td><td>15/06/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">36</span></td><td><strong>Phạm Thị Hồng Thu</strong></td><td>28/09/2008</td><td><span class="gender-nu">Nữ</span></td><td>Tổ Trưởng Tổ 3</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">37</span></td><td><strong>Trương Thị Anh Thư</strong></td><td>21/04/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">38</span></td><td><strong>Võ Ngọc Minh Thư</strong></td><td>24/06/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">39</span></td><td><strong>Vũ Thị Anh Thư</strong></td><td>05/04/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">40</span></td><td><strong>Đỗ Trọng Tín</strong></td><td>20/06/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">41</span></td><td><strong>Bùi Thị Thùy Vân</strong></td><td>21/01/2008</td><td><span class="gender-nu">Nữ</span></td><td>Lớp Phó Văn Nghệ</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">42</span></td><td><strong>Huỳnh Khánh Việt</strong></td><td>20/10/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+                <tr><td><span class="stt-circle">43</span></td><td><strong>Hoàng Thị Thanh Vân</strong></td><td>08/09/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section id="thoi-khoa-bieu" class="page">
+    <h2 style="margin-top: 0; color: #1e293b; border-left: 5px solid #3b82f6; padding-left: 15px;">Thời khóa biểu</h2>
+    <p style="color:var(--muted); margin-bottom: 20px;">Nhập tên môn học vào các ô bên dưới để tự động phân loại màu.</p>
+    
+    <div class="card" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
+        <div class="table-container">
+            <table class="data-table tkb-table">
+                <thead>
+                    <tr style="background: #f8fafc;">
+                        <th width="80" style="padding: 12px;">Tiết</th>
+                        <th>Thứ 2</th>
+                        <th>Thứ 3</th>
+                        <th>Thứ 4</th>
+                        <th>Thứ 5</th>
+                        <th>Thứ 6</th>
+                        <th>Thứ 7</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="7" class="tkb-header" style="background:#eff6ff; color: #1d4ed8; padding: 10px;">☀️ BUỔI SÁNG</td></tr>
+                    <tr>
+                        <td style="text-align:center; font-weight:bold; background: #f8fafc;">1</td>
+                        <td><input class="tkb-input" type="text" value="TNHNDC"></td>
+                        <td><input class="tkb-input" type="text" value="Sinh học"></td>
+                        <td><input class="tkb-input" type="text" value="Vật lí"></td>
+                        <td><input class="tkb-input" type="text" value="Hóa học"></td>
+                        <td><input class="tkb-input" type="text" value="Vật lí"></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; font-weight:bold; background: #f8fafc;">2</td>
+                        <td><input class="tkb-input" type="text" value="HĐ TNHN(CN)"></td>
+                        <td><input class="tkb-input" type="text" value="Lịch sử"></td>
+                        <td><input class="tkb-input" type="text" value="Toán"></td>
+                        <td><input class="tkb-input" type="text" value="Hóa học"></td>
+                        <td><input class="tkb-input" type="text" value="Văn học"></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; font-weight:bold; background: #f8fafc;">3</td>
+                        <td><input class="tkb-input" type="text" value="Sinh học"></td>
+                        <td><input class="tkb-input" type="text" value="Văn học"></td>
+                        <td><input class="tkb-input" type="text" value="Văn học"></td>
+                        <td><input class="tkb-input" type="text" value="Toán"></td>
+                        <td><input class="tkb-input" type="text" value="Toán"></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; font-weight:bold; background: #f8fafc;">4</td>
+                        <td><input class="tkb-input" type="text" value="Vật lí"></td>
+                        <td><input class="tkb-input" type="text" value="Ngoại ngữ"></td>
+                        <td><input class="tkb-input" type="text" value="Ngoại ngữ"></td>
+                        <td><input class="tkb-input" type="text" value="Toán"></td>
+                        <td><input class="tkb-input" type="text" value="Ngoại ngữ"></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; font-weight:bold; background: #f8fafc;">5</td>
+                        <td><input class="tkb-input" type="text" value="Tin học"></td>
+                        <td><input class="tkb-input" type="text" value="Ngoại ngữ"></td>
+                        <td><input class="tkb-input" type="text" value="Hóa học"></td>
+                        <td><input class="tkb-input" type="text" value="Tin học"></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                    </tr>
+                    
+                    <tr><td colspan="7" class="tkb-header" style="background:#fff7ed; color: #c2410c; padding: 10px;">🌙 BUỔI CHIỀU</td></tr>
+                    <tr>
+                        <td style="text-align:center; font-weight:bold; background: #f8fafc;">2</td>
+                        <td><input class="tkb-input" type="text" value="GDTC"></td>
+                        <td><input class="tkb-input" type="text" value="GDTC"></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; font-weight:bold; background: #f8fafc;">3</td>
+                        <td><input class="tkb-input" type="text" value="Hoạt động TNHN"></td>
+                        <td><input class="tkb-input" type="text" value="GDQPAN"></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                        <td><input class="tkb-input" type="text" placeholder="..."></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="margin-top: 20px; text-align: right;">
+            <button class="btn btn-primary" style="padding: 10px 25px; border-radius: 6px; cursor: pointer; background: #3b82f6; color: white; border: none; font-weight: 600;">Lưu thời khóa biểu</button>
+        </div>
+    </div>
+</section>
+
+<section id="thong-bao" class="page" style="width: 100%;">
+    <div style="margin-bottom: 40px; text-align: center;">
+        <h2 style="margin:0; font-size: 32px; color: #1e293b; font-weight: 800;">📢 Bảng Tin Lớp Học</h2>
+        <p style="color:#64748b; margin-top:10px; font-size: 16px;">Nơi cập nhật thông tin quan trọng dành riêng cho chiến thần 12A1</p>
+    </div>
+
+    <div class="timeline-container">
+        
+        <div style="position: relative;">
+            <div class="timeline-dot" style="background: #f59e0b; box-shadow: 0 0 10px #f59e0b;"></div>
+            <article class="card" style="padding: 0; overflow: hidden; border: none; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15);">
+                <div style="background: linear-gradient(135deg, #f59e0b, #ea580c); padding: 25px 35px; color: white; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <span style="font-size: 45px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));">🧧</span>
+                        <div>
+                            <h3 style="margin: 0; color: white; font-size: 22px; letter-spacing: -0.5px;">THÔNG BÁO NGHỈ TẾT NGUYÊN ĐÁN 2026</h3>
+                            <small style="opacity: 0.9; font-size: 13px;">Đăng bởi: <b>Cô Lê Thị Hồng Hạnh</b> • Hôm nay, 10:45</small>
+                        </div>
+                    </div>
+                    <span class="status-pill" style="background: white; color: #ea580c; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">🔥 QUAN TRỌNG</span>
+                </div>
+                
+                <div style="padding: 35px; line-height: 1.8; color: #334155; font-size: 16px; background: white;">
+                    <p>Chào quý Phụ huynh và các em học sinh thân mến,</p>
+                    <p>Nhà trường xin thông báo lịch nghỉ <b>Tết Nguyên Đán Bính Ngọ 2026</b> chính thức:</p>
+                    
+                    <div style="background: #fffaf0; border-radius: 15px; padding: 25px; border-left: 6px solid #f59e0b; margin: 25px 0; box-shadow: inset 0 0 20px rgba(245,158,11,0.05);">
+                        <p style="margin: 8px 0; font-size: 17px;">📅 <b>Thời gian nghỉ:</b> 14/02/2026 (27 Tết) → 22/02/2026 (Mùng 5 Tết)</p>
+                        <p style="margin: 8px 0; font-size: 17px;">🏫 <b>Học lại vào:</b> <span style="color: #ea580c; font-weight: 800;">Thứ Hai, 23/02/2026</span></p>
+                    </div>
+
+                    <p style="color: #64748b; font-style: italic;">🌸 Chúc gia đình các em một năm mới An Khang Thịnh Vượng!</p>
+                    
+                    <hr style="border: 0; border-top: 1px solid #f1f5f9; margin: 30px 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; gap: 12px;">
+                            <button class="btn-action" style="background: #f8fafc; color: #475569;">👍 43</button>
+                            <button class="btn-action" style="background: #f8fafc; color: #475569;">💬 5 Phản hồi</button>
+                        </div>
+                        <a href="images/thong-bao-tet-nguyen-dan-2026.jpg" download
+                        class="btn-action"
+                        style="
+                            background:#6366f1;
+                            color:white;
+                            padding:10px 18px;
+                            border-radius:12px;
+                            font-weight:700;
+                            text-decoration:none;
+                            display:inline-block;
+                        ">
+                        📥 Tải Thông Báo (JPG)
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div style="position: relative;">
+            <div class="timeline-dot"></div>
+            <article class="card" style="padding: 25px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                <div style="background: #eef2ff; padding: 18px; border-radius: 15px; color: #6366f1; font-weight: 800; text-align: center; min-width: 80px; box-shadow: 0 4px 10px rgba(99,102,241,0.1);">
+                    <div style="font-size: 24px;">01</div>
+                    <div style="font-size: 11px; text-transform: uppercase;">Tháng 3</div>
+                </div>
+                <div style="flex: 1;">
+                    <span class="status-pill" style="background: #dcfce7; color: #166534;">✏️ Học tập</span>
+                    <h3 style="margin: 12px 0 8px 0; color: #1e293b; font-size: 19px;">Lịch thi giữa kỳ 2 & Danh sách phòng thi</h3>
+                    <p style="color: #64748b; font-size: 14px; margin-bottom: 15px;">Các em kiểm tra số báo danh và phòng thi trên bảng tin văn phòng Đoàn trường hoặc tải file đính kèm...</p>
+                    <a href="" download
+                        class="btn-action"
+                        style="
+                            background:#6366f1;
+                            color:white;
+                            padding:10px 18px;
+                            border-radius:12px;
+                            font-weight:700;
+                            text-decoration:none;
+                            display:inline-block;
+                        ">
+                        📥 Xem chi tiết ( chưa có )
+                        </a>
+                </div>
+            </article>
+        </div>
+
+        <div style="position: relative;">
+            <div class="timeline-dot"></div>
+            <article class="card" style="padding: 25px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                <div style="background: #fdf2f8; padding: 18px; border-radius: 15px; color: #db2777; font-weight: 800; text-align: center; min-width: 80px; box-shadow: 0 4px 10px rgba(219,39,119,0.1);">
+                    <div style="font-size: 24px;">25</div>
+                    <div style="font-size: 11px; text-transform: uppercase;">Tháng 2</div>
+                </div>
+                <div style="flex: 1;">
+                    <span class="status-pill" style="background: #f3e8ff; color: #7e22ce;">🎭 Ngoại khóa</span>
+                    <h3 style="margin: 12px 0 8px 0; color: #1e293b; font-size: 19px;">Ngày hội văn hóa "Xuân gắn kết 2026"</h3>
+                    <p style="color: #64748b; font-size: 14px; margin-bottom: 15px;">Toàn thể học sinh tham gia hội trại xuân. Lưu ý trang phục áo lớp và chuẩn bị tiết mục văn nghệ...</p>
+                    <a href="" download
+                        class="btn-action"
+                        style="
+                            background:#6366f1;
+                            color:white;
+                            padding:10px 18px;
+                            border-radius:12px;
+                            font-weight:700;
+                            text-decoration:none;
+                            display:inline-block;
+                        ">
+                        📥 Xem chi tiết ( chưa có )
+                        </a>
+                </div>
+            </article>
+        </div>
+
+    </div>
+    <div style="height: 60px;"></div>
+</section>
+<section id="tai-lieu" class="page" style="width: 100%;">
+    <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <div>
+            <h2 style=" margin:0; font-size: 28px; display: inline-block; background: linear-gradient(90deg, #1e293b, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Thư Viện Tài Liệu </h2>            <p style="color:#64748b; font-size:14px; margin-top:5px;">Hệ thống lưu trữ học tập thông minh cho lớp 12A1</p>
+        </div>
+        <div style="display: flex; gap: 12px;">
+            <button class="btn-download" style="background: white;">☁️ Drive</button>
+            <button class="btn" style="background: #6366f1; color:white; border:none; padding:10px 20px; border-radius:12px; cursor:pointer; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">➕ Tải tài liệu lên</button>
+        </div>
+    </div>
+
+    <div class="grid-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;">
+    <a href="/tailieu/mon-toan/[NTP] Bộ 14 đề trường sở tốt nghiệp 2026.zip" style="text-decoration:none;">
+     <div class="folder-card" style="--folder-color:#3b82f6; cursor:pointer;">
+           <div class="folder-icon">📂</div>
+           <strong style="display:block; font-size:16px; color:#0f172a;">
+              Môn Toán
+           </strong>
+          <small style="color:#94a3b8;">
+             14 tài liệu • 67,958KB
+          </small>
+        </div>
+    </a>
+        <a href="/tailieu/mon-van/[NTP] Bộ 3 đề trường sở tốt nghiệp 2026.zip" style="text-decoration:none;">
+        <div class="folder-card" style="--folder-color: #ef4444;">
+            <div class="folder-icon">📂</div>
+            <strong style="display:block; font-size: 16px;">Ngữ Văn</strong>
+            <small style="color: #94a3b8;">3 tài liệu • 2,101KB</small>
+        </div>
+    </a>
+        <a href="/tailieu/mon-anh/[NTP] Bộ 25 đề trường sở tốt nghiệp 2026.zip" style="text-decoration:none;">
+        <div class="folder-card" style="--folder-color: #10b981;">
+            <div class="folder-icon">📂</div>
+            <strong style="display:block; font-size: 16px;">Tiếng Anh</strong>
+            <small style="color: #94a3b8;">25 tài liệu • 19,720KB</small>
+        </div>
+    </a>
+    </div>
+    <div style="background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+        <h3 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 18px;">
+            <span style="background: #eef2ff; padding: 8px; border-radius: 10px;">📄</span> Tài liệu mới cập nhật
+        </h3>
+        
+        <table class="doc-table">
+            <thead>
+                <tr style="color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+                    <th style="text-align: left; padding: 10px 15px;">Tên tài liệu</th>
+                    <th style="text-align: left; padding: 10px 15px;">Định dạng</th>
+                    <th style="text-align: left; padding: 10px 15px;">Dung lượng</th>
+                    <th style="text-align: right; padding: 10px 15px;">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div style="display:flex; align-items: center; gap: 12px;">
+                            <div style="width: 40px; height: 40px; background: #fee2e2; border-radius: 10px; display: flex; align-items: center; justify-content: center;">📕</div>
+                            <div>
+                                <div style="font-weight: 600; color: #1e293b;">Đề cương Toán Chương 3</div>
+                                <div style="font-size: 12px; color: #94a3b8;">Đăng bởi Thầy Danh • 2 giờ trước</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><span class="file-type" style="background:#fee2e2; color:#b91c1c;">PDF</span></td>
+                    <td style="color: #64748b; font-size: 14px;">2.4 MB</td>
+                    <td style="text-align: right;">
+                        <a href="tailieu/tai-lieu-moi/NguyenHam-TichPhan.pdf" download style="text-decoration:none;">
+                            <button class="btn-download">📥 Tải về</button>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display:flex; align-items: center; gap: 12px;">
+                            <div style="width: 40px; height: 40px; background: #e0f2fe; border-radius: 10px; display: flex; align-items: center; justify-content: center;">📘</div>
+                            <div>
+                                <div style="font-weight: 600; color: #1e293b;">100 Câu trắc nghiệm Anh Văn</div>
+                                <div style="font-size: 12px; color: #94a3b8;">Đăng bởi Hệ thống • Hôm qua</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><span class="file-type" style="background:#e0f2fe; color:#0369a1;">DOCX</span></td>
+                    <td style="color: #64748b; font-size: 14px;">6.1 MB</td>
+                    <td style="text-align: right;"><button class="btn-download">📥 Tải về ( sắp có )</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<section id="tin-nhan" class="page" style="width: 100%;">
+    <div class="chat-wrapper">
+        <div class="contact-list">
+            <div class="contact-list-header"><h3 class="contact-list-title">Hộp thư lớp 12A1</h3></div>
+            <div id="contact-list-container">
+                <div class="contact-item active" onclick="switchChat('co-tin', this)">
+                    <div class="avatar" style="background: #ffebf0;">👩‍🏫</div>
+                    <div style="flex:1">
+                        <div style="font-weight: 600;">Cô Giáo Tin Học</div>
+                        <div style="font-size: 11px; color: #22c55e;">● Đang hoạt động</div>
+                    </div>
+                </div>
+                <div class="contact-item" onclick="switchChat('ph-an', this)">
+                    <div class="avatar" style="background: #fff9db;">👩</div>
+                    <div style="flex:1">
+                        <div style="font-weight: 600;">Phụ huynh em An</div>
+                        <div style="font-size: 11px; color: #94a3b8;">Xem 2 giờ trước</div>
+                    </div>
+                </div>
+                <div class="contact-item" onclick="switchChat('nhom-lop', this)">
+                    <div class="avatar" style="background: #e7f5ff;">🌟</div>
+                    <div style="flex:1">
+                        <div style="font-weight: 600;">Nhóm Lớp 12A1</div>
+                        <div style="font-size: 11px; color: #6c5ce7;">43 thành viên</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-content">
+            <div id="co-tin" class="chat-pane active">
+                <div class="chat-header accent-purple">💬 Cô Giáo Tin Học</div>
+                <div class="msg-area theme-purple">
+                    <div class="bubble received">Các em nhớ nộp bài giữa kì vào thứ 2 tuần này nhé!</div>
+                    <div class="bubble sent">Dạ thưa cô, em nộp rồi ạ. Cô kiểm tra giúp em với.</div>
+                </div>
+            </div>
+
+            <div id="chat-ph-an" class="chat-pane">
+                <div class="chat-header accent-amber">💬 Phụ huynh em An</div>
+                <div class="msg-area theme-amber">
+                    <div class="bubble received">Chào giáo viên, An có đi học muộn không ạ?</div>
+                    <div class="bubble sent">Dạ hôm nay An đi học đúng giờ và rất hăng hái phát biểu ạ!</div>
+                </div>
+            </div>
+
+            <div id="chat-nhom-lop" class="chat-pane">
+                <div class="chat-header accent-sky">💬 Nhóm Lớp 12A1</div>
+                <div class="msg-area theme-sky">
+                    <div class="bubble received"><b>Lớp trưởng:</b> Ai trực nhật hôm nay nhớ đổ rác nhé!</div>
+                    <div class="bubble received"><b>Quỳnh An:</b> Tí mình đổ luôn cho.</div>
+                    <div class="bubble sent">Cảm ơn An nhé!</div>
+                </div>
+            </div>
+
+            <div class="chat-inputbar">
+                <input type="text" class="chat-input" placeholder="Viết tin nhắn...">
+                <button class="chat-send" type="button">Gửi</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="cai-dat" class="page" style="width: 100%;">
+    <h2 class="setting-header">⚙️ Cài đặt hệ thống</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+        
+        <div class="card">
+            <h3 style="margin-top:0; color: #475569; font-size: 1.1rem;">👤 Thông tin tài khoản</h3>
+            <div style="display: flex; align-items: center; gap: 30px; margin-top: 20px;">
+                <div class="profile-avatar">👨‍🏫</div>
+                <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label style="font-size: 12px; color: #94a3b8; font-weight: 700; text-transform: uppercase;">Họ và tên</label>
+                        <input class="input-field" value="Nguyễn Thế Phát" style="margin-top: 5px;">
+                    </div>
+                    <div>
+                        <label style="font-size: 12px; color: #94a3b8; font-weight: 700; text-transform: uppercase;">Email liên kết</label>
+                        <input class="input-field" value="phatnguyen262008@school.edu.vn" style="margin-top: 5px;">
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                <button class="btn-gradient">Lưu thay đổi</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-top:0; color: #475569; font-size: 1.1rem;">🎨 Tùy chỉnh giao diện</h3>
+            <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div style="font-weight: 600;">Chế độ ban đêm (Dark Mode)</div>
+                        <div style="font-size: 12px; color: #94a3b8;">Tự động điều chỉnh màu sắc để bảo vệ mắt</div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="darkToggleSetting" onchange="toggleDarkMode()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #f1f5f9;">
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div style="font-weight: 600;">Màu chủ đạo</div>
+                        <div style="font-size: 12px; color: #94a3b8;">Chọn màu sắc thương hiệu cho riêng bạn</div>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <div class="color-dot" style="background: #22c1d6;"></div>
+                        <div class="color-dot active" style="background: #6366f1;"></div>
+                        <div class="color-dot" style="background: #ec4899;"></div>
+                        <div class="color-dot" style="background: #10b981;"></div>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #f1f5f9;">
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div style="font-weight: 600;">Ngôn ngữ</div>
+                    </div>
+                    <select class="input-field" style="width: 220px; background: #fff;">
+                        <option>🇻🇳 Tiếng Việt (Mặc định)</option>
+                        <option>🇺🇸 English (US)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="card danger-zone">
+            <h3 style="margin-top:0; color: #dc2626; font-size: 1.1rem;">⚠️ Vùng nguy hiểm</h3>
+            <p style="font-size: 13px; color: #7f8c8d;">Sau khi sao lưu, bạn có thể xóa toàn bộ dữ liệu tạm thời để giải phóng bộ nhớ.</p>
+            <div style="display: flex; gap: 15px; margin-top: 20px;">
+                <button class="btn" type="button" onclick="logout()">Đăng xuất</button>
+                <button class="btn" style="background: white; color: #475569; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer;">Tải dữ liệu lớp (.csv)</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="diem-danh" class="page" style="width: 100%;">
+  <div class="toolbar" style="gap:16px; flex-wrap:wrap;">
+    <div>
+      <h2 style="margin:0">🧾 Điểm danh & Thống kê vắng</h2>
+      <small>Chọn ngày để điểm danh, hệ thống sẽ tự lưu và vẽ biểu đồ số vắng.</small>
+    </div>
+    <div class="attendance-actions">
+      <input class="input-field" type="date" id="attendanceDate" />
+      <button class="btn-gradient" type="button" onclick="loadAttendanceForDate()">Tải ngày</button>
+      <button class="btn-gradient" type="button" onclick="saveAttendanceForDate()">Lưu điểm danh</button>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px;">
+    <div class="card">
+      <h3 style="margin-top:0">Danh sách điểm danh</h3>
+      <div id="attendanceList" class="attendance-list"></div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+        <button class="btn" type="button" onclick="markAllPresent()">✅ Tất cả có mặt</button>
+        <button class="btn" type="button" onclick="markAllAbsent()">❌ Tất cả vắng</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Biểu đồ số vắng</h3>
+      <canvas id="absenceChart" height="240" aria-label="Biểu đồ số vắng" role="img"></canvas>
+      <div style="height: 10px;"></div>
+      <div id="absenceSummary" style="color: var(--muted); font-size: 13px;"></div>
+    </div>
+  </div>
+
+  <div style="height:20px;"></div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Top học sinh vắng nhiều</h3>
+    <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th width="60">#</th>
+            <th>Họ và Tên</th>
+            <th width="140">Số buổi vắng</th>
+          </tr>
+        </thead>
+        <tbody id="absenceTable"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+    </main>
+</div>
+
+  <!-- LOGIN MODAL (local, không phá chức năng cũ) -->
+  <div class="modal-backdrop" id="loginBackdrop" style="display:none"></div>
+  <div class="modal" id="loginModal" style="display:none" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-title">🔐 Đăng nhập hệ thống</div>
+      <div class="modal-subtitle">Bạn cần đăng nhập để sử dụng đầy đủ chức năng.</div>
+
+      <div style="display:grid; gap:10px; margin-top:14px;">
+        <input class="input-field" id="loginUser" placeholder="Tên đăng nhập" autocomplete="username" />
+        <input class="input-field" id="loginPass" placeholder="Mật khẩu" type="password" autocomplete="current-password" />
+        <div class="modal-row">
+          <label class="remember"><input type="checkbox" id="rememberMe" checked /> Ghi nhớ</label>
+          <button class="btn-gradient" type="button" onclick="doLogin()">Đăng nhập</button>
+        </div>
+        <div class="modal-hint">Mặc định demo: <b>admin</b> / <b>1234</b> (bạn đổi trong script.js)</div>
+        <div class="modal-error" id="loginError" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+

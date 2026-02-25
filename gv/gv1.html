@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Người Lái Đò – Thắp Sáng Tri Thức</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Palette Vàng Sang Trọng */
+            --primary: #d97706;   /* Amber 600 - Vàng đậm */
+            --secondary: #fbbf24; /* Amber 400 - Vàng sáng */
+            --accent: #fcd34d;    /* Amber 300 - Điểm nhấn */
+            --text-light: #fffbeb; /* Warm White */
+            --text-dim: #a8a29e;   /* Warm Gray */
+            
+            /* Glassmorphism trên nền tối ấm */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(253, 186, 116, 0.15); /* Viền vàng nhạt */
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            --bg-color: #1c1917; /* Stone 900 - Đen than ấm */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-light);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ===== ANIMATED BACKGROUND (GOLDEN GLOW) ===== */
+        .bg-animate {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #292524, #0c0a09);
+            overflow: hidden;
+        }
+        .blob {
+            position: absolute;
+            filter: blur(90px);
+            opacity: 0.5;
+            animation: move 20s infinite alternate;
+        }
+        /* Blob 1: Vàng đậm */
+        .blob:nth-child(1) { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--primary); animation-delay: 0s; opacity: 0.4; }
+        /* Blob 2: Vàng sáng */
+        .blob:nth-child(2) { bottom: -10%; right: -10%; width: 50vw; height: 50vw; background: #b45309; animation-delay: -5s; opacity: 0.3; }
+        /* Blob 3: Cam nhẹ */
+        .blob:nth-child(3) { top: 40%; left: 40%; width: 30vw; height: 30vw; background: var(--secondary); animation-delay: -10s; opacity: 0.2; }
+
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(40px, -40px) scale(1.1); }
+        }
+
+        /* ===== UTILITIES ===== */
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .highlight { color: var(--secondary); font-style: italic; text-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+        
+        /* Glass Card - Updated Border Color */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            transition: 0.3s;
+        }
+        nav.scrolled {
+            background: rgba(28, 25, 23, 0.85); /* Dark background on scroll */
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--secondary); transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--secondary); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            /* Text Gradient Vàng Kim */
+            background: linear-gradient(to right, #fff, #fcd34d, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        /* Button màu Vàng */
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: #1c1917; /* Chữ đen trên nền vàng để dễ đọc */
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(217, 119, 6, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(251, 191, 36, 0.5);
+            background: linear-gradient(135deg, #fcd34d, #b45309);
+        }
+        
+        .hero-img-wrapper {
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero-img {
+            width: 100%;
+            border-radius: 30px;
+            transform: rotate(3deg);
+            border: 2px solid rgba(251, 191, 36, 0.3); /* Viền vàng mờ */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ===== SECTIONS COMMON ===== */
+        section { padding: 120px 0; position: relative; }
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 80px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-light);
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px; left: 50%;
+            transform: translateX(-50%);
+            width: 80px; height: 4px;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            border-radius: 2px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-img-group { position: relative; }
+        .about-img-main {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .about-card {
+            position: absolute;
+            bottom: -30px; right: -30px;
+            padding: 20px 30px;
+            width: 220px;
+            text-align: center;
+            background: rgba(41, 37, 36, 0.8); /* Darker card */
+        }
+        .about-card h4 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 5px; }
+        .about-card span { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #d6d3d1; }
+
+        .about-text h2 { font-size: 2.8rem; margin-bottom: 30px; line-height: 1.2; color: #fff; }
+        .about-text p { margin-bottom: 20px; color: var(--text-dim); font-size: 1.1rem; }
+
+        /* ===== GALLERY ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.4s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .gallery-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(217, 119, 6, 0.8), transparent); /* Gold overlay */
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: 0.4s;
+        }
+        .gallery-item:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); border-color: var(--secondary); }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay h3 { color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+        /* ===== QUOTE ===== */
+        .quote-section { text-align: center; max-width: 800px; margin: 0 auto; }
+        .quote-icon { font-size: 4rem; color: var(--secondary); opacity: 0.6; margin-bottom: 20px; display: block; }
+        .quote-text { font-size: 2rem; font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 30px; color: #fff; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 60px 0;
+            text-align: center;
+            background: rgba(28, 25, 23, 0.95);
+        }
+        footer p { color: var(--text-dim); }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 900px) {
+            .hero-content, .about-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .hero-text h1 { font-size: 3rem; }
+            .hero-img { width: 80%; margin: 0 auto; transform: rotate(0); }
+            .about-card { right: 50%; transform: translateX(50%); bottom: -20px; }
+            .nav-links { display: none; }
+        }
+		/* CSS cho nút Quay lại */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Khoảng cách giữa mũi tên và chữ */
+    color: var(--secondary); /* Màu vàng */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: 1px solid var(--glass-border);
+    border-radius: 30px; /* Bo tròn */
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: var(--secondary); /* Khi di chuột vào sẽ sáng lên */
+    color: #1c1917; /* Chữ chuyển màu đen */
+    transform: translateX(-5px); /* Hiệu ứng trượt nhẹ sang trái */
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+}
+
+.nav-content {
+    /* Chỉnh lại để nút nằm bên trái, logo bên phải */
+    justify-content: space-between; 
+}
+    </style>
+</head>
+<body>
+
+    <div class="bg-animate">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+    <nav id="navbar">
+		<div class="container nav-content">
+			<a href="../index.html" class="back-btn">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+				Quay lại danh sách
+			</a>
+
+			<div class="logo">NgThePhat<span style="color:var(--secondary)">.HUST</span></div>
+		</div>
+	</nav>
+
+    <header class="hero container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Người Gieo Mầm <br><span class="highlight">Tri Thức & Ước Mơ</span></h1>
+                <p>"Giáo dục không phải là việc đổ đầy một chiếc bình, mà là thắp sáng một ngọn lửa. Cảm ơn thầy cô đã không chỉ dạy chữ, mà còn dạy chúng em cách làm người và cách ước mơ."</p>
+                <a href="#gallery" class="btn">Xem Hành Trình</a>
+            </div>
+            <div class="hero-img-wrapper">
+                <img src="IMG/gv1.jpg" alt="Giáo viên" class="hero-img">
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="container">
+        <div class="about-grid">
+            <div class="about-img-group reveal">
+                <img src="IMG/gv1_02.jpg" alt="Lớp học" class="about-img-main">
+                <div class="glass-card about-card">
+                    <h4>10+</h4>
+                    <span>Năm Cống Hiến</span>
+                </div>
+            </div>
+            <div class="about-text reveal">
+                <h2>Sứ Mệnh Cao Cả <br>Của Người Lái Đò</h2>
+                <p>Mỗi bài giảng là một hạt mầm vàng, mỗi lời động viên là một tia nắng ấm. Trên hành trình trưởng thành, thầy cô chính là ngọn hải đăng soi sáng.</p>
+                <p>Chúng em trân trọng những giọt mồ hôi rơi trên trang giáo án, và những nụ cười rạng rỡ khi thấy học trò thành tài.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="container">
+        <h2 class="section-title reveal">Khoảnh Khắc Vàng</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="IMG/gv1_03.jpg" alt="Học tập">
+                <div class="gallery-overlay">
+                    <h3>Truyền Cảm Hứng</h3>
+                </div>
+            </div>
+            <div class="gallery-item reveal" style="transition-delay: 0.1s">
+                <img src="IMG/gv1_04.jpg" alt="Giảng bài">
+                <div class="gallery-overlay">
+                    <h3>Tận Tâm</h3>
+                </div>
+            </div>
+            <div class="gallery-item reveal" style="transition-delay: 0.2s">
+                <img src="IMG/gv1_05.jpg" alt="Thư viện">
+                <div class="gallery-overlay">
+                    <h3>Tri Thức</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container reveal">
+        <div class="glass-card" style="padding: 60px; border-color: var(--secondary);">
+            <div class="quote-section">
+                <span class="quote-icon">&ldquo;</span>
+                <p class="quote-text">Một đứa trẻ, một người cô, một cuốn sách và một cây bút có thể thay đổi cả thế giới.</p>
+<p style="color: var(--primary); font-weight: 600;">— Malala Yousafzai</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© Ng The Phat. Thiết kế với trọn vẹn sự biết ơn.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>
