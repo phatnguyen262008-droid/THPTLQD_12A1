@@ -53,6 +53,7 @@
   };
 
   window.showPage = function showPage(pageId, element) {
+    localStorage.setItem("lastPage", pageId);
     // 1) Hide all pages
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
 
@@ -122,7 +123,23 @@
     // Default: click the currently active menu, else first menu
     const activeMenu = document.querySelector(".menu a.active");
     const firstMenu = document.querySelector(".menu a");
-    (activeMenu || firstMenu)?.click?.();
+    
+    const savedPage = localStorage.getItem("lastPage");
+    if(savedPage){
+        const target = document.getElementById(savedPage);
+        if(target){
+            document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+            target.classList.add("active");
+            const menuLink = document.querySelector('.menu a[onclick*="' + savedPage + '"]');
+            if(menuLink){
+                document.querySelectorAll(".menu a").forEach(a=>a.classList.remove("active"));
+                menuLink.classList.add("active");
+            }
+        }
+    } else {
+        (activeMenu || firstMenu)?.click?.();
+    }
+    
 
     // Close sidebar on resize to desktop
     window.addEventListener("resize", () => {
@@ -130,3 +147,175 @@
     });
   });
 })();
+// ===============================
+// AI HỌC TẬP (FREE - OpenRouter)
+// ===============================
+
+window.askAI = async function () {
+  const input = document.getElementById("ai-input");
+  const chatBox = document.getElementById("ai-chat-box");
+
+  const message = input.value.trim();
+  if (!message) return;
+
+  // Tin nhắn người dùng
+  chatBox.innerHTML += `
+    <div class="bubble sent">
+      ${message}
+    </div>
+  `;
+
+  input.value = "";
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  // Loading
+  chatBox.innerHTML += `
+    <div class="bubble received" id="ai-loading">
+      AI đang trả lời...
+    </div>
+  `;
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  try {
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+                  "Authorization": "Bearer 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",
+                  "Content-Type": "application/json",
+                  "HTTP-Referer": "http://localhost",
+                  "X-Title": "HocTapCungAI"
+              },
+      body: JSON.stringify({
+        model: "meta-llama/llama-3-8b-instruct",
+        messages: [
+          {
+              role: "system",
+              content: `
+             Bạn là trợ lý AI chuyên hỗ trợ học sinh lớp 12A1 Lê Quý Đôn.
+
+              QUY TẮC BẮT BUỘC:
+              - Luôn trả lời hoàn toàn bằng tiếng Việt.
+              - Không dùng tiếng Anh.
+              - Không chèn ký tự lạ.
+              - Không dùng markdown như ** hoặc ##.
+              - Viết câu rõ ràng, tự nhiên, đúng ngữ pháp tiếng Việt.
+              - Nếu là bài văn: phải có mở bài, thân bài, kết bài.
+              - Nếu là bài tập: giải từng bước rõ ràng.
+              `
+          },
+          {
+            role: "user",
+            content: message
+          }
+        ]
+      })
+    });
+
+    const data = await response.json();
+
+    document.getElementById("ai-loading")?.remove();
+
+    const aiReply =
+      data.choices?.[0]?.message?.content ||
+      "AI chưa thể trả lời.";
+
+    chatBox.innerHTML += `
+      <div class="bubble received">
+        ${aiReply}
+      </div>
+    `;
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+  } catch (error) {
+    document.getElementById("ai-loading")?.remove();
+
+    chatBox.innerHTML += `
+      <div class="bubble received">
+        ⚠️ Lỗi kết nối AI.
+      </div>
+    `;
+  }
+};
+
+// ===============================
+// QUẢN LÝ TRẠNG THÁI HỌC SINH PRO
+// ===============================
+
+window.toggleStatus = function(button){
+    const row = button.closest("tr");
+    if(!row) return;
+
+    const badge = row.querySelector(".badge, .nonbadge");
+    if(!badge) return;
+
+    if(badge.classList.contains("nonbadge")){
+        badge.classList.remove("nonbadge");
+        badge.classList.add("badge");
+        badge.textContent = "Đang học";
+    } else {
+        badge.classList.remove("badge");
+        badge.classList.add("nonbadge");
+        badge.textContent = "Vắng học";
+    }
+
+    updateAttendanceCount();
+    saveStatus();
+};
+
+function updateAttendanceCount(){
+    const total = document.querySelectorAll("#student-list tr").length;
+    const present = document.querySelectorAll("#student-list .badge").length;
+
+    const small = document.querySelector("#hoc-sinh small");
+    if(small){
+        small.textContent = "Sĩ số: " + total + " học sinh | " + present + " hiện diện";
+    }
+}
+
+function saveStatus(){
+    const rows = document.querySelectorAll("#student-list tr");
+    const data = [];
+
+    rows.forEach(row => {
+        const name = row.querySelector("td:nth-child(2)")?.innerText.trim();
+        const isPresent = row.querySelector(".badge") ? true : false;
+        data.push({name, isPresent});
+    });
+
+    localStorage.setItem("studentStatus", JSON.stringify(data));
+}
+
+function loadStatus(){
+    const data = JSON.parse(localStorage.getItem("studentStatus") || "[]");
+    if(!data.length) return;
+
+    const rows = document.querySelectorAll("#student-list tr");
+
+    rows.forEach(row => {
+        const name = row.querySelector("td:nth-child(2)")?.innerText.trim();
+        const found = data.find(s => s.name === name);
+        if(!found) return;
+
+        const badge = row.querySelector(".badge, .nonbadge");
+        if(!badge) return;
+
+        if(found.isPresent){
+            badge.classList.remove("nonbadge");
+            badge.classList.add("badge");
+            badge.textContent = "Đang học";
+        }else{
+            badge.classList.remove("badge");
+            badge.classList.add("nonbadge");
+            badge.textContent = "Vắng học";
+        }
+    });
+
+    updateAttendanceCount();
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+    loadStatus();
+    updateAttendanceCount();
+});
+
