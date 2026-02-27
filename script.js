@@ -287,27 +287,27 @@ function saveStatus(){
 }
 
 function loadStatus(){
-    const data = JSON.parse(localStorage.getItem("studentStatus") || "[]");
-    if(!data.length) return;
+    const today = new Date().toISOString().slice(0,10);
+    const records = JSON.parse(localStorage.getItem("attendanceRecords_v1") || "{}");
+    const todayData = records[today] || {};
 
     const rows = document.querySelectorAll("#student-list tr");
 
     rows.forEach(row => {
         const name = row.querySelector("td:nth-child(2)")?.innerText.trim();
-        const found = data.find(s => s.name === name);
-        if(!found) return;
-
         const badge = row.querySelector(".badge, .nonbadge");
         if(!badge) return;
 
-        if(found.isPresent){
-            badge.classList.remove("nonbadge");
-            badge.classList.add("badge");
-            badge.textContent = "Đang học";
-        }else{
+        const rec = todayData[name];
+
+        if(rec && rec.status === "absent"){
             badge.classList.remove("badge");
             badge.classList.add("nonbadge");
             badge.textContent = "Vắng học";
+        } else {
+            badge.classList.remove("nonbadge");
+            badge.classList.add("badge");
+            badge.textContent = "Đang học";
         }
     });
 
