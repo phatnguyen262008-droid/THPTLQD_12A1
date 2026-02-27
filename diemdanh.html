@@ -570,6 +570,28 @@
     });
   });
 })();
+
+  function syncToStudentStatusIfToday(date, studentName, status){
+    const today = new Date().toISOString().slice(0,10);
+    if(date !== today) return;
+
+    const cleanName = (studentName || "").trim();
+
+    let data = JSON.parse(localStorage.getItem("studentStatus") || "[]");
+
+    const isPresent = status === "present";
+
+    const index = data.findIndex(s => (s.name || "").trim() === cleanName);
+
+    if(index !== -1){
+      data[index].isPresent = isPresent;
+    } else {
+      data.push({ name: cleanName, isPresent: isPresent });
+    }
+
+    localStorage.setItem("studentStatus", JSON.stringify(data));
+  }
+
 </script>
 </body>
 </html>
