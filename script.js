@@ -177,39 +177,34 @@ window.askAI = async function () {
   chatBox.scrollTop = chatBox.scrollHeight;
 
   try {
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-                  "Authorization": "Bearer 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",
-                  "Content-Type": "application/json",
-                  "HTTP-Referer": window.location.origin,
-                  "X-Title": "HocTapCungAI"
-              },
-      body: JSON.stringify({
-        model: "meta-llama/llama-3-8b-instruct",
-        messages: [
-          {
-              role: "system",
-              content: `
-             Bạn là trợ lý AI chuyên hỗ trợ học sinh lớp 12A1 Lê Quý Đôn.
+const response = await fetch("https://ai-server-phi.vercel.app/api/ask", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "meta-llama/llama-3-8b-instruct:free",
+    messages: [
+      {
+        role: "system",
+        content: `Bạn là trợ lý AI chuyên hỗ trợ học sinh lớp 12A1 Lê Quý Đôn.
 
-              QUY TẮC BẮT BUỘC:
-              - Luôn trả lời hoàn toàn bằng tiếng Việt.
-              - Không dùng tiếng Anh.
-              - Không chèn ký tự lạ.
-              - Không dùng markdown như ** hoặc ##.
-              - Viết câu rõ ràng, tự nhiên, đúng ngữ pháp tiếng Việt.
-              - Nếu là bài văn: phải có mở bài, thân bài, kết bài.
-              - Nếu là bài tập: giải từng bước rõ ràng.
-              `
-          },
-          {
-            role: "user",
-            content: message
-          }
-        ]
-      })
-    });
+QUY TẮC BẮT BUỘC:
+- Luôn trả lời hoàn toàn bằng tiếng Việt.
+- Không dùng tiếng Anh.
+- Không chèn ký tự lạ.
+- Không dùng markdown như ** hoặc ##.
+- Viết câu rõ ràng, tự nhiên, đúng ngữ pháp tiếng Việt.
+- Nếu là bài văn: phải có mở bài, thân bài, kết bài.
+- Nếu là bài tập: giải từng bước rõ ràng.`
+      },
+      {
+        role: "user",
+        content: message
+      }
+    ]
+  })
+});
 
     const data = await response.json();
 
