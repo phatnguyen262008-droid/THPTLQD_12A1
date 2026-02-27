@@ -168,7 +168,7 @@ window.askAI = async function () {
   input.value = "";
   chatBox.scrollTop = chatBox.scrollHeight;
 
-  // Loading
+ // Loading
   chatBox.innerHTML += `
     <div class="bubble received" id="ai-loading">
       AI đang trả lời...
@@ -183,12 +183,11 @@ const response = await fetch("https://ai-server-phi.vercel.app/api/ask", {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    model: "openchat/openchat-3.5-0106",
+    model: "meta-llama/llama-3-8b-instruct:free",
     messages: [
       {
         role: "system",
         content: `Bạn là trợ lý AI chuyên hỗ trợ học sinh lớp 12A1 Lê Quý Đôn.
-
 
 QUY TẮC BẮT BUỘC:
 - Luôn trả lời hoàn toàn bằng tiếng Việt.
