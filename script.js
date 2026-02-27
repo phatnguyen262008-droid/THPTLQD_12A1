@@ -189,6 +189,7 @@ const response = await fetch("https://ai-server-phi.vercel.app/api/ask", {
         role: "system",
         content: `Bạn là trợ lý AI chuyên hỗ trợ học sinh lớp 12A1 Lê Quý Đôn.
 
+
 QUY TẮC BẮT BUỘC:
 - Luôn trả lời hoàn toàn bằng tiếng Việt.
 - Không dùng tiếng Anh.
