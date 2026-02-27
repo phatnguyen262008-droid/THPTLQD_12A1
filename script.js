@@ -182,7 +182,7 @@ window.askAI = async function () {
       headers: {
                   "Authorization": "Bearer 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",
                   "Content-Type": "application/json",
-                  "HTTP-Referer": "http://localhost",
+                  "HTTP-Referer": window.location.origin,
                   "X-Title": "HocTapCungAI"
               },
       body: JSON.stringify({
