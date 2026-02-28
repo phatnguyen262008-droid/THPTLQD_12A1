@@ -1,4 +1,4 @@
-// ===============================
+    // ===============================
 // App core (tối ưu + không bị thừa)
 // ===============================
 
@@ -183,20 +183,20 @@ const response = await fetch("https://ai-server-ph67nqtvi-phatnguyen262008-droid
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    "model": "google/gemini-2.0-flash-exp:free",
+    "model": "meta-llama/llama-3-8b-instruct:free"
     messages: [
       {
         role: "system",
         content: `Bạn là trợ lý AI chuyên hỗ trợ học sinh lớp 12A1 Lê Quý Đôn.
 
-QUY TẮC BẮT BUỘC:
-- Luôn trả lời hoàn toàn bằng tiếng Việt.
-- Không dùng tiếng Anh.
-- Không chèn ký tự lạ.
-- Không dùng markdown như ** hoặc ##.
-- Viết câu rõ ràng, tự nhiên, đúng ngữ pháp tiếng Việt.
-- Nếu là bài văn: phải có mở bài, thân bài, kết bài.
-- Nếu là bài tập: giải từng bước rõ ràng.`
+        QUY TẮC BẮT BUỘC:
+        - Luôn trả lời hoàn toàn bằng tiếng Việt.
+        - Không dùng tiếng Anh.
+        - Không chèn ký tự lạ.
+        - Không dùng markdown như ** hoặc ##.
+        - Viết câu rõ ràng, tự nhiên, đúng ngữ pháp tiếng Việt.
+        - Nếu là bài văn: phải có mở bài, thân bài, kết bài.
+        - Nếu là bài tập: giải từng bước rõ ràng.`
       },
       {
         role: "user",
