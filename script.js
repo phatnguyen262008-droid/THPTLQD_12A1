@@ -183,7 +183,7 @@ const response = await fetch("https://ai-server-ph67nqtvi-phatnguyen262008-droid
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    "model": "meta-llama/llama-3-8b-instruct:free",
+    model: "google/gemini-2.0-flash-exp:free",
     messages: [
       {
         role: "system",
