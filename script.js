@@ -183,7 +183,7 @@ const response = await fetch("https://ai-server-phi.vercel.app/api/ask", {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    model: "mistralai/mistral-7b-instruct",
+    "model": "google/gemini-2.0-flash-exp:free",
     messages: [
       {
         role: "system",
