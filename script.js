@@ -183,7 +183,7 @@ const response = await fetch("https://ai-server-phi.vercel.app/api/ask", {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    model: "openchat/openchat-3.5-0106",
+    model: "mistralai/mistral-7b-instruct",
     messages: [
       {
         role: "system",
