@@ -183,7 +183,7 @@ const response = await fetch("https://ai-server-phi.vercel.app/api/ask", {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    "model": "model": "meta-llama/llama-3.2-1b-instruct:free",
+    "model": "model": "mistralai/mistral-7b-instruct",
     messages: [
       {
         role: "system",
