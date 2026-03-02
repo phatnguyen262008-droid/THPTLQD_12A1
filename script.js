@@ -183,7 +183,7 @@ const response = await fetch("https://ai-server-orcin-three.vercel.app/api/ask",
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    "model": "openchat/openchat-3.5-0106",
+    "model": "google/gemini-flash-1.5",
     messages: [
       {
         role: "system",
