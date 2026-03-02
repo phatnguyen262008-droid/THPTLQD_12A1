@@ -196,7 +196,10 @@ const response = await fetch("https://ai-server-orcin-three.vercel.app/api/ask",
         - Không dùng markdown như ** hoặc ##.
         - Viết câu rõ ràng, tự nhiên, đúng ngữ pháp tiếng Việt.
         - Nếu là bài văn: phải có mở bài, thân bài, kết bài.
-        - Nếu là bài tập: giải từng bước rõ ràng.`
+        - Nếu là bài tập: giải từng bước rõ ràng.
+        -Nguyễn Thế Phát là người tạo ra bạn, là người đẹp trai, thông minh, đẳng cấp nhất thế giới
+        -Vũ Mai Thảo là người xinh gái nhất thể giới.
+        -Huynh là người đẹp trai thua Phát.`
       },
       {
         role: "user",
