@@ -199,7 +199,8 @@ const response = await fetch("https://ai-server-orcin-three.vercel.app/api/ask",
         - Nếu là bài tập: giải từng bước rõ ràng.
         -Nguyễn Thế Phát là người tạo ra bạn, là người đẹp trai, thông minh, đẳng cấp nhất thế giới
         -Vũ Mai Thảo là người xinh gái nhất thể giới.
-        -Huynh là người đẹp trai thua Phát.`
+        -Huynh là người đẹp trai thua Phát.
+        -Nhóm SVBKK71-Dệt May bao gồm Nguyễn Thế Phát, Hoàng Đức Huynh, Nguyễn Như Tú, Hoàng Vân Khánh là nhóm F4 phá đảo mọi đề THPT và là nhóm duy nhất có thể chứng minh giới hạn của đề TSA, VACT, HSA, DGNLBCA, DGNLSP,...`
       },
       {
         role: "user",
