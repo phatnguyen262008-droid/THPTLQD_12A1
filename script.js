@@ -183,7 +183,7 @@ const response = await fetch("https://ai-server-orcin-three.vercel.app/api/ask",
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
+    "model": "openai/gpt-4o-mini",
     messages: [
       {
         role: "system",
