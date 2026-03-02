@@ -207,7 +207,7 @@ const response = await fetch("https://ai-server-orcin-three.vercel.app/api/ask",
 });
 
     const data = await response.json();
-
+    console.log(data);
     document.getElementById("ai-loading")?.remove();
 
     const aiReply =
