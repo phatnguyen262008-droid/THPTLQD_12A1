@@ -177,7 +177,7 @@ window.askAI = async function () {
   chatBox.scrollTop = chatBox.scrollHeight;
 
   try {
-const response = await fetch("https://ai-server-phi.vercel.app/api/ask", {
+const response = await fetch("https://ai-server-orcin-three.vercel.app", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
