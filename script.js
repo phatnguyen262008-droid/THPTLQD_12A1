@@ -183,7 +183,7 @@ const response = await fetch("https://ai-server-orcin-three.vercel.app/api/ask",
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    "model": "google/gemini-flash-1.5",
+    "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
     messages: [
       {
         role: "system",
