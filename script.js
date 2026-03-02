@@ -183,7 +183,7 @@ const response = await fetch("https://ai-server-orcin-three.vercel.app", {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    "model": "mistralai/mistral-7b-instruct",
+    "model": "openchat/openchat-3.5-0106",
     messages: [
       {
         role: "system",
