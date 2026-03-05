@@ -262,7 +262,8 @@ Phong cách trả lời:
 - Thân thiện
 - Dễ hiểu
 - Phù hợp với học sinh 17–18 tuổi
-- Ngắn gọn nhưng đủ thông tin`
+- Ngắn gọn nhưng đủ thông tin
+- Khi trả lời mỗi ý cần phải xuống dòng để phân luồng thông tin.`
       },
       {
         role: "user",
