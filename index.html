@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<title>Quản Lý Lớp - Tổng quan</title>
+<link href="style.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div class="layout">
+<div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="sidebar">
+<div class="logo" style="font-size: 18px; font-weight: bold; margin-bottom: 20px;">🎓 Thanh quản lí</div>
+<div class="menu">
+<h4>Trang chủ</h4>
+<a class="active" href="#" onclick="showPage('truong-hoc', this)">Trường học</a>
+<a href="#" onclick="showPage('tong-quan', this)">Tổng quan</a>
+<a href="#" onclick="showPage('diem-danh', this)">Điểm danh</a>
+<a href="#" onclick="showPage('hoc-sinh', this)">Quản lý học sinh</a>
+<a href="#" onclick="showPage('thoi-khoa-bieu', this)">Thời khóa biểu</a>
+<h4>TIỆN ÍCH</h4>
+<a href="#" onclick="showPage('thong-bao', this)">Thông Báo</a>
+<a href="#" onclick="showPage('tai-lieu', this)">Tài Liệu</a>
+<a href="#" onclick="showPage('dinh-huong-nghe-nghiep', this)">Định hướng nghề nghiệp</a>
+<a href="#" onclick="showPage('ban-do', this)">Bản đồ</a>
+<a href="#" onclick="showPage('tin-nhan', this)">Tin Nhắn</a>
+<a href="#" onclick="showPage('ai-hoc-tap', this)">Học tập cùng AI</a>
+<h4>HỆ THỐNG</h4>
+<a href="#" onclick="showPage('cai-dat', this)">Cài đặt</a>
+</div>
+<div class="semester"><small>Năm học 2025–2026</small><br/><strong>Học kỳ 1</strong></div>
+</aside>
+<main class="main">
+<div class="topbar-actions quick-tools" id="quickTools">
+<div class="topbar-left">
+<button aria-label="Mở menu" class="icon-btn sidebar-toggle always-visible" onclick="toggleSidebar()" type="button">☰</button>
+<div class="utility-title-wrap">
+<div class="utility-label">Thanh công cụ • bấm để mở nhanh</div>
+<div class="utility-page-title" id="pageTitle">Trường học</div>
+</div>
+</div>
+<div class="quick-tool-list">
+<button class="utility-btn quick-tool active" data-page="truong-hoc" onclick="quickOpenPage('truong-hoc')" type="button">🏫 Trường học</button>
+<button class="utility-btn quick-tool" data-page="diem-danh" onclick="quickOpenPage('diem-danh')" type="button">🧾 Điểm danh</button>
+<button class="utility-btn quick-tool" data-page="thoi-khoa-bieu" onclick="quickOpenPage('thoi-khoa-bieu')" type="button">📚 Thời khóa biểu</button>
+<button class="utility-btn quick-tool" data-page="thong-bao" onclick="quickOpenPage('thong-bao')" type="button">🔔 Thông báo</button>
+<button class="utility-btn quick-tool" data-page="dinh-huong-nghe-nghiep" onclick="quickOpenPage('dinh-huong-nghe-nghiep')" type="button">🧭 Hướng nghiệp</button>
+</div>
+<div class="topbar-vip-actions">
+<button aria-label="Chuyển dark mode" class="theme-fab" onclick="toggleDarkMode()" type="button">🌙</button>
+<div class="utility-user-pill vip-pill"><span>👤 Ng The Phat</span><b>Premium</b></div>
+</div>
+</div>
+<section class="page school-page school-page-v13 active" id="truong-hoc">
+<div class="school-shell">
+<header class="school-header-card">
+<div class="school-header-copy">
+<span class="school-eyebrow">Cổng thông tin nhà trường</span>
+<h2>🏫 Trường THPT Lê Quý Đôn - Đắk Lắk</h2>
+<p>
+          Không gian thông tin chính thức dành cho cán bộ, giáo viên và học sinh với giao diện gọn,
+          hiện đại và đồng bộ cùng phong cách của mục Thông báo.
+        </p>
+<div class="school-chip-row">
+<span class="school-chip">Năm học 2025–2026</span>
+<span class="school-chip">Chuyển đổi số</span>
+<span class="school-chip">Học tập an toàn</span>
+</div>
+</div>
+<div class="school-header-stat">
+<div class="school-stat-card">
+<span class="school-stat-label">Truy cập nhanh</span>
+<strong>Website chính thức</strong>
+<p>Tra cứu lịch học, thông báo và các hoạt động mới nhất từ Ban Giám Hiệu.</p>
+<a class="school-cta" href="https://c3lequydon.daklak.edu.vn/" rel="noopener noreferrer" target="_blank">Truy cập ngay</a>
+</div>
+</div>
+</header>
+<article class="school-panel school-intro-panel"><div class="school-intro-copy"><span class="school-badge soft">🎓 Giới thiệu nhà trường</span><h3>Trường THPT Lê Quý Đôn – Đắk Lắk</h3><p>
+          Tọa lạc tại phường Buôn Ma Thuột, tỉnh Đắk Lắk, trường là cơ sở giáo dục công lập được thành lập năm 2000.
+          Trải qua <strong>26 năm xây dựng và phát triển (2000 – 2026)</strong>, nhà trường từng bước khẳng định vị thế
+          ổn định, uy tín và được phụ huynh tin tưởng.
+        </p><p>
+          Từ những ngày đầu còn nhiều khó khăn đến nay, trường không ngừng đổi mới phương pháp giảng dạy,
+          hướng đến phát triển toàn diện học sinh về <strong>tri thức – kỹ năng – nhân cách</strong>.
+        </p></div>
+<img alt="Hình ảnh trường học" class="school-inline-image" src="images/truong1.jpg"/>
+</article>
+<div class="school-metrics-grid">
+<article class="school-info-card accent-blue">
+<div class="school-info-icon">👨‍🏫</div>
+<div>
+<h4>Quy mô &amp; đội ngũ</h4>
+<p>Nhà trường có <strong>40 lớp – 1.738 học sinh</strong> cùng <strong>103 cán bộ, giáo viên, nhân viên</strong>.</p>
+</div>
+</article>
+<article class="school-info-card accent-green">
+<div class="school-info-icon">🏫</div>
+<div>
+<h4>Cơ sở vật chất</h4>
+<p>Trường có <strong>43 phòng học kiên cố</strong>, phòng bộ môn hiện đại và không gian học tập khang trang.</p>
+</div>
+</article>
+<article class="school-info-card accent-amber">
+<div class="school-info-icon">🏆</div>
+<div>
+<h4>Định hướng</h4>
+<p>Xây dựng môi trường học đường <strong>kỷ cương – an toàn – hạnh phúc</strong>, đẩy mạnh STEM và chuyển đổi số.</p>
+</div>
+</article>
+</div>
+<div class="school-story-stack">
+<article class="school-feature-card">
+<div class="school-feature-copy">
+<span class="school-badge warn">📜 Thành tích nổi bật</span>
+<h3>Chất lượng giáo dục &amp; thành tích</h3>
+<p>
+            Riêng HKI năm học 2025–2026, nhà trường có <strong>07 học sinh đội tuyển quốc gia</strong>,
+            <strong>155 học sinh giỏi cấp trường</strong> và <strong>23 sản phẩm khoa học kỹ thuật</strong>.
+            Công tác dạy học tiếp tục đẩy mạnh CNTT, AI, học 2 buổi/ngày và các câu lạc bộ học thuật.
+          </p>
+</div>
+<img alt="Thành tích nhà trường" src="images/truong2.jpg"/>
+</article>
+<article class="school-feature-card reverse">
+<img alt="Định hướng phát triển" src="images/truong3.jpg"/>
+<div class="school-feature-copy">
+<span class="school-badge success">🌱 Phát triển bền vững</span>
+<h3>Định hướng phát triển</h3>
+<p>
+            Nhà trường tiếp tục phát huy truyền thống 26 năm, chú trọng đổi mới sáng tạo,
+            nâng cao chất lượng chuyên môn và xây dựng môi trường học tập tích cực cho học sinh.
+          </p>
+<ul class="school-list">
+<li>Tập thể Lao động Xuất sắc nhiều năm</li>
+<li>Học sinh giỏi tỉnh &amp; quốc gia tăng đều</li>
+<li>Giáo viên đạt nhiều giải thưởng chuyên môn</li>
+</ul>
+</div>
+</article>
+</div>
+<article class="school-gallery-panel">
+<div class="school-section-head school-gallery-head">
+<div>
+<span class="school-badge soft">📸 Góc hoạt động</span>
+<h3>Hình ảnh hoạt động</h3>
+</div>
+<div class="school-gallery-actions"><span class="school-gallery-count">12 ảnh nổi bật</span><button class="school-gallery-btn" id="openSchoolGallery" onclick="openSchoolGallery(0)" type="button">Xem thư viện ảnh</button></div>
+</div>
+<p class="school-gallery-intro">Những khoảnh khắc học tập, trải nghiệm và dấu ấn tiêu biểu của nhà trường trong năm học.</p>
+<div class="school-gallery-grid">
+<img alt="Hoạt động trường 1" aria-label="Hoạt động trường 1" loading="lazy" onclick="openSchoolGallery(4)" role="button" src="images/truong5.jpg" tabindex="0"/>
+<img alt="Hoạt động trường 2" aria-label="Hoạt động trường 2" loading="lazy" onclick="openSchoolGallery(5)" role="button" src="images/truong6.jpg" tabindex="0"/>
+<img alt="Hoạt động trường 3" aria-label="Hoạt động trường 3" loading="lazy" onclick="openSchoolGallery(6)" role="button" src="images/truong7.jpg" tabindex="0"/>
+<img alt="Hoạt động trường 4" aria-label="Hoạt động trường 4" loading="lazy" onclick="openSchoolGallery(7)" role="button" src="images/truong8.jpg" tabindex="0"/>
+</div>
+<div class="school-gallery-source" hidden="" id="schoolGallerySource">
+<img alt="Cổng trường THPT Lê Quý Đôn" data-caption="Biểu tượng quen thuộc mở ra một không gian học tập thân thiện và đầy tự hào." data-story="Hình ảnh cổng chính là dấu mốc quen thuộc với bao thế hệ học sinh. Không gian phía trước trường gợi cảm giác trang nghiêm, thân thuộc và thể hiện diện mạo khang trang của một ngôi trường có truyền thống tại Đắk Lắk." data-title="Cổng trường THPT Lê Quý Đôn" src="images/truong1.jpg"/>
+<img alt="Toàn cảnh sân trường trong giờ sinh hoạt" data-caption="Nhịp sống học đường sôi nổi trong những buổi chào cờ và sinh hoạt tập thể." data-story="Từ góc nhìn trên cao, sân trường hiện lên rộng rãi, xanh mát và tràn đầy năng lượng. Đây là nơi diễn ra các hoạt động tập thể lớn, góp phần nuôi dưỡng tinh thần đoàn kết, kỷ luật và bản sắc riêng của học sinh THPT Lê Quý Đôn." data-title="Toàn cảnh sân trường" src="images/truong2.jpg"/>
+<img alt="Thư viện STEM của nhà trường" data-caption="Điểm hẹn của sáng tạo, tri thức và những ý tưởng học tập mới mẻ." data-story="Khu STEM được thiết kế trẻ trung, hiện đại và truyền cảm hứng. Không gian này khuyến khích học sinh chủ động khám phá công nghệ, đọc sách, học theo dự án và phát triển năng lực nghiên cứu ngay trong môi trường phổ thông." data-title="Không gian thư viện STEM" src="images/truong3.jpg"/>
+<img alt="Không gian học tập xanh và thông điệp tích cực" data-caption="Một góc trường học xanh, sáng và lan tỏa giá trị sống đẹp mỗi ngày." data-story="Không chỉ chú trọng dạy chữ, nhà trường còn quan tâm xây dựng môi trường giáo dục nhân văn. Những mảng tường thông điệp, hàng cây xanh và khu học tập mở tạo nên cảm giác gần gũi, an toàn và khích lệ tinh thần học sinh." data-title="Thông điệp học đường tích cực" src="images/truong4.jpg"/>
+<img alt="Sân bóng rổ và khuôn viên học sinh" data-caption="Không gian vận động giúp học sinh cân bằng thể chất và tinh thần." data-story="Sân thể thao là nơi học sinh rèn luyện sức khỏe, giải tỏa năng lượng sau giờ học và gắn kết bạn bè. Bố cục mở, thoáng và nhiều cây xanh giúp khu vực này trở thành một phần quan trọng trong trải nghiệm học đường toàn diện." data-title="Sân bóng rổ và khuôn viên" src="images/truong5.jpg"/>
+<img alt="Nhà đa năng phục vụ hoạt động thể chất" data-caption="Không gian tổ chức học thể chất, hội thi và các hoạt động cộng đồng." data-story="Nhà đa năng là nơi diễn ra nhiều hoạt động quan trọng như sinh hoạt chuyên đề, thể dục thể thao và sự kiện tập thể. Công trình giúp mở rộng trải nghiệm học đường, kết nối học sinh với những hoạt động ngoài lớp học một cách sinh động hơn." data-title="Nhà đa năng" src="images/truong6.jpg"/>
+<img alt="Tiết mục văn nghệ hoạt động đoàn trường" data-caption="Sân khấu học đường rực sáng bởi tinh thần tự tin và sáng tạo của học sinh." data-story="Các chương trình văn nghệ là dịp để học sinh thể hiện tài năng, cá tính và năng lực làm việc nhóm. Những sân khấu như thế này góp phần tạo nên bản sắc trẻ trung, năng động của tập thể học sinh Lê Quý Đôn." data-title="Khoảnh khắc văn nghệ đoàn trường" src="images/truong7.jpg"/>
+<img alt="Biểu diễn chào mừng ngày Nhà giáo Việt Nam" data-caption="Những màn trình diễn chứa đựng sự biết ơn và tình cảm dành cho thầy cô giáo." data-story="Mỗi dịp 20/11 là một dấu ấn đẹp trong đời sống học đường. Những tiết mục được dàn dựng công phu không chỉ mang ý nghĩa nghệ thuật mà còn là lời tri ân chân thành của học sinh dành cho người thầy, người cô của mình." data-title="Ngày hội tri ân thầy cô" src="images/truong8.jpg"/>
+<img alt="Thiết kế thông báo Tết Nguyên Đán 2026" data-caption="Thiết kế thông báo giàu màu sắc, thể hiện sự chỉn chu trong truyền thông nhà trường." data-story="Các ấn phẩm truyền thông của trường không chỉ cung cấp thông tin mà còn góp phần xây dựng hình ảnh hiện đại, gần gũi. Đây là ví dụ cho việc nhà trường chú trọng thẩm mỹ số và truyền tải thông điệp rõ ràng tới học sinh, phụ huynh." data-title="Ấn phẩm truyền thông học đường" src="images/thong-bao-tet-nguyen-dan-2026.jpg"/>
+<img alt="Chân dung giáo viên tiêu biểu 1" data-caption="Người truyền cảm hứng bằng kiến thức, sự tận tâm và phong thái mẫu mực." data-story="Đằng sau thành tích học tập của học sinh là hình ảnh những thầy cô bền bỉ đồng hành mỗi ngày. Mỗi chân dung giáo viên tiêu biểu là một câu chuyện đẹp về trách nhiệm nghề nghiệp, lòng yêu nghề và niềm tin với học trò." data-title="Giáo viên tiêu biểu" src="images/gv1.jpg"/>
+<img alt="Chân dung giáo viên tiêu biểu 2" data-caption="Sự chỉn chu trong giảng dạy góp phần tạo nên bản sắc chất lượng của nhà trường." data-story="Đội ngũ giáo viên là nền tảng quan trọng giúp nhà trường duy trì chất lượng và đổi mới phương pháp. Chân dung này đại diện cho tinh thần nhiệt huyết, năng động và sẵn sàng ứng dụng công nghệ vào dạy học." data-title="Người giữ lửa chuyên môn" src="images/gv2.jpg"/>
+<img alt="Chân dung giáo viên tiêu biểu 3" data-caption="Sự gần gũi và chuyên môn vững vàng tạo nên niềm tin nơi học sinh và phụ huynh." data-story="Không chỉ truyền đạt kiến thức, thầy cô còn là người định hướng, khích lệ và đồng hành cùng học sinh trên hành trình trưởng thành. Hình ảnh này góp phần làm nổi bật tinh thần nhân văn trong môi trường giáo dục của trường." data-title="Thầy cô đồng hành cùng học sinh" src="images/gv3.jpg"/>
+</div></article>
+<article class="school-teachers-panel">
+<div class="school-section-head">
+<div>
+<span class="school-badge soft">🌟 Đội ngũ tiêu biểu</span>
+<h3>Giáo viên tiêu biểu</h3>
+</div>
+<p>Những gương mặt nổi bật góp phần tạo nên chất lượng học tập và hình ảnh của nhà trường.</p>
+</div>
+<div class="school-teacher-list">
+<article class="school-teacher-card teacher-amber">
+<div class="school-teacher-thumb-wrap">
+<img alt="Lê Thị Hồng Hạnh" class="school-teacher-thumb" src="images/gv1.jpg"/>
+<span class="teacher-order">01</span>
+</div>
+<div class="school-teacher-body">
+<h4>Lê Thị Hồng Hạnh</h4>
+<p class="teacher-role">⚛️ Giáo viên Vật lí</p>
+<p>Giáo viên Vật lí tận tâm, chuyên môn vững vàng, luôn đổi mới phương pháp giảng dạy giúp học sinh hiểu sâu và yêu thích môn học.</p>
+<a class="teacher-link" href="gv/gv1.html">🔍 Xem chi tiết</a>
+</div>
+</article>
+<article class="school-teacher-card teacher-blue">
+<div class="school-teacher-thumb-wrap">
+<img alt="Huỳnh Thị Thanh Hương" class="school-teacher-thumb" src="images/gv2.jpg"/>
+<span class="teacher-order">02</span>
+</div>
+<div class="school-teacher-body">
+<h4>Huỳnh Thị Thanh Hương</h4>
+<p class="teacher-role">💻 Giáo viên Tin học</p>
+<p>Cô có chuyên môn cao, chú trọng rèn luyện tư duy logic, kỹ năng sử dụng máy tính và khả năng ứng dụng công nghệ vào học tập.</p>
+<a class="teacher-link" href="gv/gv2.html">🔍 Xem chi tiết</a>
+</div>
+</article>
+<article class="school-teacher-card teacher-green">
+<div class="school-teacher-thumb-wrap">
+<img alt="Nguyễn Văn Danh" class="school-teacher-thumb" src="images/gv3.jpg"/>
+<span class="teacher-order">03</span>
+</div>
+<div class="school-teacher-body">
+<h4>Nguyễn Văn Danh</h4>
+<p class="teacher-role">📐 Giáo viên Toán học</p>
+<p>Thầy có chuyên môn vững vàng, tinh thần trách nhiệm cao và luôn chú trọng phát triển tư duy phân tích, giải quyết vấn đề cho học sinh.</p>
+<a class="teacher-link" href="gv/gv3.html">🔍 Xem chi tiết</a>
+</div>
+</article>
+</div>
+</article>
+</div>
+</section>
+<section class="page home-dashboard-page" id="tong-quan" style="width: 100%;"><div class="home-dashboard-shell">
+<div class="home-dashboard-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; width: 100%;">
+<div>
+<h2 style="margin: 0; font-size: 2rem; color: #2d3436;">Tổng quan Lớp 12A1</h2>
+<p style="color:#636e72;">Chào mừng bạn đến với hệ thống quản lý lớp học rực rỡ!</p>
+</div>
+<span class="badge dashboard-status-badge" style="background: var(--grad-danger); color: white; padding: 10px 20px;">Trạng thái: Học sinh</span>
+</div>
+<div class="cards home-dashboard-stats" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px;">
+<div class="card primary">
+<h3>Tổng số học sinh</h3>
+<div class="value">43</div>
+<small>↑ 4.4% so với năm trước</small>
+</div>
+<div class="card success">
+<h3 style="color: #2bcbba">Điểm trung bình</h3>
+<div class="value">8.4</div>
+<small style="color: #2bcbba">↑ Tuyệt vời!</small>
+</div>
+<div class="card warning">
+<h3 style="color: #f7b731">Học sinh giỏi</h3>
+<div class="value">33</div>
+<small style="color: #f7b731">76.7% của lớp</small>
+</div>
+</div>
+<div class="home-dashboard-split" style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-bottom: 20px;">
+<div class="card">
+<h3>Thời Khóa Biểu - Thứ 2</h3>
+<div class="schedule-grid">
+<div class="schedule-item sc-cc"><span>Chào Cờ</span> <span>07:00</span></div>
+<div class="schedule-item sc-hdtn"><span>HĐTN HN</span> <span>07:45</span></div>
+<div class="schedule-item sc-sinh"><span>Sinh Học</span> <span>08:45</span></div>
+<div class="schedule-item sc-li"><span>Vật Lí</span> <span>09:30</span></div>
+<div class="schedule-item sc-tin"><span>Tin Học</span> <span>10:20</span></div>
+</div>
+<button class="btn-primary" onclick="showPage('thoi-khoa-bieu')" style="margin-top: 20px; width: 100%; cursor: pointer; border: none; border-radius: 8px; padding: 10px; background: #6366f1; color: white;">
+				Xem toàn bộ tuần
+			</button>
+</div>
+<div class="card">
+<h3>Thông báo mới</h3>
+<div style="margin-top: 15px;">
+<p><strong>📌 Nghỉ Phép</strong></p>
+<hr style="border: 0; border-top: 1px solid #eee;"/>
+<p style="color: #ff7675;"><strong>⚠️ Thông Báo:</strong> Bạn Bảo Lâm vắng, lý do nhập viện.</p>
+</div>
+</div>
+</div>
+<div class="content-bottom home-dashboard-bottom" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%;">
+<div class="card" style="margin: 0; width: 100%;">
+<h3 style="margin-bottom: 15px;">Biến động nhân sự</h3>
+<div class="list-item" style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+<span>Huỳnh Khánh Việt</span> <span class="badge" style="background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 6px; font-size: 12px;">Chuyển đến</span>
+</div>
+<div class="list-item" style="padding: 12px 0; display: flex; justify-content: space-between; align-items: center;">
+<span>Đoàn Thị Bích Châu</span> <span style="background: #fee2e2; color: #b91c1c; padding: 4px 12px; border-radius: 6px; font-size: 12px;">Chuyển trường</span>
+</div>
+</div>
+<div class="card" style="margin: 0; width: 100%;">
+<h3 style="margin-bottom: 15px;">Lịch trực tuần</h3>
+<div style="display: flex; flex-direction: column; gap: 10px;">
+<div class="schedule CC" style="background: #f8fafc; padding: 10px; border-radius: 8px; border-left: 4px solid #6366f1;">Tổ 1: Vệ sinh lớp học</div>
+<div class="schedule Toan" style="background: #f8fafc; padding: 10px; border-radius: 8px; border-left: 4px solid #10b981;">Tổ 2: Tưới cây hành lang</div>
+<div class="schedule Van" style="background: #f8fafc; padding: 10px; border-radius: 8px; border-left: 4px solid #f59e0b;">Tổ 3: Sắp xếp bàn ghế</div>
+</div>
+</div>
+</div>
+<section class="home-class-community">
+<div class="home-section-heading class-community-head">
+<div>
+<span class="school-badge soft">🏫 Giới thiệu lớp học</span>
+<h3>Ban giám hiệu, giáo viên và tập thể 12A1</h3>
+</div>
+<a class="teacher-link class-community-cta" href="#" onclick="showPage('hoc-sinh'); return false;">👥 Mở quản lý học sinh</a>
+</div>
+<div class="class-community-summary">
+<div class="community-summary-card"><span>Ban giám hiệu</span><strong>03</strong><small>Hiệu trưởng • 02 Phó hiệu trưởng</small></div>
+<div class="community-summary-card"><span>Giáo viên chủ nhiệm</span><strong>01</strong><small>Đồng hành cùng 12A1</small></div>
+<div class="community-summary-card"><span>Giáo viên bộ môn</span><strong>10</strong><small>Được trình bày theo nhóm môn học</small></div>
+<div class="community-summary-card"><span>Thành viên lớp</span><strong>43</strong><small>Đồng bộ từ danh sách học sinh</small></div>
+</div>
+<div class="community-block">
+<div class="community-block-head">
+<span class="school-badge warn">👔 Ban giám hiệu</span>
+<h4>Ban Giám Hiệu</h4>
+</div>
+<div class="community-card-grid community-card-grid-feature" id="leadershipCards"></div>
+</div>
+<div class="community-block community-block-homeroom">
+<div class="community-block-head community-block-head-inline">
+<div>
+<span class="school-badge success">🌟 Giáo viên chủ nhiệm</span>
+<h4>Giáo viên chủ nhiệm</h4>
+</div>
+<p class="class-community-note">Khu vực này được mở rộng toàn chiều ngang để hiển thị rõ vai trò đồng hành, định hướng và kết nối phụ huynh của giáo viên chủ nhiệm.</p>
+</div>
+<div class="community-card-grid community-card-grid-homeroom" id="homeroomCards"></div>
+</div>
+<div class="community-block community-block-subject">
+<div class="community-block-head">
+<span class="school-badge soft">📚 Giáo viên bộ môn</span>
+<h4>Giáo viên bộ môn</h4>
+</div>
+<div class="community-card-grid community-card-grid-subject" id="subjectTeacherCards"></div>
+</div>
+<div class="community-block">
+<div class="community-block-head community-block-head-inline">
+<div>
+<span class="school-badge soft">👥 Thành viên lớp</span>
+<h4>43 thẻ nhỏ giới thiệu thành viên 12A1</h4>
+</div>
+<p class="class-community-note">Tên, vai trò, ngày sinh và trạng thái học sinh được lấy từ bảng Quản lý học sinh để bạn không phải nhập lại thủ công.</p>
+</div>
+<div class="student-mini-grid" id="studentCommunityGrid"></div>
+</div>
+</section></div></section>
+<section class="page" id="hoc-sinh" style="width: 100%;">
+<div class="toolbar">
+<div>
+<h2 style="margin:0">👥 Danh sách Lớp 12A1</h2>
+<small>Sĩ số: 43 học sinh | 42 hiện diện</small>
+</div>
+<input class="search" onkeyup="filterStudents(this)" placeholder="🔍 Tìm tên học sinh..."/>
+</div>
+<div class="table-container">
+<table class="data-table">
+<thead>
+<tr>
+<th width="50">STT</th>
+<th>Họ và Tên</th>
+<th>Ngày sinh</th>
+<th>Giới tính</th>
+<th>Chức vụ</th>
+<th>Trạng thái</th>
+<th style="text-align:right">Thao tác</th>
+</tr>
+</thead>
+<tbody id="student-list">
+<tr><td><span class="stt-circle">01</span></td><td><strong>Nguyễn Quỳnh An</strong></td><td>05/04/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">02</span></td><td><strong>Đỗ Thị Kim Anh</strong></td><td>24/01/2008</td><td><span class="gender-nu">Nữ</span></td><td>Lớp Trưởng</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">03</span></td><td><strong>Kiều Tuấn Kiệt Anh</strong></td><td>26/01/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">04</span></td><td><strong>Nguyễn Hà Châu Anh</strong></td><td>30/06/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">05</span></td><td><strong>Nguyễn Ngọc Ánh</strong></td><td>08/11/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">06</span></td><td><strong>Nguyễn Đức Duy</strong></td><td>04/02/2008</td><td><span class="gender-nam">Nam</span></td><td>Ủy viên</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">07</span></td><td><strong>Đặng Bá Đạt</strong></td><td>10/08/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">08</span></td><td><strong>Đỗ Tiến Đạt</strong></td><td>23/04/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">09</span></td><td><strong>Nguyễn Đình Gia Huy</strong></td><td>10/10/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">10</span></td><td><strong>H'Kathy Niê</strong></td><td>22/03/2008</td><td><span class="gender-nu">Nữ</span></td><td>Phó Bí Thư</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">11</span></td><td><strong>Vĩnh Bảo Hoàng Kha</strong></td><td>01/01/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">12</span></td><td><strong>Phạm Thị Vân Khánh</strong></td><td>26/01/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">13</span></td><td><strong>Nguyễn Đăng Khoa</strong></td><td>28/10/2008</td><td><span class="gender-nam">Nam</span></td><td>Lớp Phó Lao Động</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">14</span></td><td><strong>Nguyễn Đình Khoa</strong></td><td>29/12/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">15</span></td><td><strong>Phan Bảo Lâm</strong></td><td>26/11/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="nonbadge">Vắng học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">16</span></td><td><strong>Nguyễn Hoàng My</strong></td><td>18/09/2008</td><td><span class="gender-nu">Nữ</span></td><td>Lớp Phó Học Tập</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">17</span></td><td><strong>Lê Nguyễn Hạo Nam</strong></td><td>04/04/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">18</span></td><td><strong>Nguyễn Hoàng Kim Ngân</strong></td><td>25/04/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">19</span></td><td><strong>Lê Quang Nhật</strong></td><td>04/01/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">20</span></td><td><strong>Đặng Thị Yến Nhi</strong></td><td>10/09/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">21</span></td><td><strong>Lê Ngọc Bảo Nhi</strong></td><td>31/01/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">22</span></td><td><strong>Nguyễn Thị Kiều Oanh</strong></td><td>26/10/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">23</span></td><td><strong>Phan Lê Hồng Oanh</strong></td><td>13/07/2008</td><td><span class="gender-nu">Nữ</span></td><td>Bí Thư</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">24</span></td><td><strong>Nguyễn Thế Phát</strong></td><td>26/02/2008</td><td><span class="gender-nam">Nam</span></td><td>Tổ Trưởng Tổ 1</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">25</span></td><td><strong>Nguyễn Cao Phong</strong></td><td>11/11/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">26</span></td><td><strong>Huỳnh Ngọc Phúc</strong></td><td>20/06/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">27</span></td><td><strong>Lê Thị Thảo Phương</strong></td><td>23/12/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">28</span></td><td><strong>Đào Hữu Phước</strong></td><td>19/04/2008</td><td><span class="gender-nam">Nam</span></td><td>Tổ Trưởng Tổ 4</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">29</span></td><td><strong>Nguyễn Xuân Quang</strong></td><td>05/11/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">30</span></td><td><strong>Lê Đình Anh Quân</strong></td><td>19/10/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">31</span></td><td><strong>Thái Anh Quân</strong></td><td>28/10/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">32</span></td><td><strong>Nguyễn Quốc</strong></td><td>25/01/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">33</span></td><td><strong>Vũ Mai Thảo</strong></td><td>27/09/2008</td><td><span class="gender-nu">Nữ</span></td><td>Tổ Trưởng Tổ 2</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">34</span></td><td><strong>Chung Chí Thiện</strong></td><td>09/04/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">35</span></td><td><strong>Trương Văn Thịnh</strong></td><td>15/06/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">36</span></td><td><strong>Phạm Thị Hồng Thu</strong></td><td>28/09/2008</td><td><span class="gender-nu">Nữ</span></td><td>Tổ Trưởng Tổ 3</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">37</span></td><td><strong>Trương Thị Anh Thư</strong></td><td>21/04/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">38</span></td><td><strong>Võ Ngọc Minh Thư</strong></td><td>24/06/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">39</span></td><td><strong>Vũ Thị Anh Thư</strong></td><td>05/04/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">40</span></td><td><strong>Đỗ Trọng Tín</strong></td><td>20/06/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">41</span></td><td><strong>Bùi Thị Thùy Vân</strong></td><td>21/01/2008</td><td><span class="gender-nu">Nữ</span></td><td>Lớp Phó Văn Nghệ</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">42</span></td><td><strong>Huỳnh Khánh Việt</strong></td><td>20/10/2008</td><td><span class="gender-nam">Nam</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+<tr><td><span class="stt-circle">43</span></td><td><strong>Hoàng Thị Thanh Vân</strong></td><td>08/09/2008</td><td><span class="gender-nu">Nữ</span></td><td>Học sinh</td><td><span class="badge">Đang học</span></td><td style="text-align:right">✏️</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="page" id="thoi-khoa-bieu">
+<h2 style="margin-top: 0; color: #1e293b; border-left: 5px solid #3b82f6; padding-left: 15px;">Thời khóa biểu</h2>
+<p style="color:var(--muted); margin-bottom: 20px;">Nhập tên môn học vào các ô bên dưới để tự động phân loại màu.</p>
+<div class="card" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
+<div class="table-container">
+<table class="data-table tkb-table">
+<thead>
+<tr style="background: #f8fafc;">
+<th style="padding: 12px;" width="80">Tiết</th>
+<th>Thứ 2</th>
+<th>Thứ 3</th>
+<th>Thứ 4</th>
+<th>Thứ 5</th>
+<th>Thứ 6</th>
+<th>Thứ 7</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="tkb-header" colspan="7" style="background:#eff6ff; color: #1d4ed8; padding: 10px;">☀️ BUỔI SÁNG</td></tr>
+<tr>
+<td style="text-align:center; font-weight:bold; background: #f8fafc;">1</td>
+<td><input class="tkb-input" type="text" value="TNHNDC"/></td>
+<td><input class="tkb-input" type="text" value="Sinh học"/></td>
+<td><input class="tkb-input" type="text" value="Vật lí"/></td>
+<td><input class="tkb-input" type="text" value="Hóa học"/></td>
+<td><input class="tkb-input" type="text" value="Vật lí"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+</tr>
+<tr>
+<td style="text-align:center; font-weight:bold; background: #f8fafc;">2</td>
+<td><input class="tkb-input" type="text" value="HĐ TNHN(CN)"/></td>
+<td><input class="tkb-input" type="text" value="Lịch sử"/></td>
+<td><input class="tkb-input" type="text" value="Toán"/></td>
+<td><input class="tkb-input" type="text" value="Hóa học"/></td>
+<td><input class="tkb-input" type="text" value="Văn học"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+</tr>
+<tr>
+<td style="text-align:center; font-weight:bold; background: #f8fafc;">3</td>
+<td><input class="tkb-input" type="text" value="Sinh học"/></td>
+<td><input class="tkb-input" type="text" value="Văn học"/></td>
+<td><input class="tkb-input" type="text" value="Văn học"/></td>
+<td><input class="tkb-input" type="text" value="Toán"/></td>
+<td><input class="tkb-input" type="text" value="Toán"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+</tr>
+<tr>
+<td style="text-align:center; font-weight:bold; background: #f8fafc;">4</td>
+<td><input class="tkb-input" type="text" value="Vật lí"/></td>
+<td><input class="tkb-input" type="text" value="Ngoại ngữ"/></td>
+<td><input class="tkb-input" type="text" value="Ngoại ngữ"/></td>
+<td><input class="tkb-input" type="text" value="Toán"/></td>
+<td><input class="tkb-input" type="text" value="Ngoại ngữ"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+</tr>
+<tr>
+<td style="text-align:center; font-weight:bold; background: #f8fafc;">5</td>
+<td><input class="tkb-input" type="text" value="Tin học"/></td>
+<td><input class="tkb-input" type="text" value="Ngoại ngữ"/></td>
+<td><input class="tkb-input" type="text" value="Hóa học"/></td>
+<td><input class="tkb-input" type="text" value="Tin học"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+</tr>
+<tr><td class="tkb-header" colspan="7" style="background:#fff7ed; color: #c2410c; padding: 10px;">🌙 BUỔI CHIỀU</td></tr>
+<tr>
+<td style="text-align:center; font-weight:bold; background: #f8fafc;">2</td>
+<td><input class="tkb-input" type="text" value="GDTC"/></td>
+<td><input class="tkb-input" type="text" value="GDTC"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+</tr>
+<tr>
+<td style="text-align:center; font-weight:bold; background: #f8fafc;">3</td>
+<td><input class="tkb-input" type="text" value="Hoạt động TNHN"/></td>
+<td><input class="tkb-input" type="text" value="GDQPAN"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+<td><input class="tkb-input" placeholder="..." type="text"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="margin-top: 20px; text-align: right;">
+<button class="btn btn-primary" style="padding: 10px 25px; border-radius: 6px; cursor: pointer; background: #3b82f6; color: white; border: none; font-weight: 600;">Lưu thời khóa biểu</button>
+</div>
+</div>
+</section>
+<section class="page" id="thong-bao" style="width: 100%;">
+<div style="margin-bottom: 40px; text-align: center;">
+<h2 style="margin:0; font-size: 32px; color: #1e293b; font-weight: 800;">📢 Bảng Tin Lớp Học</h2>
+<p style="color:#64748b; margin-top:10px; font-size: 16px;">Nơi cập nhật thông tin quan trọng dành riêng cho chiến thần 12A1</p>
+</div>
+<div class="timeline-container">
+<div style="position: relative;">
+<div class="timeline-dot" style="background: #f59e0b; box-shadow: 0 0 10px #f59e0b;"></div>
+<article class="card" style="padding: 0; overflow: hidden; border: none; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15);">
+<div style="background: linear-gradient(135deg, #f59e0b, #ea580c); padding: 25px 35px; color: white; display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center; gap: 20px;">
+<span style="font-size: 45px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));">🧧</span>
+<div>
+<h3 style="margin: 0; color: white; font-size: 22px; letter-spacing: -0.5px;">THÔNG BÁO NGHỈ TẾT NGUYÊN ĐÁN 2026</h3>
+<small style="opacity: 0.9; font-size: 13px;">Đăng bởi: <b>Cô Lê Thị Hồng Hạnh</b> • 10:45</small>
+</div>
+</div>
+<span class="status-pill" style="background: white; color: #ea580c; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">🔥 QUAN TRỌNG</span>
+</div>
+<div style="padding: 35px; line-height: 1.8; color: #334155; font-size: 16px; background: white;">
+<p>Chào quý Phụ huynh và các em học sinh thân mến,</p>
+<p>Nhà trường xin thông báo lịch nghỉ <b>Tết Nguyên Đán Bính Ngọ 2026</b> chính thức:</p>
+<div style="background: #fffaf0; border-radius: 15px; padding: 25px; border-left: 6px solid #f59e0b; margin: 25px 0; box-shadow: inset 0 0 20px rgba(245,158,11,0.05);">
+<p style="margin: 8px 0; font-size: 17px;">📅 <b>Thời gian nghỉ:</b> 14/02/2026 (27 Tết) → 22/02/2026 (Mùng 5 Tết)</p>
+<p style="margin: 8px 0; font-size: 17px;">🏫 <b>Học lại vào:</b> <span style="color: #ea580c; font-weight: 800;">Thứ Hai, 23/02/2026</span></p>
+</div>
+<p style="color: #64748b; font-style: italic;">🌸 Chúc gia đình các em một năm mới An Khang Thịnh Vượng!</p>
+<hr style="border: 0; border-top: 1px solid #f1f5f9; margin: 30px 0;"/>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div class="settings-color-row" style="display: flex; gap: 12px;">
+<button class="btn-action" style="background: #f8fafc; color: #475569;">👍 43</button>
+<button class="btn-action" style="background: #f8fafc; color: #475569;">💬 5 Phản hồi</button>
+</div>
+<a class="btn-action" download="" href="images/thong-bao-tet-nguyen-dan-2026.jpg" style="
+                            background:#6366f1;
+                            color:white;
+                            padding:10px 18px;
+                            border-radius:12px;
+                            font-weight:700;
+                            text-decoration:none;
+                            display:inline-block;
+                        ">
+                        📥 Tải Thông Báo (JPG)
+                        </a>
+</div>
+</div>
+</article>
+</div>
+<div style="position: relative;">
+<div class="timeline-dot"></div>
+<article class="card" style="padding: 25px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+<div style="background: #eef2ff; padding: 18px; border-radius: 15px; color: #6366f1; font-weight: 800; text-align: center; min-width: 80px; box-shadow: 0 4px 10px rgba(99,102,241,0.1);">
+<div style="font-size: 24px;">01</div>
+<div style="font-size: 11px; text-transform: uppercase;">Tháng 3</div>
+</div>
+<div style="flex: 1;">
+<span class="status-pill" style="background: #dcfce7; color: #166534;">✏️ Học tập</span>
+<h3 style="margin: 12px 0 8px 0; color: #1e293b; font-size: 19px;">Lịch thi giữa kỳ 2 &amp; Danh sách phòng thi</h3>
+<p style="color: #64748b; font-size: 14px; margin-bottom: 15px;">Các em kiểm tra số báo danh và phòng thi trên bảng tin văn phòng Đoàn trường hoặc tải file đính kèm...</p>
+<a class="btn-action" data-disabled="true" href="#" style="
+                            background:#6366f1;
+                            color:white;
+                            padding:10px 18px;
+                            border-radius:12px;
+                            font-weight:700;
+                            text-decoration:none;
+                            display:inline-block;
+                        ">
+                        📥 Xem chi tiết ( chưa có )
+                        </a>
+</div>
+</article>
+</div>
+<div style="position: relative;">
+<div class="timeline-dot"></div>
+<article class="card" style="padding: 25px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+<div style="background: #fdf2f8; padding: 18px; border-radius: 15px; color: #db2777; font-weight: 800; text-align: center; min-width: 80px; box-shadow: 0 4px 10px rgba(219,39,119,0.1);">
+<div style="font-size: 24px;">25</div>
+<div style="font-size: 11px; text-transform: uppercase;">Tháng 2</div>
+</div>
+<div style="flex: 1;">
+<span class="status-pill" style="background: #f3e8ff; color: #7e22ce;">🎭 Ngoại khóa</span>
+<h3 style="margin: 12px 0 8px 0; color: #1e293b; font-size: 19px;">Ngày hội văn hóa "Xuân gắn kết 2026"</h3>
+<p style="color: #64748b; font-size: 14px; margin-bottom: 15px;">Toàn thể học sinh tham gia hội trại xuân. Lưu ý trang phục áo lớp và chuẩn bị tiết mục văn nghệ...</p>
+<a class="btn-action" data-disabled="true" href="#" style="
+                            background:#6366f1;
+                            color:white;
+                            padding:10px 18px;
+                            border-radius:12px;
+                            font-weight:700;
+                            text-decoration:none;
+                            display:inline-block;
+                        ">
+                        📥 Xem chi tiết ( chưa có )
+                        </a>
+</div>
+</article>
+</div>
+</div>
+<div style="height: 60px;"></div>
+</section>
+<section class="page utility-stretch-page docs-page" id="tai-lieu" style="width: 100%;"><div class="docs-shell">
+<div class="docs-page-head" style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+<div>
+<h2 style=" margin:0; font-size: 28px; display: inline-block; background: linear-gradient(90deg, #1e293b, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Thư Viện Tài Liệu </h2> <p style="color:#64748b; font-size:14px; margin-top:5px;">Hệ thống lưu trữ học tập thông minh cho lớp 12A1</p>
+</div>
+<div style="display: flex; gap: 12px;">
+<button class="btn-download docs-head-btn" style="background: white;">☁️ Drive</button>
+<button class="btn docs-head-btn" style="background: #6366f1; color:white; border:none; padding:10px 20px; border-radius:12px; cursor:pointer; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">➕ Tải tài liệu lên</button>
+</div>
+</div><div class="docs-toolbar">
+<div class="docs-search-wrap">
+<input class="search docs-search-input" id="documentSearch" placeholder="Tìm nhanh tài liệu, môn học, định dạng hoặc tên tệp..." type="text"/>
+</div>
+<div class="docs-filter-row">
+<button class="doc-filter-chip active" data-filter="all" type="button">Tất cả</button>
+<button class="doc-filter-chip" data-filter="folders" type="button">Thư mục</button>
+<button class="doc-filter-chip" data-filter="pdf" type="button">PDF</button>
+<button class="doc-filter-chip" data-filter="docx" type="button">DOCX</button>
+<button class="doc-filter-chip" data-filter="zip" type="button">ZIP</button>
+</div>
+<div class="docs-toolbar-meta" id="documentResultSummary">Đang hiển thị toàn bộ thư mục và tài liệu.</div>
+</div><div class="docs-content"><div class="grid-4 docs-folder-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;">
+<a class="doc-folder-link" href="tailieu/mon-toan/[NTP] Bộ 14 đề trường sở tốt nghiệp 2026.zip" style="text-decoration:none;">
+<div class="folder-card" style="--folder-color:#3b82f6; cursor:pointer;">
+<div class="folder-icon">📂</div>
+<strong style="display:block; font-size:16px; color:#0f172a;">
+              Môn Toán
+           </strong>
+<small style="color:#94a3b8;">
+             14 tài liệu • 67,958KB
+          </small>
+</div>
+</a>
+<a class="doc-folder-link" href="tailieu/mon-van/[NTP] Bộ 3 đề trường sở tốt nghiệp 2026.zip" style="text-decoration:none;">
+<div class="folder-card" style="--folder-color: #ef4444;">
+<div class="folder-icon">📂</div>
+<strong style="display:block; font-size: 16px;">Ngữ Văn</strong>
+<small style="color: #94a3b8;">3 tài liệu • 2,101KB</small>
+</div>
+</a>
+<a class="doc-folder-link" href="tailieu/mon-anh/[NTP] Bộ 25 đề trường sở tốt nghiệp 2026.zip" style="text-decoration:none;">
+<div class="folder-card" style="--folder-color: #10b981;">
+<div class="folder-icon">📂</div>
+<strong style="display:block; font-size: 16px;">Tiếng Anh</strong>
+<small style="color: #94a3b8;">25 tài liệu • 19,720KB</small>
+</div>
+</a>
+<a class="doc-folder-link" href="#" onclick="showPage('dinh-huong-nghe-nghiep'); return false;" style="text-decoration:none;">
+<div class="folder-card career-folder-card" style="--folder-color: #7c3aed;">
+<div class="folder-icon">🧭</div>
+<strong style="display:block; font-size: 16px;">Định hướng nghề nghiệp</strong>
+<small style="color: #94a3b8;">Công thức điểm • Kỳ thi riêng • Tư vấn trường</small>
+</div>
+</a>
+</div><div class="docs-library-panel" style="background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+<h3 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 18px;">
+<span style="background: #eef2ff; padding: 8px; border-radius: 10px;">📄</span> Tài liệu mới cập nhật
+        </h3>
+<table class="doc-table">
+<thead>
+<tr style="color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+<th style="text-align: left; padding: 10px 15px;">Tên tài liệu</th>
+<th style="text-align: left; padding: 10px 15px;">Định dạng</th>
+<th style="text-align: left; padding: 10px 15px;">Dung lượng</th>
+<th style="text-align: left; padding: 10px 15px;">Video bài giảng</th><th style="text-align: right; padding: 10px 15px;">Hành động</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-file-row">
+<td>
+<div style="display:flex; align-items: center; gap: 12px;">
+<div style="width: 40px; height: 40px; background: #fee2e2; border-radius: 10px; display: flex; align-items: center; justify-content: center;">📕</div>
+<div>
+<div style="font-weight: 600; color: #1e293b;">Đề cương Toán Chương 3</div>
+<div style="font-size: 12px; color: #94a3b8;">Đăng bởi Thầy Danh • 2 giờ trước</div>
+</div>
+</div>
+</td>
+<td><span class="file-type" style="background:#fee2e2; color:#b91c1c;">PDF</span></td>
+<td style="color: #64748b; font-size: 14px;">2.4 MB</td>
+<td class="doc-video-cell"><div class="doc-video-slot"><span class="doc-video-slot-title">🎥 Video bài giảng</span><small>Chỗ gắn video cho Đề cương Toán Chương 3</small></div></td><td style="text-align: right;">
+<a download="" href="tailieu/tai-lieu-moi/NguyenHam-TichPhan.pdf" style="text-decoration:none;">
+<button class="btn-download">📥 Tải về</button>
+</a>
+</td>
+</tr>
+<tr class="doc-file-row">
+<td>
+<div style="display:flex; align-items: center; gap: 12px;">
+<div style="width: 40px; height: 40px; background: #e0f2fe; border-radius: 10px; display: flex; align-items: center; justify-content: center;">📘</div>
+<div>
+<div style="font-weight: 600; color: #1e293b;">100 Câu trắc nghiệm Anh Văn</div>
+<div style="font-size: 12px; color: #94a3b8;">Đăng bởi Hệ thống • Hôm qua</div>
+</div>
+</div>
+</td>
+<td><span class="file-type" style="background:#e0f2fe; color:#0369a1;">DOCX</span></td>
+<td style="color: #64748b; font-size: 14px;">6.1 MB</td>
+<td class="doc-video-cell"><div class="doc-video-slot"><span class="doc-video-slot-title">🎥 Video bài giảng</span><small>Chỗ gắn video cho 100 Câu trắc nghiệm Anh Văn</small></div></td><td style="text-align: right;"><button class="btn-download">📥 Tải về ( sắp có )</button></td>
+</tr>
+</tbody>
+</table>
+</div></div><div class="docs-empty-state" hidden="" id="documentEmptyState">Không tìm thấy tài liệu phù hợp với bộ lọc hiện tại.</div>
+</div></section>
+
+<section class="page utility-stretch-page career-page" id="dinh-huong-nghe-nghiep" style="width: 100%;">
+<div class="career-shell">
+<header class="career-hero">
+<div class="career-hero-copy">
+<span class="school-badge soft">🧭 Định hướng nghề nghiệp</span>
+<h2>La bàn chọn ngành – chọn trường cho 12A1</h2>
+<p>
+          Nơi học sinh có thể tính điểm nhanh theo dạng xét tuyển, xem các kỳ thi riêng nổi bật, định vị nhóm
+          trường thường nhận kết quả và nhận gợi ý nhóm ngành chỉ từ vài thông tin về sở thích, điểm mạnh.
+        </p>
+<div class="career-chip-row">
+<span class="school-chip">Tính điểm tự động</span>
+<span class="school-chip">HSA • V-ACT • TSA • V-SAT</span>
+<span class="school-chip">Gợi ý cá nhân hóa</span>
+</div>
+<div class="career-hero-actions">
+<button class="btn-gradient" onclick="showPage('ai-hoc-tap'); return false;" type="button">💬 Hỏi AI chọn ngành</button>
+<button class="btn-download" onclick="showPage('tai-lieu'); return false;" type="button">📁 Quay lại Tài liệu</button>
+</div>
+</div>
+<div class="career-hero-side">
+<article class="career-stat-card">
+<span>Cập nhật tham khảo</span>
+<strong>03/2026</strong>
+<small>Các trường có thể đổi công thức, đổi cách quy đổi và ngưỡng sàn theo từng mùa tuyển sinh.</small>
+</article>
+<article class="career-stat-card">
+<span>Mẹo dùng nhanh</span>
+<strong>Ước lượng trước khi nộp</strong>
+<small>Hãy tính thử nhiều kịch bản điểm để biết đâu là nhóm trường an toàn, vừa sức và bứt phá.</small>
+</article>
+</div>
+</header>
+<div class="career-overview-grid">
+<article class="career-overview-card">
+<div class="career-overview-icon">🎯</div>
+<h3>Xét điểm thi THPT</h3>
+<p>Hợp khi bạn có thế mạnh rõ ở tổ hợp 3 môn và muốn dùng thang điểm quen thuộc để so sánh.</p>
+</article>
+<article class="career-overview-card">
+<div class="career-overview-icon">📘</div>
+<h3>Xét học bạ</h3>
+<p>Phù hợp với bạn học ổn định dài hạn. Mỗi trường có thể lấy 3 kỳ, 5 kỳ hoặc 6 kỳ khác nhau.</p>
+</article>
+<article class="career-overview-card">
+<div class="career-overview-icon">🧠</div>
+<h3>Kỳ thi riêng</h3>
+<p>Tăng thêm cơ hội nếu bạn muốn mở rộng lựa chọn ngoài điểm thi tốt nghiệp THPT.</p>
+</article>
+<article class="career-overview-card">
+<div class="career-overview-icon">🌐</div>
+<h3>Xét kết hợp</h3>
+<p>Nhiều trường cộng hoặc quy đổi thêm học lực, chứng chỉ quốc tế, giải thưởng và tiêu chí phụ.</p>
+</article>
+</div>
+<section class="career-section-card career-team-section">
+<div class="career-section-head">
+<div>
+<span class="school-badge soft">🚀 Nhóm làm web 12A1</span>
+<h3>Đội lập trình web</h3>
+</div>
+<p>Mỗi thẻ có sẵn khu vực ảnh, tuổi, đại học tương lai, ngành mong muốn, vai trò và phần giới thiệu ngắn để bạn thay nội dung theo nhóm của mình.</p>
+</div>
+<div class="career-team-grid" id="careerTeamGrid"></div>
+</section>
+<section class="career-section-card career-calculator-section">
+<div class="career-section-head">
+<div>
+<span class="school-badge warn">🧮 Tính điểm tự động</span>
+<h3>Chọn dạng xét tuyển và nhập điểm</h3>
+</div>
+<p>Học sinh không cần tự dò công thức nữa. Chỉ cần chọn dạng xét tuyển, nhập điểm 3 môn và điểm ưu tiên để hệ thống tính ngay.</p>
+</div>
+<div class="career-calculator-layout">
+<form class="career-tool-card career-form-shell" id="careerCalcForm" onsubmit="event.preventDefault(); calculateCareerScore();">
+<div class="career-form-grid">
+<label class="career-field">
+<span>Dạng xét tuyển</span>
+<select class="input-field" id="careerCalcType">
+<option value="thpt-standard">Thi THPT • 3 môn</option>
+<option value="thpt-weighted">Thi THPT • có 1 môn nhân hệ số</option>
+<option value="hoc-ba">Học bạ • 3 môn</option>
+</select>
+</label>
+<label class="career-field">
+<span>Tổ hợp đang tính (không bắt buộc)</span>
+<input class="input-field" id="careerCombination" placeholder="Ví dụ: A00, D01, B00" type="text"/>
+</label>
+<label class="career-field" hidden="" id="careerWeightedSubjectField">
+<span>Môn nhân hệ số</span>
+<select class="input-field" id="careerWeightedSubject">
+<option value="1">Môn 1</option>
+<option value="2">Môn 2</option>
+<option value="3">Môn 3</option>
+</select>
+</label>
+<label class="career-field">
+<span>Điểm môn 1</span>
+<input class="input-field" id="careerScore1" max="10" min="0" placeholder="0 - 10" step="0.01" type="number"/>
+</label>
+<label class="career-field">
+<span>Điểm môn 2</span>
+<input class="input-field" id="careerScore2" max="10" min="0" placeholder="0 - 10" step="0.01" type="number"/>
+</label>
+<label class="career-field">
+<span>Điểm môn 3</span>
+<input class="input-field" id="careerScore3" max="10" min="0" placeholder="0 - 10" step="0.01" type="number"/>
+</label>
+<label class="career-field">
+<span>Điểm ưu tiên</span>
+<input class="input-field" id="careerPriority" max="5" min="0" step="0.01" type="number" value="0"/>
+</label>
+</div>
+<div class="career-form-actions">
+<button class="btn-gradient" type="submit">🧮 Tính điểm ngay</button>
+<button class="btn-download" onclick="resetCareerCalculator()" type="button">↺ Nhập lại</button>
+</div>
+</form>
+<div class="career-tool-card career-result-card" id="careerCalcResult">
+<span class="career-result-kicker">Kết quả sẽ hiển thị ở đây</span>
+<h4>Nhập điểm để xem tổng điểm xét tuyển</h4>
+<p>Hệ thống sẽ tự áp dụng công thức phù hợp, hiển thị tổng điểm ước lượng và gợi ý cách chia nguyện vọng.</p>
+<div class="career-result-placeholder">
+<span>• Tự động đổi công thức theo dạng xét tuyển</span>
+<span>• Có mức tham khảo: an toàn • vừa sức • bứt phá</span>
+<span>• Lưu lại dữ liệu ngay trên trình duyệt</span>
+</div>
+</div>
+</div>
+<div class="career-calc-note-grid">
+<div class="career-mini-note"><strong>Mẹo 1</strong><span>Thử nhiều kịch bản điểm để biết biên dao động thực tế của mình.</span></div>
+<div class="career-mini-note"><strong>Mẹo 2</strong><span>Nếu bạn xét nhiều phương thức, hãy lưu lại từng lần tính để dễ so sánh.</span></div>
+<div class="career-mini-note"><strong>Mẹo 3</strong><span>Kết quả này là tham khảo nhanh, vẫn cần đối chiếu đề án của từng trường.</span></div>
+</div>
+</section>
+<section class="career-section-card">
+<div class="career-section-head">
+<div>
+<span class="school-badge success">📝 Các kỳ thi riêng nổi bật</span>
+<h3>Nên theo dõi kỳ thi nào?</h3>
+</div>
+<p>Thi càng sớm, bạn càng có thêm dữ liệu để chia nguyện vọng hợp lý và giảm áp lực cho kỳ thi tốt nghiệp THPT.</p>
+</div>
+<div class="career-exam-grid">
+<article class="career-exam-card">
+<div class="career-exam-top">
+<div>
+<span class="career-exam-name">HSA • ĐGNL ĐHQG Hà Nội</span>
+<h4>Nhiều lựa chọn xét tuyển ở miền Bắc</h4>
+</div>
+<span class="career-exam-pill">Danh sách 100 cơ sở</span>
+</div>
+<ul class="career-bullet-list">
+<li>Phù hợp nếu bạn nhắm nhóm trường ở Hà Nội và các trường đã công bố dùng kết quả HSA.</li>
+<li>Nên tra kỹ ngưỡng điểm, chỉ tiêu và thời hạn chấp nhận kết quả của từng trường.</li>
+</ul>
+<a class="teacher-link" href="https://www.hsa.edu.vn/tra-cuu/truong-dai-hoc-su-dung" rel="noopener noreferrer" target="_blank">Mở trang HSA chính thức</a>
+</article>
+<article class="career-exam-card">
+<div class="career-exam-top">
+<div>
+<span class="career-exam-name">V-ACT • ĐGNL ĐHQG-HCM</span>
+<h4>Mạnh ở phía Nam và rất hợp để mở rộng cơ hội</h4>
+</div>
+<span class="career-exam-pill">02 đợt thi năm 2026</span>
+</div>
+<ul class="career-bullet-list">
+<li>Hữu ích khi bạn muốn nộp vào nhóm trường phía Nam hoặc các trường dùng xét tuyển tích hợp.</li>
+<li>Phù hợp với bạn thích một bài thi tổng hợp thay vì phụ thuộc duy nhất vào 3 môn THPT.</li>
+</ul>
+<a class="teacher-link" href="https://tuyensinh.vnuhcm.edu.vn/" rel="noopener noreferrer" target="_blank">Mở cổng tuyển sinh ĐHQG-HCM</a>
+</article>
+<article class="career-exam-card">
+<div class="career-exam-top">
+<div>
+<span class="career-exam-name">TSA • Đánh giá tư duy Bách khoa Hà Nội</span>
+<h4>Phù hợp với nhóm ngành kỹ thuật, công nghệ, phân tích</h4>
+</div>
+<span class="career-exam-pill">03 đợt • 30 điểm thi</span>
+</div>
+<ul class="career-bullet-list">
+<li>Hợp với bạn mạnh logic, đọc hiểu và giải quyết vấn đề theo kiểu liên môn.</li>
+<li>Nên dành cho nhóm trường yêu cầu tư duy định lượng tốt, đặc biệt khối kỹ thuật – công nghệ.</li>
+</ul>
+<a class="teacher-link" href="https://ts.hust.edu.vn/b/ky-thi-danh-gia-tu-duy" rel="noopener noreferrer" target="_blank">Mở trang TSA chính thức</a>
+</article>
+<article class="career-exam-card">
+<div class="career-exam-top">
+<div>
+<span class="career-exam-name">V-SAT</span>
+<h4>Linh hoạt theo môn thi và nhu cầu từng trường</h4>
+</div>
+<span class="career-exam-pill">Thi trên máy tính</span>
+</div>
+<ul class="career-bullet-list">
+<li>Nên theo dõi nếu bạn muốn tận dụng thêm một kênh xét tuyển ngoài HSA, V-ACT hoặc TSA.</li>
+<li>Cần kiểm tra trường nào nhận kết quả, nhận theo môn nào và lịch thi tương ứng từng đơn vị.</li>
+</ul>
+<a class="teacher-link" href="https://vsat.edu.vn/" rel="noopener noreferrer" target="_blank">Mở trang V-SAT</a>
+</article>
+</div>
+</section>
+<section class="career-section-card">
+<div class="career-section-head">
+<div>
+<span class="school-badge soft">🏫 Nhóm trường thường nhận kết quả</span>
+<h3>Ví dụ để bạn định vị nhanh</h3>
+</div>
+<p>Danh sách dưới đây giúp bạn hình dung nhanh. Khi nộp hồ sơ, hãy đọc lại đề án của từng trường để tránh nhầm công thức quy đổi.</p>
+</div>
+<div class="career-match-grid">
+<article class="career-match-card">
+<div class="career-match-top">
+<span class="career-match-badge">HSA</span>
+<h4>Ví dụ trường tiêu biểu</h4>
+</div>
+<div class="career-pill-group">
+<span>UET - ĐHQGHN</span>
+<span>FTU</span>
+<span>NEU</span>
+<span>Học viện Ngân hàng</span>
+<span>PTIT</span>
+<span>HANU</span>
+</div>
+<p>Hợp với thí sinh muốn giữ nhiều lựa chọn tại Hà Nội và miền Bắc.</p>
+</article>
+<article class="career-match-card">
+<div class="career-match-top">
+<span class="career-match-badge">V-ACT</span>
+<h4>Nhóm trường nên ưu tiên tra cứu</h4>
+</div>
+<div class="career-pill-group">
+<span>HCMUT</span>
+<span>UIT</span>
+<span>UEL</span>
+<span>HCMUS</span>
+<span>IU</span>
+<span>Nhiều trường phía Nam</span>
+</div>
+<p>Phù hợp với bạn muốn xét tuyển tích hợp hoặc mở rộng hồ sơ bằng một bài thi tổng hợp.</p>
+</article>
+<article class="career-match-card">
+<div class="career-match-top">
+<span class="career-match-badge">TSA</span>
+<h4>Nhóm trường phù hợp</h4>
+</div>
+<div class="career-pill-group">
+<span>Bách khoa Hà Nội</span>
+<span>Kỹ thuật</span>
+<span>Công nghệ</span>
+<span>Kinh tế định lượng</span>
+<span>Trường ứng dụng</span>
+</div>
+<p>Nên tra cứu thêm danh sách trường nhận TSA theo mùa tuyển sinh, vì số lượng trường dùng kết quả tăng khá nhanh.</p>
+</article>
+<article class="career-match-card">
+<div class="career-match-top">
+<span class="career-match-badge">V-SAT</span>
+<h4>Ví dụ trường trên hệ thống V-SAT</h4>
+</div>
+<div class="career-pill-group">
+<span>ĐH Xây dựng Hà Nội</span>
+<span>ĐH Vinh</span>
+<span>Học viện Ngân hàng</span>
+<span>ĐH Cần Thơ</span>
+</div>
+<p>Rất nên xem kỹ tổ hợp môn và điều kiện nhận điểm của từng trường trước khi đăng ký.</p>
+</article>
+</div>
+</section>
+<div class="career-bottom-grid">
+<section class="career-section-card career-fit-section">
+<div class="career-section-head">
+<div>
+<span class="school-badge success">🧭 Gợi ý nhóm ngành</span>
+<h3>Điền 4 thông tin để nhận gợi ý</h3>
+</div>
+<p>Không cần đọc hết bảng tư vấn. Học sinh chỉ cần chọn môn mạnh, điểm mạnh, sở thích và môi trường mong muốn để nhận gợi ý nhóm ngành gần nhất.</p>
+</div>
+<div class="career-fit-layout">
+<form class="career-tool-card career-form-shell" id="careerFitForm" onsubmit="event.preventDefault(); generateCareerSuggestions();">
+<div class="career-form-grid">
+<label class="career-field">
+<span>Môn bạn tự tin nhất</span>
+<select class="input-field" id="careerFavoriteSubject">
+<option value="">Chọn một môn</option>
+<option value="toan">Toán</option>
+<option value="van">Ngữ văn</option>
+<option value="anh">Tiếng Anh</option>
+<option value="tin">Tin học</option>
+<option value="li">Vật lí</option>
+<option value="hoa">Hóa học</option>
+<option value="sinh">Sinh học</option>
+<option value="xa-hoi">Lịch sử / Địa lí / GDCD</option>
+</select>
+</label>
+<label class="career-field">
+<span>Điểm mạnh nổi bật</span>
+<select class="input-field" id="careerStrength">
+<option value="">Chọn một điểm mạnh</option>
+<option value="logic">Tư duy logic</option>
+<option value="giao-tiep">Giao tiếp tốt</option>
+<option value="sang-tao">Sáng tạo ý tưởng</option>
+<option value="can-than">Cẩn thận, tỉ mỉ</option>
+<option value="kien-tri">Kiên trì, bền bỉ</option>
+<option value="dong-cam">Biết lắng nghe, đồng cảm</option>
+</select>
+</label>
+<label class="career-field">
+<span>Sở thích nổi bật</span>
+<select class="input-field" id="careerInterest">
+<option value="">Chọn một sở thích</option>
+<option value="cong-nghe">Máy tính, công nghệ, hệ thống</option>
+<option value="kinh-doanh">Kinh doanh, tổ chức, thương mại</option>
+<option value="truyen-thong">Viết, nói, truyền thông, nội dung</option>
+<option value="suc-khoe">Nghiên cứu, chăm sóc sức khỏe</option>
+<option value="ho-tro">Dạy học, tư vấn, hỗ trợ người khác</option>
+<option value="thiet-ke">Thiết kế, hình ảnh, sáng tạo số</option>
+</select>
+</label>
+<label class="career-field">
+<span>Môi trường bạn mong muốn</span>
+<select class="input-field" id="careerEnvironment">
+<option value="">Chọn một môi trường</option>
+<option value="he-thong">Làm việc với số liệu, quy trình, hệ thống</option>
+<option value="nang-dong">Năng động, giao tiếp nhiều, thay đổi nhanh</option>
+<option value="sang-tao">Sáng tạo, nhiều ý tưởng mới</option>
+<option value="ti-mi">Ổn định, cần sự chính xác, tỉ mỉ</option>
+<option value="cong-dong">Gắn với cộng đồng, con người, hỗ trợ</option>
+</select>
+</label>
+</div>
+<div class="career-form-actions">
+<button class="btn-gradient" type="submit">✨ Xem gợi ý</button>
+<button class="btn-download" onclick="resetCareerSuggestion()" type="button">↺ Chọn lại</button>
+</div>
+</form>
+<div class="career-tool-card career-suggestion-card" id="careerSuggestionResult">
+<span class="career-result-kicker">Gợi ý cá nhân hóa</span>
+<h4>Chưa có dữ liệu để phân tích</h4>
+<p>Điền 4 thông tin bên trái để hệ thống gợi ý 3 nhóm ngành gần bạn nhất và đưa ra bước tiếp theo.</p>
+<div class="career-result-placeholder">
+<span>• Trả về top 3 nhóm ngành phù hợp</span>
+<span>• Có giải thích vì sao gợi ý</span>
+<span>• Gợi ý tiếp bước cần làm sau khi xem kết quả</span>
+</div>
+</div>
+</div>
+</section>
+<aside class="career-section-card career-checklist-card">
+<div class="career-section-head slim-head">
+<div>
+<span class="school-badge warn">✅ Checklist chốt nguyện vọng</span>
+<h3>4 bước nên làm ngay</h3>
+</div>
+</div>
+<div class="career-checklist-grid">
+<div class="career-check-item">
+<strong>1</strong>
+<div>
+<h4>Khoanh 3 nhóm ngành hợp bản thân</h4>
+<p>Dựa trên môn mạnh, sở thích, kiểu môi trường học và nghề bạn có thể theo lâu dài.</p>
+</div>
+</div>
+<div class="career-check-item">
+<strong>2</strong>
+<div>
+<h4>Lập bảng trường 3 tầng</h4>
+<p>Chia rõ nhóm mơ ước, vừa sức và an toàn để tránh dồn toàn bộ nguyện vọng vào một mức điểm.</p>
+</div>
+</div>
+<div class="career-check-item">
+<strong>3</strong>
+<div>
+<h4>Theo dõi kỳ thi riêng phù hợp</h4>
+<p>Không cần thi hết mọi kỳ. Hãy chọn những bài thi đúng với nhóm trường bạn thực sự muốn nộp.</p>
+</div>
+</div>
+<div class="career-check-item">
+<strong>4</strong>
+<div>
+<h4>Đọc đề án trước khi đăng ký</h4>
+<p>Kiểm tra chỉ tiêu, quy đổi điểm, tổ hợp, điều kiện phụ và thời gian nộp hồ sơ của từng trường.</p>
+</div>
+</div>
+</div>
+<div class="career-note-strip">
+<strong>Lưu ý quan trọng:</strong> Công thức và danh sách trường có thể thay đổi mỗi mùa tuyển sinh, nên hãy xem đề án chính thức trước khi chốt hồ sơ.
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="page utility-stretch-page map-page" id="ban-do" style="width: 100%;">
+<div class="map-shell">
+<div class="map-hero">
+<div>
+<span class="school-badge soft">🗺️ Bản đồ</span>
+<h2 style="margin: 12px 0 0 0;">Trường THPT Lê Quý Đôn - Đắk Lắk</h2>
+</div>
+<a class="btn-gradient" href="https://www.google.com/maps/search/?api=1&amp;query=Tr%C6%B0%E1%BB%9Dng%20THPT%20L%C3%AA%20Qu%C3%BD%20%C4%90%C3%B4n%20-%20%C4%90%E1%BA%AFk%20L%E1%BA%AFk" rel="noopener noreferrer" target="_blank" title="Mở trên Google Maps">Truy cập ngay</a>
+</div>
+<div class="map-frame-card">
+<iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Tr%C6%B0%E1%BB%9Dng%20THPT%20L%C3%AA%20Qu%C3%BD%20%C4%90%C3%B4n%20-%20%C4%90%E1%BA%AFk%20L%E1%BA%AFk&amp;output=embed" title="Bản đồ Trường THPT Lê Quý Đôn - Đắk Lắk"></iframe>
+</div>
+<div class="map-guides-panel">
+<div class="map-guides-head">
+<div>
+<span class="school-badge soft">🎥 Hướng dẫn dạng xem phố</span>
+<h3 style="margin: 12px 0 8px 0;">Các khung chỉ đường trực quan</h3>
+<p style="margin: 0; color: var(--muted);">Mỗi khung bên dưới là một điểm xem nhanh để dẫn từ khu vực cổng trường vào sâu bên trong. Bạn có thể bấm mở toàn màn hình để xem rõ hơn.</p>
+</div>
+</div>
+<div class="map-guide-grid" id="mapGuideGrid"></div>
+</div>
+</div>
+</section>
+<section class="page utility-stretch-page chat-page" id="tin-nhan" style="width: 100%;">
+<div class="chat-wrapper chat-shell">
+<div class="contact-list">
+<div class="contact-list-header"><h3 class="contact-list-title">Hộp thư lớp 12A1</h3></div>
+<div id="contact-list-container">
+<div class="contact-item active" onclick="switchChat('co-tin', this)">
+<div class="avatar" style="background: #ffebf0;">👩‍🏫</div>
+<div style="flex:1">
+<div style="font-weight: 600;">Cô Giáo Tin Học</div>
+<div style="font-size: 11px; color: #22c55e;">● Đang hoạt động</div>
+</div>
+</div>
+<div class="contact-item" onclick="switchChat('ph-an', this)">
+<div class="avatar" style="background: #fff9db;">👩</div>
+<div style="flex:1">
+<div style="font-weight: 600;">Phụ huynh em An</div>
+<div style="font-size: 11px; color: #94a3b8;">Xem 2 giờ trước</div>
+</div>
+</div>
+<div class="contact-item" onclick="switchChat('nhom-lop', this)">
+<div class="avatar" style="background: #e7f5ff;">🌟</div>
+<div style="flex:1">
+<div style="font-weight: 600;">Nhóm Lớp 12A1</div>
+<div style="font-size: 11px; color: #6c5ce7;">43 thành viên</div>
+</div>
+</div>
+</div>
+</div>
+<div class="chat-content">
+<div class="chat-pane active chat-thread-pane" id="co-tin">
+<div class="chat-header accent-purple">💬 Cô Giáo Tin Học</div>
+<div class="msg-area theme-purple">
+<div class="bubble received">Các em nhớ nộp bài giữa kì vào thứ 2 tuần này nhé!</div>
+<div class="bubble sent">Dạ thưa cô, em nộp rồi ạ. Cô kiểm tra giúp em với.</div>
+</div>
+</div>
+<div class="chat-pane chat-thread-pane" id="chat-ph-an">
+<div class="chat-header accent-amber">💬 Phụ huynh em An</div>
+<div class="msg-area theme-amber">
+<div class="bubble received">Chào giáo viên, An có đi học muộn không ạ?</div>
+<div class="bubble sent">Dạ hôm nay An đi học đúng giờ và rất hăng hái phát biểu ạ!</div>
+</div>
+</div>
+<div class="chat-pane chat-thread-pane" id="chat-nhom-lop">
+<div class="chat-header accent-sky">💬 Nhóm Lớp 12A1</div>
+<div class="msg-area theme-sky">
+<div class="bubble received"><b>Lớp trưởng:</b> Ai trực nhật hôm nay nhớ đổ rác nhé!</div>
+<div class="bubble received"><b>Quỳnh An:</b> Tí mình đổ luôn cho.</div>
+<div class="bubble sent">Cảm ơn An nhé!</div>
+</div>
+</div>
+<div class="chat-shortcuts">
+<span class="chat-shortcut-label">Gợi ý trả lời nhanh</span>
+<div class="chat-chip-row">
+<button class="chat-chip" data-quick-message="Dạ em đã nhận được thông báo rồi ạ." type="button">Đã nhận thông báo</button>
+<button class="chat-chip" data-quick-message="Cho em xin thêm thời gian để hoàn thành bài ạ." type="button">Xin thêm thời gian</button>
+<button class="chat-chip" data-quick-message="Em cảm ơn cô/thầy rất nhiều ạ!" type="button">Lời cảm ơn</button>
+</div>
+</div><div class="chat-inputbar">
+<input class="chat-input" placeholder="Viết tin nhắn..." type="text"/>
+<button class="chat-send" type="button">Gửi</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= AI HỌC TẬP ================= -->
+<section class="page ai-section utility-stretch-page ai-page" id="ai-hoc-tap">
+<div class="ai-hero">
+<h2>🤖 Trợ lý học tập AI 12A1</h2>
+<p>Hỏi bài tập • Giải chi tiết • Ôn thi THPTQG • Viết văn mẫu</p>
+</div>
+<div class="ai-card ai-learning-card"><div class="ai-tool-row">
+<div class="ai-suggestion-grid">
+<button class="ai-suggestion-chip" data-ai-prompt="Giải giúp mình một bài toán lớp 12 theo từng bước rõ ràng." type="button">Giải bài từng bước</button>
+<button class="ai-suggestion-chip" data-ai-prompt="Tóm tắt lý thuyết trọng tâm của bài học này trong 5 ý ngắn gọn." type="button">Tóm tắt lý thuyết</button>
+<button class="ai-suggestion-chip" data-ai-prompt="Lập dàn ý cho một bài văn nghị luận xã hội dành cho học sinh lớp 12." type="button">Lập dàn ý văn</button>
+<button class="ai-suggestion-chip" data-ai-prompt="Lập kế hoạch ôn thi 7 ngày cho học sinh lớp 12 với mục tiêu đạt điểm cao." type="button">Kế hoạch ôn thi</button>
+</div>
+<button class="btn" id="clearAiChat" type="button">Xóa hội thoại</button>
+</div>
+<div class="ai-chat-box" id="ai-chat-box"></div>
+<div class="ai-input-row">
+<input id="ai-input" onkeypress="if(event.key==='Enter') askAI()" placeholder="Nhập câu hỏi của bạn..." type="text"/>
+<button class="ai-send-btn" onclick="askAI()">
+              🚀 Gửi
+          </button>
+</div>
+</div>
+</section>
+<section class="page utility-stretch-page settings-page" id="cai-dat" style="width: 100%;">
+<h2 class="setting-header">⚙️ Cài đặt hệ thống</h2><div class="settings-shell settings-shell-single"><div class="settings-stack"><div class="settings-card-stack" style="display: flex; flex-direction: column; gap: 10px;">
+<div class="card settings-account-card">
+<h3 style="margin-top:0; color: #475569; font-size: 1.1rem;">👤 Thông tin tài khoản</h3>
+<div class="settings-account-row" style="display: flex; align-items: center; gap: 30px; margin-top: 20px;">
+<div class="profile-avatar">👨‍🏫</div>
+<div class="settings-account-grid" style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+<div class="settings-field">
+<label style="font-size: 12px; color: #94a3b8; font-weight: 700; text-transform: uppercase;">Họ và tên</label>
+<input class="input-field" style="margin-top: 5px;" value="Nguyễn Thế Phát"/>
+</div>
+<div class="settings-field">
+<label style="font-size: 12px; color: #94a3b8; font-weight: 700; text-transform: uppercase;">Email liên kết</label>
+<input class="input-field" style="margin-top: 5px;" value="phatnguyen262008@school.edu.vn"/>
+</div>
+</div>
+</div>
+<div class="settings-action-row" style="display: flex; justify-content: flex-end; margin-top: 20px;">
+<button class="btn-gradient">Lưu thay đổi</button>
+</div>
+</div>
+<div class="card settings-appearance-card">
+<h3 style="margin-top:0; color: #475569; font-size: 1.1rem;">🎨 Tùy chỉnh giao diện</h3>
+<div class="settings-preference-stack" style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
+<div class="settings-pref-row" style="display: flex; justify-content: space-between; align-items: center;">
+<div class="settings-pref-copy">
+<div style="font-weight: 600;">Chế độ ban đêm (Dark Mode)</div>
+<div style="font-size: 12px; color: #94a3b8;">Tự động điều chỉnh màu sắc để bảo vệ mắt</div>
+</div>
+<label class="switch">
+<input id="darkToggleSetting" onchange="toggleDarkMode()" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="settings-pref-row settings-pref-row-accent" style="display: flex; justify-content: space-between; align-items: center;">
+<div class="settings-pref-copy">
+<div style="font-weight: 600;">Màu chủ đạo</div>
+<div style="font-size: 12px; color: #94a3b8;">Chọn màu sắc thương hiệu cho riêng bạn</div>
+</div>
+<div class="settings-color-row" style="display: flex; gap: 12px;">
+<div class="color-dot" style="background: #991b1b;"></div>
+<div class="color-dot active" style="background: #c8102e;"></div>
+<div class="color-dot" style="background: #e11d48;"></div>
+<div class="color-dot" style="background: #ef4444;"></div>
+</div>
+</div>
+<div class="settings-pref-row settings-pref-row-language" style="display: flex; justify-content: space-between; align-items: center;">
+<div class="settings-pref-copy">
+<div style="font-weight: 600;">Ngôn ngữ</div>
+<div style="font-size: 12px; color: #94a3b8;">Lựa chọn ngôn ngữ hiển thị cho giao diện.</div>
+</div>
+<select class="input-field settings-language-select" style="width: 220px; background: #fff;">
+<option>🇻🇳 Tiếng Việt (Mặc định)</option>
+<option>🇺🇸 English (US)</option>
+</select>
+</div>
+</div>
+</div>
+<div class="card danger-zone settings-danger-card">
+<h3 style="margin-top:0; color: #dc2626; font-size: 1.1rem;">⚠️ Vùng nguy hiểm</h3>
+<p style="font-size: 13px; color: #7f8c8d;">Sau khi sao lưu, bạn có thể xóa toàn bộ dữ liệu tạm thời để giải phóng bộ nhớ.</p>
+<div class="settings-danger-actions" style="display: flex; gap: 15px; margin-top: 20px;">
+<button class="btn" onclick="logout()" type="button">Đăng xuất</button>
+<button class="btn" style="background: white; color: #475569; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer;">Tải dữ liệu lớp (.csv)</button>
+</div>
+</div>
+</div></div></div>
+</section>
+<section class="page attendance-page" id="diem-danh" style="width: 100%;">
+<div class="attendance-shell-v2">
+<div class="attendance-banner">
+<div>
+<div class="attendance-label">Khu vực thao tác điểm danh</div>
+<h2>Điểm danh lớp theo ngày</h2>
+<p>Thiết kế này giữ dữ liệu theo từng ngày và từng học sinh. Về sau bạn có thể gắn thêm quyền cho giáo viên chủ nhiệm, lớp trưởng hoặc cán sự mà không bị khóa theo kiểu một tài khoản chỉ điểm danh một lần.</p>
+</div>
+<div class="attendance-banner-side">
+<div class="mini-permission-card">
+<span>Phân quyền sau này</span>
+<strong>Giáo viên chủ nhiệm • Lớp trưởng • Cán sự</strong>
+<small>Khung này đã chừa sẵn để sau bạn nối quyền tài khoản vào.</small>
+</div>
+</div>
+</div>
+<div class="attendance-control-row">
+<div class="attendance-control-card attendance-control-card-main">
+<div class="attendance-control-head">
+<div>
+<h3>Buổi điểm danh hôm nay</h3>
+<p>Chọn ngày, người phụ trách và lưu danh sách có mặt hoặc vắng.</p>
+</div>
+<div class="attendance-actions enhanced-actions">
+<input class="input-field" id="attendanceDate" type="date"/>
+<select class="input-field" id="attendanceOwner">
+<option>Giáo viên chủ nhiệm</option>
+<option>Lớp trưởng</option>
+<option>Lớp phó học tập</option>
+<option>Cán sự lớp</option>
+</select>
+<button class="btn-gradient" onclick="loadAttendanceForDate()" type="button">Tải ngày</button>
+<button class="btn-gradient" onclick="saveAttendanceForDate()" type="button">Lưu điểm danh</button>
+</div>
+</div>
+<div class="attendance-meta enhanced-meta">
+<div class="attendance-stat"><span>Tổng học sinh</span><strong id="attTotal">0</strong></div>
+<div class="attendance-stat"><span>Có mặt</span><strong id="attPresent">0</strong></div>
+<div class="attendance-stat"><span>Vắng</span><strong id="attAbsent">0</strong></div>
+</div>
+</div>
+<div class="attendance-control-card attendance-note-card">
+<h3>Gợi ý sử dụng</h3>
+<ul>
+<li>Bấm vào tên trạng thái để chuyển nhanh có mặt hoặc vắng.</li>
+<li>Dữ liệu lưu theo ngày, không khóa cứng theo từng tài khoản.</li>
+<li>Sau này có thể nối phần đăng nhập để ai có quyền mới được lưu.</li>
+</ul>
+</div>
+</div>
+<div class="attendance-grid enhanced-attendance-grid">
+<div class="attendance-card attendance-roster-card">
+<div class="attendance-card-head">
+<h3>Danh sách học sinh</h3>
+<div class="attendance-bulk-actions">
+<button class="btn" onclick="markAllPresent()" type="button">✅ Tất cả có mặt</button>
+<button class="btn" onclick="markAllAbsent()" type="button">❌ Tất cả vắng</button>
+</div>
+</div>
+<div class="attendance-list attendance-students" id="attendanceList"></div>
+</div>
+<div class="attendance-side-stack">
+<div class="attendance-card attendance-chart-card">
+<div class="attendance-card-head compact-head">
+<h3>Biểu đồ số vắng</h3>
+</div>
+<canvas aria-label="Biểu đồ số vắng" height="240" id="absenceChart" role="img"></canvas>
+<div class="attendance-summary-box" id="absenceSummary"></div>
+</div>
+<div class="attendance-card attendance-ranking-card">
+<div class="attendance-card-head compact-head">
+<h3>Top học sinh vắng nhiều</h3>
+</div>
+<div class="table-container attendance-table-wrap">
+<table class="data-table">
+<thead>
+<tr>
+<th width="60">#</th>
+<th>Họ và Tên</th>
+<th width="140">Số buổi vắng</th>
+</tr>
+</thead>
+<tbody id="absenceTable"></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- SCHOOL GALLERY MODAL -->
+<div aria-hidden="true" class="gallery-modal" id="schoolGalleryModal">
+<div class="gallery-backdrop" onclick="closeSchoolGallery()"></div>
+<div class="gallery-shell">
+<button aria-label="Đóng thư viện ảnh" class="gallery-close" onclick="closeSchoolGallery()" type="button">✕</button>
+<div class="gallery-topbar">
+<div>
+<span class="gallery-kicker">Thư viện ảnh nhà trường</span>
+<h3 id="galleryTitle">Khoảnh khắc nổi bật</h3>
+</div>
+<div class="gallery-counter" id="galleryCounter">1 / 1</div>
+</div>
+<div class="gallery-stage-wrap">
+<button aria-label="Ảnh trước" class="gallery-nav prev" onclick="changeSchoolGallery(-1)" type="button">❮</button>
+<div class="gallery-stage">
+<img alt="Ảnh thư viện" id="galleryMainImage" src=""/>
+<div class="gallery-stage-glow"></div>
+</div>
+<button aria-label="Ảnh tiếp theo" class="gallery-nav next" onclick="changeSchoolGallery(1)" type="button">❯</button>
+</div>
+<div class="gallery-detail-grid">
+<article class="gallery-detail-card gallery-detail-card-name">
+<span class="gallery-detail-kicker">Tên ảnh</span>
+<h4 id="galleryCaption">Mô tả ảnh</h4>
+</article>
+<article class="gallery-detail-card gallery-detail-card-story">
+<span class="gallery-detail-kicker">Thuyết minh</span>
+<p id="galleryStory">Nội dung thuyết minh sẽ hiển thị tại đây.</p>
+</article>
+</div>
+<div class="gallery-thumbs" id="galleryThumbs"></div>
+</div>
+</div>
+<!-- PHOTO PREVIEW MODAL -->
+<div aria-hidden="true" class="photo-preview-modal" hidden id="photoPreviewModal">
+<div class="photo-preview-backdrop" onclick="closePhotoPreview()"></div>
+<div class="photo-preview-dialog">
+<button aria-label="Đóng xem ảnh" class="photo-preview-close" onclick="closePhotoPreview()" type="button">✕</button>
+<div class="photo-preview-head">
+<span class="photo-preview-kicker">Xem ảnh</span>
+<h3 id="photoPreviewTitle">Ảnh chân dung</h3>
+</div>
+<div class="photo-preview-stage">
+<img alt="Ảnh chân dung" id="photoPreviewImage" src=""/>
+</div>
+</div>
+</div>
+<!-- LOGIN MODAL (local, không phá chức năng cũ) -->
+<div class="modal-backdrop" id="loginBackdrop" style="display:none"></div>
+<div aria-hidden="true" class="modal" id="loginModal" style="display:none">
+<div class="modal-card">
+<div class="modal-title">🔐 Đăng nhập hệ thống</div>
+<div class="modal-subtitle">Bạn cần đăng nhập để sử dụng đầy đủ chức năng.</div>
+<div style="display:grid; gap:10px; margin-top:14px;">
+<input autocomplete="username" class="input-field" id="loginUser" placeholder="Tên đăng nhập"/>
+<input autocomplete="current-password" class="input-field" id="loginPass" placeholder="Mật khẩu" type="password"/>
+<div class="modal-row">
+<label class="remember"><input checked="" id="rememberMe" type="checkbox"/> Ghi nhớ</label>
+<button class="btn-gradient" onclick="doLogin()" type="button">Đăng nhập</button>
+</div>
+<div class="modal-hint">Mặc định demo: <b>admin</b> / <b>1234</b> (bạn đổi trong script.js)</div>
+<div class="modal-error" id="loginError" style="display:none"></div>
+</div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
