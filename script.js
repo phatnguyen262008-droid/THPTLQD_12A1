@@ -1323,7 +1323,7 @@ window.askAI = async function askAIEnhanced() {
       headers: { 'Content-Type': 'application/json' },
       signal: controller.signal,
       body: JSON.stringify({
-        model: 'openai/gpt-4o-mini',
+        model: 'deepseek-chat',
         messages: [
           { role: 'system', content: AI_SYSTEM_PROMPT },
           { role: 'user', content: message }
