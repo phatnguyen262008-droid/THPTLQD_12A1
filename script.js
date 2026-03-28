@@ -1471,7 +1471,7 @@ window.askAI = async function askAIEnhanced() {
     saveAiMessage('assistant', fallback);
   }
 };
-unction greetAiOnLoad() {
+function greetAiOnLoad() {
   const chatBox = qs('#ai-chat-box');
   if (!chatBox) return;
 
