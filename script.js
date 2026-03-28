@@ -1447,33 +1447,33 @@ const CAREER_TEAM_PROFILES = [
     quote: 'Trên con đường thành công không có dấu chân của kẻ lười biếng.',
     chips: ['HTML/CSS', 'Responsive', 'UI Design'],
     accent: 'violet',
-    image: ''
+    image: 'images/tatca/hs_24.jpg'
   },
   {
-    name: 'Thành viên B',
-    role: 'Logic • Tính năng',
+    name: 'Huynh Khánh Việt',
+    role: 'Kinh Tế • Công ty niêm yết',
     age: '17',
-    futureUniversity: 'Đại học Công nghệ - ĐHQGHN',
-    major: 'Kỹ thuật phần mềm',
-    strengths: 'Mạnh ở phần xử lý chức năng, liên kết dữ liệu và tối ưu thao tác để website chạy mượt hơn.',
-    bio: 'Ưu tiên các trải nghiệm rõ ràng, gọn gàng và tiện sử dụng; thích biến các nút bấm, khu vực động thành phần tương tác thật sự hữu ích.',
-    quote: 'Một trang web đẹp sẽ càng giá trị hơn khi mọi tương tác đều mượt và hợp lý.',
+    futureUniversity: 'Đại học Kinh Tế TP.HCM - UEH',
+    major: 'Quản trị kinh doanh',
+    strengths: 'Học sinh lớp 12A1 có nền tảng kiến thức kinh tế vững chắc, đặc biệt quan tâm đến các công ty niêm yết và thị trường tài chính.',
+    bio: 'Ưu tiên các trải nghiệm rõ ràng, gọn gàng.',
+    quote: 'Kinh tế không chỉ là con số, mà còn là câu chuyện đằng sau mỗi giao dịch.',
     chips: ['JavaScript', 'Interaction', 'Optimization'],
     accent: 'cyan',
-    image: ''
+    image: 'images/tatca/hs_42.jpg'
   },
   {
-    name: 'Thành viên C',
+    name: 'Phan Bảo Lâm',
     role: 'Nội dung • Kiểm thử',
     age: '17',
     futureUniversity: 'Đại học FPT',
     major: 'Thiết kế mỹ thuật số',
-    strengths: 'Phụ trách trình bày nội dung, rà lỗi hiển thị và làm cho tổng thể trang nhìn chỉn chu hơn.',
+    strengths: 'Học sinh lớp 12A1 có khả năng sáng tạo nội dung tốt, chú trọng đến sự hài hòa giữa hình ảnh và cảm xúc khi trải nghiệm web.',
     bio: 'Quan tâm đến sự hài hòa giữa nội dung, hình ảnh và cảm xúc khi xem; luôn muốn trang web vừa đẹp vừa kể được câu chuyện riêng của nhóm.',
     quote: 'Một website tốt không chỉ đúng chức năng mà còn phải tạo được ấn tượng riêng.',
     chips: ['Content', 'Testing', 'Visual Story'],
     accent: 'rose',
-    image: ''
+    image: 'images/tatca/hs_15.jpg'
   }
 ];
 
