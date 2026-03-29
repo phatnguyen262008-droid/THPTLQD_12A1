@@ -8563,3 +8563,522 @@ body.dark .photo-preview-stage {
     max-height: 70vh;
   }
 }
+
+/* ===== FINAL RESPONSIVE OVERRIDES 2026 ===== */
+:root {
+  --responsive-desktop-max: 1400px;
+  --responsive-tablet: 1180px;
+  --responsive-mobile: 767px;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+iframe,
+canvas,
+video {
+  max-width: 100%;
+}
+
+.layout {
+  max-width: 100%;
+}
+
+.main,
+.main > * {
+  min-width: 0;
+}
+
+.topbar-actions.quick-tools {
+  grid-template-columns: minmax(220px, auto) minmax(0, 1fr) auto !important;
+  align-items: start !important;
+}
+
+.topbar-left,
+.topbar-vip-actions {
+  min-width: 0;
+}
+
+.quick-tool-list {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+
+.quick-tool {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  white-space: normal;
+  text-align: center;
+}
+
+.utility-title-wrap,
+.utility-page-title,
+.utility-label,
+.utility-user-pill,
+.utility-user-pill span,
+.vip-pill {
+  min-width: 0;
+}
+
+.utility-user-pill {
+  max-width: 100%;
+  white-space: normal;
+  flex-wrap: wrap;
+}
+
+.home-dashboard-head {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.home-dashboard-stats {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.home-dashboard-split {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.95fr) !important;
+  gap: 20px !important;
+}
+
+.home-dashboard-bottom {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  width: 100% !important;
+}
+
+.home-dashboard-stats > .card,
+.home-dashboard-split > .card,
+.home-dashboard-bottom > .card,
+.school-header-card,
+.school-feature-card,
+.school-info-card,
+.school-gallery-panel,
+.school-teachers-panel,
+.community-block,
+.career-section-card,
+.map-shell,
+.map-hero,
+.settings-shell,
+.docs-toolbar,
+.contact-list,
+.chat-content,
+.attendance-banner,
+.attendance-control-card,
+.attendance-card {
+  min-width: 0;
+}
+
+.school-header-card,
+.school-feature-card,
+.school-feature-card.reverse,
+.attendance-control-row,
+.attendance-grid.enhanced-attendance-grid,
+.settings-shell,
+.chat-wrapper,
+.map-guide-grid,
+.career-overview-grid,
+.career-team-grid,
+.career-calculator-layout,
+.career-exam-grid,
+.career-match-grid,
+.career-bottom-grid,
+.career-fit-layout {
+  align-items: stretch;
+}
+
+.table-container,
+#hoc-sinh .table-container,
+#diem-danh .table-container,
+#thoi-khoa-bieu .table-container,
+.doc-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-table,
+.doc-table,
+.tkb-table {
+  min-width: 700px;
+}
+
+#hoc-sinh .toolbar,
+.attendance-control-head,
+.attendance-card-head,
+.school-section-head,
+.home-section-heading,
+.class-community-head,
+.community-block-head-inline,
+.ai-tool-row,
+.chat-inputbar,
+.ai-input-row,
+.docs-filter-row,
+.toolbar {
+  gap: 14px;
+}
+
+#cai-dat .settings-shell,
+#cai-dat .settings-shell-single {
+  display: grid;
+  grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1299px) {
+  .topbar-actions.quick-tools {
+    grid-template-columns: 1fr !important;
+  }
+
+  .topbar-left,
+  .topbar-vip-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .quick-tool-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-dashboard-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .home-dashboard-split,
+  .home-dashboard-bottom,
+  .school-header-card,
+  .school-feature-card,
+  .school-feature-card.reverse,
+  .chat-wrapper,
+  .settings-shell,
+  #cai-dat .settings-shell,
+  #cai-dat .settings-shell-single,
+  .attendance-control-row,
+  .attendance-grid.enhanced-attendance-grid,
+  .career-calculator-layout,
+  .career-bottom-grid,
+  .career-fit-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .school-metrics-grid,
+  .school-teacher-list,
+  .map-guide-grid,
+  .career-overview-grid,
+  .career-team-grid,
+  .career-exam-grid,
+  .career-match-grid,
+  .settings-overview-grid,
+  .community-card-grid-feature,
+  .community-card-grid-subject,
+  .student-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .layout {
+    display: block !important;
+    padding: 12px !important;
+  }
+
+  .sidebar {
+    position: fixed !important;
+    top: 12px !important;
+    left: 12px !important;
+    bottom: 12px !important;
+    width: min(320px, calc(100vw - 24px)) !important;
+    height: auto !important;
+    max-height: none !important;
+    transform: translateX(-110%) !important;
+    z-index: 120 !important;
+  }
+
+  body.sidebar-open .sidebar {
+    transform: translateX(0) !important;
+  }
+
+  body.sidebar-open .sidebar-backdrop {
+    display: block !important;
+  }
+
+  body.sidebar-collapsed .sidebar {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .main,
+  body.sidebar-collapsed .main {
+    margin-left: 0 !important;
+  }
+
+  .topbar-actions.quick-tools,
+  body.sidebar-collapsed .topbar-actions.quick-tools {
+    position: sticky !important;
+    top: 12px !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: 90 !important;
+  }
+
+  .main > .page,
+  .main > section.page,
+  .main > .school-page,
+  .main > .home-dashboard-page,
+  .main > .attendance-page,
+  .main > .docs-page,
+  .main > .chat-page,
+  .main > .ai-page,
+  .main > .settings-page,
+  .main > .map-page {
+    margin-top: 0 !important;
+  }
+
+  .quick-tool-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-dashboard-stats,
+  .home-dashboard-split,
+  .home-dashboard-bottom,
+  .cards,
+  .school-metrics-grid,
+  .school-teacher-list,
+  .settings-overview-grid,
+  .career-overview-grid,
+  .career-team-grid,
+  .career-exam-grid,
+  .career-match-grid,
+  .map-guide-grid,
+  .community-card-grid-feature,
+  .community-card-grid-subject,
+  .student-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .class-community-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .community-split-layout,
+  .map-hero,
+  .docs-search-wrap,
+  .docs-filter-row,
+  .attendance-actions,
+  .attendance-bulk-actions,
+  .enhanced-actions,
+  .career-form-actions {
+    flex-wrap: wrap;
+  }
+
+  .school-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .map-frame {
+    min-height: 440px;
+  }
+}
+
+@media (max-width: 900px) {
+  .quick-tool-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-dashboard-stats,
+  .home-dashboard-split,
+  .home-dashboard-bottom,
+  .cards,
+  .school-metrics-grid,
+  .school-teacher-list,
+  .community-card-grid-feature,
+  .community-card-grid-subject,
+  .student-mini-grid,
+  .class-community-summary,
+  .settings-overview-grid,
+  .career-overview-grid,
+  .career-team-grid,
+  .career-exam-grid,
+  .career-match-grid,
+  .map-guide-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .school-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .home-dashboard-head,
+  .school-section-head,
+  .attendance-control-head,
+  .attendance-card-head,
+  .community-block-head-inline,
+  .toolbar,
+  .ai-tool-row,
+  .chat-inputbar,
+  .ai-input-row,
+  .docs-filter-row,
+  .topbar-vip-actions {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .utility-user-pill {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .layout {
+    padding: 10px !important;
+  }
+
+  .topbar-actions.quick-tools,
+  .page,
+  .school-header-card,
+  .school-panel,
+  .school-gallery-panel,
+  .school-teachers-panel,
+  .attendance-banner,
+  .attendance-control-card,
+  .attendance-card,
+  .community-block,
+  .career-section-card,
+  .map-hero,
+  .map-guides-panel,
+  .modal-card,
+  #cai-dat .card {
+    padding: 16px !important;
+    border-radius: 22px !important;
+  }
+
+  .topbar-left,
+  .quick-tool-list,
+  .topbar-vip-actions,
+  .attendance-actions,
+  .attendance-bulk-actions,
+  .enhanced-actions,
+  .career-form-actions,
+  .docs-filter-row,
+  .toolbar,
+  .chat-inputbar,
+  .ai-input-row {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .quick-tool-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .quick-tool,
+  .utility-btn,
+  .chat-send,
+  .ai-send-btn,
+  .attendance-actions .input-field,
+  .attendance-actions .btn-gradient,
+  .attendance-bulk-actions .btn,
+  .career-form-actions .btn-gradient,
+  .career-form-actions .btn-download,
+  .career-tool-card .teacher-link,
+  .docs-filter-row .doc-filter-chip {
+    width: 100%;
+    max-width: none;
+  }
+
+  .home-dashboard-head,
+  .home-dashboard-stats,
+  .home-dashboard-split,
+  .home-dashboard-bottom,
+  .cards,
+  .school-metrics-grid,
+  .school-teacher-list,
+  .school-gallery-grid,
+  .community-card-grid,
+  .community-card-grid-feature,
+  .community-card-grid-subject,
+  .student-mini-grid,
+  .class-community-summary,
+  .settings-overview-grid,
+  .career-overview-grid,
+  .career-team-grid,
+  .career-exam-grid,
+  .career-match-grid,
+  .map-guide-grid,
+  .settings-card-stack > .card > div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .school-gallery-grid img,
+  .community-person-photo,
+  .school-teacher-thumb {
+    aspect-ratio: 1 / 0.9;
+  }
+
+  .attendance-student {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .attendance-toggle,
+  .attendance-toggle button {
+    width: 100%;
+  }
+
+  .map-frame {
+    min-height: 320px;
+    border-radius: 20px;
+  }
+
+  .map-guide-media,
+  .map-guide-media iframe,
+  .map-guide-media .map-guide-fallback {
+    min-height: 200px;
+  }
+
+  .data-table,
+  .doc-table,
+  .tkb-table {
+    min-width: 640px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-tool-list {
+    grid-template-columns: 1fr;
+  }
+
+  .utility-page-title {
+    font-size: 1.3rem;
+  }
+
+  .utility-label {
+    font-size: 11px;
+  }
+
+  .utility-user-pill {
+    padding: 10px 12px;
+  }
+
+  .data-table,
+  .doc-table,
+  .tkb-table {
+    min-width: 580px;
+  }
+}
