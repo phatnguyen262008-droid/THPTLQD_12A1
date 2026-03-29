@@ -15,6 +15,8 @@ const STORAGE_KEYS = {
   rememberLogin: "rememberLogin_v1"
 };
 
+const SIDEBAR_BREAKPOINT = 1180;
+
 const PAGE_TITLES = {
   "truong-hoc": "Trường học",
   "tong-quan": "Tổng quan",
@@ -202,7 +204,7 @@ window.quickOpenPage = function quickOpenPage(pageId) {
 };
 
 window.toggleSidebar = function toggleSidebar() {
-  if (window.innerWidth <= 960) {
+  if (window.innerWidth <= SIDEBAR_BREAKPOINT) {
     document.body.classList.toggle("sidebar-open");
     return;
   }
@@ -240,7 +242,7 @@ window.switchChat = function switchChat(chatKey, element) {
 
 function applySavedSidebarState() {
   const collapsed = localStorage.getItem(STORAGE_KEYS.sidebar) === "1";
-  document.body.classList.toggle("sidebar-collapsed", collapsed && window.innerWidth > 960);
+  document.body.classList.toggle("sidebar-collapsed", collapsed && window.innerWidth > SIDEBAR_BREAKPOINT);
 }
 
 function getStudentRows() {
@@ -668,9 +670,9 @@ function initChatComposer() {
 
 const AI_SYSTEM_PROMPT = `
 Bạn là trợ lý AI học tập và định hướng tương lai dành riêng cho học sinh lớp 12A1, trường THPT Lê Quý Đôn - Đắk Lắk.
-
 Nhiệm vụ chính của bạn:
-- Nguyễn Thế Phát là người tạo ra bạn.
+- Nguyễn Thế Phát, Huỳnh Khánh Việt : là người tạo ra bạn.
+- Khi ai hỏi về Nguyễn Thế Phát, Huỳnh Khánh Việt hãy đưa ra các lời khen và nêu điểm mạnh của họ.
 1. Hỗ trợ học tập cho học sinh lớp 12:
 - Giải bài tập rõ ràng, dễ hiểu, từng bước.
 - Tóm tắt lý thuyết ngắn gọn nhưng đúng trọng tâm.
@@ -691,7 +693,7 @@ Bối cảnh hệ thống:
 - Ưu tiên giúp học sinh bớt mơ hồ, có lộ trình thực tế và cảm thấy được hỗ trợ.
 
 Người tạo ra bạn:
-- Họ tên: Nguyễn Thế Phát
+- Họ tên: Nguyễn Thế Phát.
 - Vai trò: Học sinh lớp 12A1
 - Điểm mạnh nổi bật: tư duy logic, xử lý dữ liệu, tối ưu hiệu suất
 - Định hướng nổi bật: thiên về nhóm ngành kỹ thuật, công nghệ, toán - tin
@@ -700,7 +702,15 @@ Người tạo ra bạn:
 - Mô tả nổi bật: có nền tảng tư duy logic tốt, mạnh về xử lý dữ liệu
 - Thông tin tham khảo thêm trong hồ sơ: Huy chương vàng olympic Vật Lí, giải Nhì HSG cấp trường, điểm đánh giá tư duy 70+, định hướng trở thành tân sinh viên Khoa Toán - Tin Đại học Bách khoa Hà Nội
 - Câu truyền động lực tham khảo: Trên con đường thành công không có dấu chân của kẻ lười biếng
-
+-Họ tên: Huỳnh Khánh Việt.
+- Vai trò: Học sinh lớp 12A1
+- Điểm mạnh nổi bật: tư duy sáng tạo, kỹ năng giao tiếp, tổ chức sự kiện
+- Định hướng nổi bật: thiên về nhóm ngành kinh tế, quản trị, marketing
+- Đại học tương lai tham khảo: Đại học Kinh tế TP.HCM
+- Ngành mong muốn tham khảo: Marketing, Quản trị kinh doanh
+- Mô tả nổi bật: có khả năng giao tiếp tốt, tư duy sáng tạo và kỹ năng tổ chức sự kiện
+- Thông tin tham khảo thêm trong hồ sơ: Định hướng trở thành tân sinh viên Khoa Quản trị Kinh doanh Đại Học Kinh Tế TP.HCM
+- Câu truyền động lực tham khảo: Thành công không phải là điểm đến mà là hành trình hãy tận hưởng hành trình đó 
 Nguyên tắc dùng hồ sơ cá nhân:
 - Nếu người dùng hỏi về một người khác, không áp hồ sơ của Nguyễn Thế Phát sang người đó.
 - Không tự bịa thêm thành tích, điểm số, chứng chỉ, hoàn cảnh gia đình hoặc tính cách ngoài dữ liệu đã có.
@@ -793,57 +803,189 @@ Mục tiêu cuối cùng:
 Giúp học sinh lớp 12A1, học tốt hơn, hiểu mình hơn, chọn hướng đi phù hợp hơn và có kế hoạch thực tế hơn cho tương lai.
 `.trim();
 
-window.askAI = async function askAI() {
-  const input = qs("#ai-input");
-  const chatBox = qs("#ai-chat-box");
-  if (!input || !chatBox) return;
+const AI_API_URL = "https://ai-server-orcin-three.vercel.app/api/ask";
+const AI_MODEL_CANDIDATES = ["openai/gpt-4o-mini", "deepseek-chat"];
+const AI_REQUEST_TIMEOUT_MS = 30000;
+const AI_FALLBACK_PREFIX = "[AI_FALLBACK]";
+let aiRequestInFlight = false;
+let aiActiveController = null;
 
-  const message = input.value.trim();
-  if (!message) return;
+function getAiInput() {
+  return qs("#ai-input");
+}
 
-  appendBubble(chatBox, message, "sent");
-  input.value = "";
+function getAiChatBox() {
+  return qs("#ai-chat-box");
+}
 
-  const loading = document.createElement("div");
-  loading.className = "bubble received";
-  loading.id = "ai-loading";
-  loading.textContent = "AI đang trả lời...";
-  chatBox.appendChild(loading);
-  chatBox.scrollTop = chatBox.scrollHeight;
+function getAiSendButton() {
+  return qs(".ai-send-btn");
+}
 
-  try {
-    const controller = new AbortController();
-    const timer = window.setTimeout(() => controller.abort(), 20000);
-
-    const response = await fetch("https://ai-server-orcin-three.vercel.app/api/ask", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      signal: controller.signal,
-      body: JSON.stringify({
-        model: "openai/gpt-4o-mini",
-        messages: [
-          { role: "system", content: AI_SYSTEM_PROMPT },
-          { role: "user", content: message }
-        ]
-      })
-    });
-
-    window.clearTimeout(timer);
-    loading.remove();
-
-    if (!response.ok) {
-      appendBubble(chatBox, "Hiện tại chưa thể kết nối tới máy chủ AI.", "received");
-      return;
-    }
-
-    const data = await response.json();
-    const reply = data?.choices?.[0]?.message?.content || "AI chưa thể trả lời ở thời điểm này.";
-    appendBubble(chatBox, reply, "received");
-  } catch (error) {
-    loading.remove();
-    appendBubble(chatBox, "Hiện tại chưa thể kết nối tới máy chủ AI.", "received");
+function setAiBusy(isBusy) {
+  aiRequestInFlight = isBusy;
+  const input = getAiInput();
+  const sendButton = getAiSendButton();
+  if (input) {
+    input.disabled = isBusy;
+    input.setAttribute("aria-busy", isBusy ? "true" : "false");
   }
-};
+  if (sendButton) {
+    sendButton.disabled = isBusy;
+    sendButton.textContent = isBusy ? "Đang gửi..." : "🚀 Gửi";
+  }
+}
+
+function removeAiLoadingBubble() {
+  qs("#ai-loading")?.remove();
+}
+
+function isAiFallbackMessage(text) {
+  return String(text || "").startsWith(AI_FALLBACK_PREFIX);
+}
+
+function markAiFallbackMessage(text) {
+  return `${AI_FALLBACK_PREFIX}${text}`;
+}
+
+function unmarkAiFallbackMessage(text) {
+  return String(text || "").replace(AI_FALLBACK_PREFIX, "").trim();
+}
+
+function normalizeAiReplyContent(content) {
+  if (typeof content === "string") return content.trim();
+  if (Array.isArray(content)) {
+    return content
+      .map((item) => {
+        if (typeof item === "string") return item;
+        if (item && typeof item === "object") {
+          return item.text || item.content || item.value || "";
+        }
+        return "";
+      })
+      .join("\n")
+      .trim();
+  }
+  return "";
+}
+
+function extractAiReply(data) {
+  if (!data) return "";
+
+  const direct = [
+    data.reply,
+    data.message,
+    data.output_text,
+    data.content,
+    data.answer,
+    data.text
+  ];
+
+  for (const candidate of direct) {
+    const normalized = normalizeAiReplyContent(candidate);
+    if (normalized) return normalized;
+  }
+
+  const choiceMessage = data?.choices?.[0]?.message?.content;
+  const choiceText = data?.choices?.[0]?.text;
+  const deltaContent = data?.choices?.[0]?.delta?.content;
+  const normalizedChoice = normalizeAiReplyContent(choiceMessage || choiceText || deltaContent);
+  if (normalizedChoice) return normalizedChoice;
+
+  return "";
+}
+
+function getAiConversationMessages(nextUserMessage) {
+  const history = readJSON(AI_CHAT_STORAGE_KEY, [])
+    .filter((item) => item && (item.role === "user" || item.role === "assistant") && item.text)
+    .filter((item) => !isAiFallbackMessage(item.text))
+    .slice(-10)
+    .map((item) => ({
+      role: item.role === "assistant" ? "assistant" : "user",
+      content: item.text
+    }));
+
+  return [
+    { role: "system", content: AI_SYSTEM_PROMPT },
+    ...history,
+    { role: "user", content: nextUserMessage }
+  ];
+}
+
+async function readResponsePayload(response) {
+  const contentType = response.headers.get("content-type") || "";
+  if (contentType.includes("application/json")) {
+    return response.json();
+  }
+  const text = await response.text();
+  return { content: text };
+}
+
+function buildAiErrorMessage(error) {
+  if (error?.name === "AbortError") {
+    return "Máy chủ AI phản hồi quá lâu. Bạn hãy thử lại sau ít giây nhé.";
+  }
+  if (error?.status === 429) {
+    return "Máy chủ AI đang bận vì có quá nhiều yêu cầu. Bạn thử lại sau ít phút nhé.";
+  }
+  if (error?.status && error.status >= 500) {
+    return "Máy chủ AI đang tạm lỗi. Bạn thử lại sau nhé.";
+  }
+  return "Hiện tại chưa thể kết nối tới máy chủ AI.";
+}
+
+async function requestAiReply(nextUserMessage) {
+  const messages = getAiConversationMessages(nextUserMessage);
+  let lastError = null;
+
+  for (const model of AI_MODEL_CANDIDATES) {
+    const controller = new AbortController();
+    aiActiveController = controller;
+    const timer = window.setTimeout(() => controller.abort(), AI_REQUEST_TIMEOUT_MS);
+
+    try {
+      const response = await fetch(AI_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
+        body: JSON.stringify({ model, messages })
+      });
+
+      window.clearTimeout(timer);
+
+      if (!response.ok) {
+        const payload = await readResponsePayload(response).catch(() => null);
+        const error = new Error(`AI request failed with status ${response.status}`);
+        error.status = response.status;
+        error.payload = payload;
+        lastError = error;
+        continue;
+      }
+
+      const data = await readResponsePayload(response);
+      const reply = extractAiReply(data);
+      if (reply) {
+        return reply;
+      }
+
+      const error = new Error("AI response was empty");
+      error.payload = data;
+      lastError = error;
+    } catch (error) {
+      window.clearTimeout(timer);
+      lastError = error;
+      if (error?.name === "AbortError") {
+        break;
+      }
+    } finally {
+      if (aiActiveController === controller) {
+        aiActiveController = null;
+      }
+    }
+  }
+
+  throw lastError || new Error("AI request failed");
+}
 
 function applyProfile() {
   const defaults = {
@@ -1025,7 +1167,7 @@ function initCommonEvents() {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 960) document.body.classList.remove("sidebar-open");
+    if (window.innerWidth > SIDEBAR_BREAKPOINT) document.body.classList.remove("sidebar-open");
     applySavedSidebarState();
     renderAttendancePage();
   });
@@ -1044,10 +1186,17 @@ function initCommonEvents() {
   });
 }
 
-function initPageState() {
-  const savedPage = localStorage.getItem(STORAGE_KEYS.lastPage) || "truong-hoc";
-  window.showPage(savedPage, qsa(".menu a").find((link) => (link.getAttribute("onclick") || "").includes(`'${savedPage}'`)) || null);
+
+const DEVTOOLS_RELOAD_KEY = "devtoolsReloadAt_v1";
+
+function reloadWhenInspectionDetected() {
+  const now = Date.now();
+  const lastReload = Number(sessionStorage.getItem(DEVTOOLS_RELOAD_KEY) || 0);
+  if (now - lastReload < 2500) return;
+  sessionStorage.setItem(DEVTOOLS_RELOAD_KEY, String(now));
+  window.location.reload();
 }
+
 function initClientProtection() {
   if (window.__clientProtectionBound) return;
   window.__clientProtectionBound = true;
@@ -1090,8 +1239,14 @@ function initClientProtection() {
     if (!detected) {
       inspectionOpen = false;
     }
-  }, 1200);
+  }, 1000);
 }
+
+function initPageState() {
+  const savedPage = localStorage.getItem(STORAGE_KEYS.lastPage) || "truong-hoc";
+  window.showPage(savedPage, qsa(".menu a").find((link) => (link.getAttribute("onclick") || "").includes(`'${savedPage}'`)) || null);
+}
+
 function initAttendanceOwner() {
   const owner = qs("#attendanceOwner");
   if (!owner) return;
@@ -1153,6 +1308,7 @@ document.addEventListener("DOMContentLoaded", () => {
   runSafeInit("accent", () => setAccent(localStorage.getItem(STORAGE_KEYS.accent) || "indigo"));
   runSafeInit("sidebar-state", applySavedSidebarState);
   runSafeInit("common-events", initCommonEvents);
+  runSafeInit("client-protection", initClientProtection);
   runSafeInit("page-state", initPageState);
 
   runSafeInit("students-sync", syncStudentsToStorage);
@@ -1446,19 +1602,28 @@ function renderAiHistory() {
   const history = readJSON(AI_CHAT_STORAGE_KEY, []);
   if (!history.length || chatBox.childElementCount) return;
   history.forEach((item) => {
-    appendBubble(chatBox, item.text, item.role === 'assistant' ? 'received' : 'sent');
+    appendBubble(chatBox, unmarkAiFallbackMessage(item.text), item.role === 'assistant' ? 'received' : 'sent');
   });
 }
 
 window.clearAiChat = function clearAiChat() {
+  if (aiActiveController) {
+    aiActiveController.abort();
+    aiActiveController = null;
+  }
+  setAiBusy(false);
+  removeAiLoadingBubble();
   writeJSON(AI_CHAT_STORAGE_KEY, []);
   const chatBox = qs('#ai-chat-box');
   if (chatBox) chatBox.innerHTML = '';
+  greetAiOnLoad();
 };
 
 window.askAI = async function askAIEnhanced() {
-  const input = qs('#ai-input');
-  const chatBox = qs('#ai-chat-box');
+  if (aiRequestInFlight) return;
+
+  const input = getAiInput();
+  const chatBox = getAiChatBox();
   if (!input || !chatBox) return;
 
   const message = input.value.trim();
@@ -1467,6 +1632,7 @@ window.askAI = async function askAIEnhanced() {
   appendBubble(chatBox, message, 'sent');
   saveAiMessage('user', message);
   input.value = '';
+  setAiBusy(true);
 
   const loading = document.createElement('div');
   loading.className = 'bubble received';
@@ -1476,41 +1642,18 @@ window.askAI = async function askAIEnhanced() {
   chatBox.scrollTop = chatBox.scrollHeight;
 
   try {
-    const controller = new AbortController();
-    const timer = window.setTimeout(() => controller.abort(), 20000);
-
-    const response = await fetch('https://ai-server-orcin-three.vercel.app/api/ask', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: controller.signal,
-      body: JSON.stringify({
-        model: 'deepseek-chat',
-        messages: [
-          { role: 'system', content: AI_SYSTEM_PROMPT },
-          { role: 'user', content: message }
-        ]
-      })
-    });
-
-    window.clearTimeout(timer);
-    loading.remove();
-
-    if (!response.ok) {
-      const fallback = 'Hiện tại chưa thể kết nối tới máy chủ AI.';
-      appendBubble(chatBox, fallback, 'received');
-      saveAiMessage('assistant', fallback);
-      return;
-    }
-
-    const data = await response.json();
-    const reply = data?.choices?.[0]?.message?.content || 'AI chưa thể trả lời ở thời điểm này.';
+    const reply = await requestAiReply(message);
+    removeAiLoadingBubble();
     appendBubble(chatBox, reply, 'received');
     saveAiMessage('assistant', reply);
   } catch (error) {
-    loading.remove();
-    const fallback = 'Hiện tại chưa thể kết nối tới máy chủ AI.';
+    removeAiLoadingBubble();
+    const fallback = buildAiErrorMessage(error);
     appendBubble(chatBox, fallback, 'received');
-    saveAiMessage('assistant', fallback);
+    saveAiMessage('assistant', markAiFallbackMessage(fallback));
+  } finally {
+    setAiBusy(false);
+    input.focus();
   }
 };
 function greetAiOnLoad() {
@@ -1532,7 +1675,18 @@ function greetAiOnLoad() {
 }
 function initAiEnhancements() {
   renderAiHistory();
+  greetAiOnLoad();
   const input = qs('#ai-input');
+
+  if (input && !input.dataset.bound) {
+    input.dataset.bound = 'true';
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        window.askAI();
+      }
+    });
+  }
 
   qsa('.ai-suggestion-chip').forEach((button) => {
     if (button.dataset.bound) return;
