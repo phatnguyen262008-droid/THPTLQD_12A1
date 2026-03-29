@@ -1048,7 +1048,50 @@ function initPageState() {
   const savedPage = localStorage.getItem(STORAGE_KEYS.lastPage) || "truong-hoc";
   window.showPage(savedPage, qsa(".menu a").find((link) => (link.getAttribute("onclick") || "").includes(`'${savedPage}'`)) || null);
 }
+function initClientProtection() {
+  if (window.__clientProtectionBound) return;
+  window.__clientProtectionBound = true;
 
+  document.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+  }, { capture: true });
+
+  document.addEventListener("keydown", (event) => {
+    const key = String(event.key || "").toLowerCase();
+    const blockedShortcut =
+      key === "f12" ||
+      (event.ctrlKey && event.shiftKey && ["i", "j", "c", "k"].includes(key)) ||
+      (event.ctrlKey && ["u", "s"].includes(key));
+
+    if (!blockedShortcut) return;
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    reloadWhenInspectionDetected();
+  }, { capture: true });
+
+  let inspectionOpen = false;
+  window.setInterval(() => {
+    if (document.hidden) return;
+
+    const widthGap = window.outerWidth - window.innerWidth > 160;
+    const heightGap = window.outerHeight - window.innerHeight > 160;
+    const startedAt = window.performance.now();
+    debugger;
+    const debuggerGap = window.performance.now() - startedAt > 120;
+    const detected = widthGap || heightGap || debuggerGap;
+
+    if (detected && !inspectionOpen) {
+      inspectionOpen = true;
+      reloadWhenInspectionDetected();
+      return;
+    }
+
+    if (!detected) {
+      inspectionOpen = false;
+    }
+  }, 1200);
+}
 function initAttendanceOwner() {
   const owner = qs("#attendanceOwner");
   if (!owner) return;
