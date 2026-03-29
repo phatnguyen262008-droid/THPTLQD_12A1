@@ -755,77 +755,189 @@
 <span class="school-badge soft">🚀 Nhóm làm web 12A1</span>
 <h3>Đội lập trình web</h3>
 </div>
+<p>Mỗi thẻ có sẵn khu vực ảnh, tuổi, đại học tương lai, ngành mong muốn, vai trò và phần giới thiệu ngắn để bạn thay nội dung theo nhóm của mình.</p>
 </div>
 <div class="career-team-grid" id="careerTeamGrid"></div>
 </section>
 <section class="career-section-card career-calculator-section">
 <div class="career-section-head">
 <div>
-<span class="school-badge warn">🧮 Tính điểm tự động</span>
-<h3>Chọn dạng xét tuyển và nhập điểm</h3>
+<span class="school-badge warn">🧮 Bộ công cụ tính điểm mới</span>
+<h3>Quy đổi điểm • Xét tuyển • Học bạ • Tốt nghiệp</h3>
 </div>
-<p>Học sinh không cần tự dò công thức nữa. Chỉ cần chọn dạng xét tuyển, nhập điểm 3 môn và điểm ưu tiên để hệ thống tính ngay.</p>
+<p>Mình đã thay phần tính điểm cũ bằng bộ công cụ nhiều tab, có cấu hình JSON để bạn đổi bảng quy đổi và công thức ngay trên trình duyệt.</p>
 </div>
-<div class="career-calculator-layout">
-<form class="career-tool-card career-form-shell" id="careerCalcForm" onsubmit="event.preventDefault(); calculateCareerScore();">
-<div class="career-form-grid">
-<label class="career-field">
-<span>Dạng xét tuyển</span>
-<select class="input-field" id="careerCalcType">
-<option value="thpt-standard">Thi THPT • 3 môn</option>
-<option value="thpt-weighted">Thi THPT • có 1 môn nhân hệ số</option>
-<option value="hoc-ba">Học bạ • 3 môn</option>
+<div class="career-score-suite" id="careerScoreSuite">
+<div class="career-score-tabs" role="tablist" aria-label="Các tab tính điểm">
+<button class="career-score-tab active" data-score-tab="convert" type="button">Quy đổi điểm</button>
+<button class="career-score-tab" data-score-tab="admission" type="button">Tính điểm xét tuyển</button>
+<button class="career-score-tab" data-score-tab="transcript" type="button">Tính điểm học bạ</button>
+<button class="career-score-tab" data-score-tab="graduation" type="button">Tính điểm tốt nghiệp</button>
+<button class="career-score-tab" data-score-tab="config" type="button">Cấu hình</button>
+</div>
+
+<div class="career-score-panel active" id="scorePanel-convert">
+<div class="career-score-grid">
+<div class="career-score-block career-score-span-7">
+<h2>Quy đổi chứng chỉ / bài thi</h2>
+<div class="career-score-form-grid">
+<label class="career-score-field">
+<span>Loại chứng chỉ</span>
+<select id="certType"></select>
+</label>
+<label class="career-score-field">
+<span>Điểm gốc</span>
+<input id="certRawScore" type="number" step="0.01" value="6.5" />
+</label>
+</div>
+<div class="career-score-actions">
+<button class="btn-gradient" onclick="calculateConversion()" type="button">Tra cứu quy đổi</button>
+<button class="btn-download" onclick="fillConversionExample()" type="button">Điền ví dụ</button>
+</div>
+</div>
+<div class="career-score-block career-score-span-5">
+<div class="career-score-result">
+<div class="career-score-kicker">Kết quả quy đổi</div>
+<div id="convertScore" class="career-score-value">--</div>
+<div id="convertText" class="career-score-help">Chọn loại chứng chỉ và nhập điểm để xem mức quy đổi.</div>
+</div>
+</div>
+<div class="career-score-block career-score-span-12">
+<h3>Bảng đang dùng</h3>
+<div id="convertTablePreview" class="career-score-help"></div>
+</div>
+</div>
+</div>
+
+<div class="career-score-panel" id="scorePanel-admission">
+<div class="career-score-grid">
+<div class="career-score-block career-score-span-7">
+<h2>Tính điểm xét tuyển</h2>
+<div class="career-score-form-grid">
+<label class="career-score-field"><span>Tổ hợp</span><select id="comboSelect"></select></label>
+<label class="career-score-field"><span>Môn 1</span><input id="sub1" type="number" step="0.01" value="8.0" /></label>
+<label class="career-score-field"><span>Môn 2</span><input id="sub2" type="number" step="0.01" value="8.5" /></label>
+<label class="career-score-field"><span>Môn 3</span><input id="sub3" type="number" step="0.01" value="7.75" /></label>
+<label class="career-score-field"><span>Điểm ưu tiên</span><input id="priorityPoint" type="number" step="0.01" value="0" /></label>
+<label class="career-score-field"><span>Điểm cộng thêm</span><input id="bonusPoint" type="number" step="0.01" value="0" /></label>
+<label class="career-score-field"><span>Điểm quy đổi chứng chỉ</span><input id="convertedExtra" type="number" step="0.01" value="0" /></label>
+<label class="career-score-field"><span>Thang tối đa</span><input id="admissionMax" type="number" step="0.01" value="30" /></label>
+</div>
+<div class="career-score-actions">
+<button class="btn-gradient" onclick="calculateAdmission()" type="button">Tính điểm xét tuyển</button>
+<button class="btn-download" onclick="pullConvertedIntoAdmission()" type="button">Lấy điểm quy đổi từ tab 1</button>
+</div>
+</div>
+<div class="career-score-block career-score-span-5">
+<div class="career-score-result">
+<div class="career-score-kicker">Điểm xét tuyển</div>
+<div id="admissionScore" class="career-score-value">--</div>
+<div id="admissionText" class="career-score-help">Công thức mặc định: tổng 3 môn + ưu tiên + điểm cộng + điểm quy đổi.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="career-score-panel" id="scorePanel-transcript">
+<div class="career-score-grid">
+<div class="career-score-block career-score-span-7">
+<h2>Tính điểm học bạ</h2>
+<div class="career-score-form-grid">
+<label class="career-score-field">
+<span>Phương thức</span>
+<select id="transcriptMode">
+<option value="threeYears">3 năm THPT</option>
+<option value="grade12">Chỉ lớp 12</option>
+<option value="fiveSemesters">5 học kỳ</option>
 </select>
 </label>
-<label class="career-field">
-<span>Tổ hợp đang tính (không bắt buộc)</span>
-<input class="input-field" id="careerCombination" placeholder="Ví dụ: A00, D01, B00" type="text"/>
-</label>
-<label class="career-field" hidden="" id="careerWeightedSubjectField">
-<span>Môn nhân hệ số</span>
-<select class="input-field" id="careerWeightedSubject">
-<option value="1">Môn 1</option>
-<option value="2">Môn 2</option>
-<option value="3">Môn 3</option>
-</select>
-</label>
-<label class="career-field">
-<span>Điểm môn 1</span>
-<input class="input-field" id="careerScore1" max="10" min="0" placeholder="0 - 10" step="0.01" type="number"/>
-</label>
-<label class="career-field">
-<span>Điểm môn 2</span>
-<input class="input-field" id="careerScore2" max="10" min="0" placeholder="0 - 10" step="0.01" type="number"/>
-</label>
-<label class="career-field">
-<span>Điểm môn 3</span>
-<input class="input-field" id="careerScore3" max="10" min="0" placeholder="0 - 10" step="0.01" type="number"/>
-</label>
-<label class="career-field">
-<span>Điểm ưu tiên</span>
-<input class="input-field" id="careerPriority" max="5" min="0" step="0.01" type="number" value="0"/>
-</label>
+<label class="career-score-field"><span>Điểm cộng thêm</span><input id="transcriptBonus" type="number" step="0.01" value="0" /></label>
 </div>
-<div class="career-form-actions">
-<button class="btn-gradient" type="submit">🧮 Tính điểm ngay</button>
-<button class="btn-download" onclick="resetCareerCalculator()" type="button">↺ Nhập lại</button>
+<div class="career-score-subsection">
+<h3>Điểm trung bình theo môn</h3>
+<p class="career-score-help">Nhập theo thứ tự cho 3 môn trong tổ hợp. Nếu trường có công thức khác, bạn sửa tại tab Cấu hình hoặc thay trực tiếp dữ liệu ở đây.</p>
+<div class="career-score-form-grid">
+<label class="career-score-field"><span>Môn 1 - lớp 10</span><input id="t_s1_y10" type="number" step="0.01" value="8.0"></label>
+<label class="career-score-field"><span>Môn 1 - lớp 11</span><input id="t_s1_y11" type="number" step="0.01" value="8.2"></label>
+<label class="career-score-field"><span>Môn 1 - lớp 12</span><input id="t_s1_y12" type="number" step="0.01" value="8.6"></label>
+<label class="career-score-field"><span>Môn 2 - lớp 10</span><input id="t_s2_y10" type="number" step="0.01" value="8.3"></label>
+<label class="career-score-field"><span>Môn 2 - lớp 11</span><input id="t_s2_y11" type="number" step="0.01" value="8.4"></label>
+<label class="career-score-field"><span>Môn 2 - lớp 12</span><input id="t_s2_y12" type="number" step="0.01" value="8.8"></label>
+<label class="career-score-field"><span>Môn 3 - lớp 10</span><input id="t_s3_y10" type="number" step="0.01" value="7.9"></label>
+<label class="career-score-field"><span>Môn 3 - lớp 11</span><input id="t_s3_y11" type="number" step="0.01" value="8.1"></label>
+<label class="career-score-field"><span>Môn 3 - lớp 12</span><input id="t_s3_y12" type="number" step="0.01" value="8.5"></label>
 </div>
-</form>
-<div class="career-tool-card career-result-card" id="careerCalcResult">
-<span class="career-result-kicker">Kết quả sẽ hiển thị ở đây</span>
-<h4>Nhập điểm để xem tổng điểm xét tuyển</h4>
-<p>Hệ thống sẽ tự áp dụng công thức phù hợp, hiển thị tổng điểm ước lượng và gợi ý cách chia nguyện vọng.</p>
-<div class="career-result-placeholder">
-<span>• Tự động đổi công thức theo dạng xét tuyển</span>
-<span>• Có mức tham khảo: an toàn • vừa sức • bứt phá</span>
-<span>• Lưu lại dữ liệu ngay trên trình duyệt</span>
+</div>
+<div class="career-score-actions">
+<button class="btn-gradient" onclick="calculateTranscript()" type="button">Tính điểm học bạ</button>
+<button class="btn-download" onclick="fillTranscriptExample()" type="button">Điền ví dụ</button>
+</div>
+</div>
+<div class="career-score-block career-score-span-5">
+<div class="career-score-result">
+<div class="career-score-kicker">Kết quả học bạ</div>
+<div id="transcriptScore" class="career-score-value">--</div>
+<div id="transcriptText" class="career-score-help">Mặc định: lấy trung bình theo phương thức đã chọn cho từng môn, rồi cộng lại và cộng điểm thưởng.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="career-score-panel" id="scorePanel-graduation">
+<div class="career-score-grid">
+<div class="career-score-block career-score-span-7">
+<h2>Tính điểm tốt nghiệp</h2>
+<div class="career-score-form-grid">
+<label class="career-score-field"><span>Điểm trung bình các bài thi</span><input id="gradExamAvg" type="number" step="0.01" value="7.8" /></label>
+<label class="career-score-field"><span>Điểm trung bình học tập</span><input id="gradStudyAvg" type="number" step="0.01" value="8.1" /></label>
+<label class="career-score-field"><span>Điểm ưu tiên / khuyến khích</span><input id="gradBonus" type="number" step="0.01" value="0" /></label>
+<label class="career-score-field"><span>Điểm trừ vi phạm</span><input id="gradPenalty" type="number" step="0.01" value="0" /></label>
+</div>
+<div class="career-score-actions">
+<button class="btn-gradient" onclick="calculateGraduation()" type="button">Tính điểm tốt nghiệp</button>
+</div>
+<div class="career-score-note">Công cụ dùng công thức có thể chỉnh lại: điểm thi × trọng số + điểm học tập × trọng số + điểm cộng - điểm trừ.</div>
+</div>
+<div class="career-score-block career-score-span-5">
+<div class="career-score-result">
+<div class="career-score-kicker">Điểm xét tốt nghiệp</div>
+<div id="graduationScore" class="career-score-value">--</div>
+<div id="graduationText" class="career-score-help">Bạn có thể đổi trọng số ở tab Cấu hình.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="career-score-panel" id="scorePanel-config">
+<div class="career-score-grid">
+<div class="career-score-block career-score-span-7">
+<h2>Cấu hình toàn bộ công cụ</h2>
+<p class="career-score-help">Nếu trường các cậu có cách tính điểm khác thì hãy copy JSON cấu hình vào đây, rồi bấm áp dụng thì sẽ cập nhật lại các công thức tính toán.</p>
+<textarea id="configEditor"></textarea>
+<div class="career-score-actions">
+<button class="btn-gradient" onclick="applyConfig()" type="button">Áp dụng cấu hình</button>
+<button class="btn-download" onclick="resetConfig()" type="button">Khôi phục mặc định</button>
+<button class="btn" onclick="copyConfig()" type="button">Copy JSON</button>
+</div>
+<div id="configStatus" class="career-score-status"></div>
+</div>
+<div class="career-score-block career-score-span-5">
+<h3>Cách tính điểm hiện có</h3>
+<ul class="career-score-list">
+<li><span class="career-score-mono">Điểm chứng chỉ</span>: bảng quy đổi chứng chỉ.</li>
+<li><span class="career-score-mono">Thang điểm</span>: thang 30 hay thang khác.</li>
+<li><span class="career-score-mono">Xét học bạ</span>: bật / tắt 3 năm, lớp 12, 5 học kỳ.</li>
+<li><span class="career-score-mono">Trọng số điểm thi</span> và <span class="career-score-mono">studyWeight</span>: đổi trọng số.</li>
+</ul>
+<div class="career-score-note">Công cụ này được mình tích hợp từ nhiều nguồn và được cập nhật liên tục khi các trường cập nhật phương án xét tuyển mới.</div>
+</div>
 </div>
 </div>
 </div>
 <div class="career-calc-note-grid">
-<div class="career-mini-note"><strong>Mẹo 1</strong><span>Thử nhiều kịch bản điểm để biết biên dao động thực tế của mình.</span></div>
-<div class="career-mini-note"><strong>Mẹo 2</strong><span>Nếu bạn xét nhiều phương thức, hãy lưu lại từng lần tính để dễ so sánh.</span></div>
-<div class="career-mini-note"><strong>Mẹo 3</strong><span>Kết quả này là tham khảo nhanh, vẫn cần đối chiếu đề án của từng trường.</span></div>
+<div class="career-mini-note"><strong>Mẹo 1</strong><span>Dùng tab Quy đổi trước, rồi bơm điểm sang tab Xét tuyển để tính nhanh.</span></div>
+<div class="career-mini-note"><strong>Mẹo 2</strong><span>Tab Cấu hình cho phép đổi bảng điểm mà không cần sửa code lần nữa.</span></div>
+<div class="career-mini-note"><strong>Mẹo 3</strong><span>Kết quả là tham khảo nhanh, vẫn cần đối chiếu đề án chính thức của từng trường.</span></div>
 </div>
 </section>
 <section class="career-section-card">
