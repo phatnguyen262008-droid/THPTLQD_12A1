@@ -2865,6 +2865,370 @@ window.resetCareerSuggestion = function resetCareerSuggestion() {
   renderCareerSuggestionPlaceholder();
 };
 
+
+
+const CAREER_SCORE_TOOL_CONFIG_KEY = 'careerScoreToolConfig_v1';
+const CAREER_SCORE_TOOL_TAB_KEY = 'careerScoreToolTab_v1';
+let careerScoreLastConvertedScore = 0;
+let careerScoreConfig = null;
+
+function getCareerScoreDefaultConfig() {
+  return {
+    conversionTables: {
+      IELTS: {
+        label: 'IELTS -> điểm quy đổi mẫu',
+        outputUnit: 'điểm',
+        rows: [
+          { min: 8.0, converted: 10.0 },
+          { min: 7.5, converted: 9.5 },
+          { min: 7.0, converted: 9.0 },
+          { min: 6.5, converted: 8.5 },
+          { min: 6.0, converted: 8.0 },
+          { min: 5.5, converted: 7.5 },
+          { min: 5.0, converted: 7.0 },
+          { min: 4.5, converted: 6.5 }
+        ]
+      },
+      TOEFL_iBT: {
+        label: 'TOEFL iBT -> điểm quy đổi mẫu',
+        outputUnit: 'điểm',
+        rows: [
+          { min: 110, converted: 10.0 },
+          { min: 100, converted: 9.5 },
+          { min: 90, converted: 9.0 },
+          { min: 80, converted: 8.5 },
+          { min: 70, converted: 8.0 },
+          { min: 60, converted: 7.5 }
+        ]
+      },
+      SAT: {
+        label: 'SAT -> điểm quy đổi mẫu',
+        outputUnit: 'điểm',
+        rows: [
+          { min: 1500, converted: 10.0 },
+          { min: 1450, converted: 9.5 },
+          { min: 1400, converted: 9.0 },
+          { min: 1350, converted: 8.5 },
+          { min: 1300, converted: 8.0 },
+          { min: 1250, converted: 7.5 }
+        ]
+      },
+      ACT: {
+        label: 'ACT -> điểm quy đổi mẫu',
+        outputUnit: 'điểm',
+        rows: [
+          { min: 34, converted: 10.0 },
+          { min: 32, converted: 9.5 },
+          { min: 30, converted: 9.0 },
+          { min: 28, converted: 8.5 },
+          { min: 26, converted: 8.0 }
+        ]
+      },
+      HSK: {
+        label: 'HSK -> điểm quy đổi mẫu',
+        outputUnit: 'điểm',
+        rows: [
+          { min: 280, converted: 10.0 },
+          { min: 260, converted: 9.5 },
+          { min: 240, converted: 9.0 },
+          { min: 220, converted: 8.5 },
+          { min: 200, converted: 8.0 }
+        ]
+      }
+    },
+    combos: ['A00', 'A01', 'B00', 'C00', 'D01', 'D07'],
+    admission: {
+      maxScore: 30,
+      roundDigits: 2,
+      formula: 'subjects_sum + priority + bonus + converted_extra'
+    },
+    transcript: {
+      roundDigits: 2,
+      modeWeights: {
+        threeYears: { y10: 1, y11: 1, y12: 1 },
+        grade12: { y10: 0, y11: 0, y12: 1 },
+        fiveSemesters: { y10: 1, y11: 1, y12: 0.5 }
+      }
+    },
+    graduation: {
+      examWeight: 0.5,
+      studyWeight: 0.5,
+      roundDigits: 2,
+      formula: 'exam_avg * examWeight + study_avg * studyWeight + bonus - penalty'
+    }
+  };
+}
+
+function loadCareerScoreConfig() {
+  const stored = readJSON(CAREER_SCORE_TOOL_CONFIG_KEY, null);
+  if (stored && stored.conversionTables && stored.admission && stored.transcript && stored.graduation) {
+    careerScoreConfig = stored;
+    return;
+  }
+  careerScoreConfig = getCareerScoreDefaultConfig();
+}
+
+function saveCareerScoreConfig() {
+  writeJSON(CAREER_SCORE_TOOL_CONFIG_KEY, careerScoreConfig);
+}
+
+function roundCareerScoreValue(value, digits = 2) {
+  return Number.parseFloat(value || 0).toFixed(digits);
+}
+
+function setCareerScoreStatus(text, kind) {
+  const el = qs('#configStatus');
+  if (!el) return;
+  if (!text) {
+    el.className = 'career-score-status';
+    el.textContent = '';
+    return;
+  }
+  el.className = `career-score-status show ${kind || 'ok'}`;
+  el.textContent = text;
+}
+
+function activateCareerScoreTab(tabName) {
+  const suite = qs('#careerScoreSuite');
+  if (!suite) return;
+  qsa('.career-score-tab', suite).forEach((button) => {
+    const active = button.dataset.scoreTab === tabName;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-selected', active ? 'true' : 'false');
+  });
+  qsa('.career-score-panel', suite).forEach((panel) => {
+    panel.classList.toggle('active', panel.id === `scorePanel-${tabName}`);
+  });
+  localStorage.setItem(CAREER_SCORE_TOOL_TAB_KEY, tabName);
+}
+
+function initCareerScoreTabs() {
+  const suite = qs('#careerScoreSuite');
+  if (!suite || suite.dataset.tabsBound) return;
+  suite.dataset.tabsBound = 'true';
+  qsa('.career-score-tab', suite).forEach((button) => {
+    button.addEventListener('click', () => activateCareerScoreTab(button.dataset.scoreTab || 'convert'));
+  });
+  const saved = localStorage.getItem(CAREER_SCORE_TOOL_TAB_KEY) || 'convert';
+  activateCareerScoreTab(saved);
+}
+
+function fillCareerScoreCertTypes() {
+  const select = qs('#certType');
+  if (!select || !careerScoreConfig) return;
+  select.innerHTML = Object.keys(careerScoreConfig.conversionTables)
+    .map((key) => `<option value="${escapeHtml(key)}">${escapeHtml(key)}</option>`)
+    .join('');
+  renderConversionTablePreview();
+}
+
+function fillCareerScoreCombos() {
+  const select = qs('#comboSelect');
+  if (!select || !careerScoreConfig) return;
+  select.innerHTML = (careerScoreConfig.combos || [])
+    .map((combo) => `<option value="${escapeHtml(combo)}">${escapeHtml(combo)}</option>`)
+    .join('');
+}
+
+function loadCareerScoreConfigEditor() {
+  const editor = qs('#configEditor');
+  if (!editor || !careerScoreConfig) return;
+  editor.value = JSON.stringify(careerScoreConfig, null, 2);
+}
+
+window.renderConversionTablePreview = function renderConversionTablePreview() {
+  const type = qs('#certType')?.value || Object.keys(careerScoreConfig?.conversionTables || {})[0];
+  const target = qs('#convertTablePreview');
+  if (!target || !type || !careerScoreConfig) return;
+  const table = careerScoreConfig.conversionTables[type];
+  if (!table) {
+    target.innerHTML = '<span class="career-score-help">Chưa có bảng.</span>';
+    return;
+  }
+  const rows = table.rows
+    .map((row) => `≥ ${row.min} → <b>${row.converted}</b> ${escapeHtml(table.outputUnit || 'điểm')}`)
+    .join(' · ');
+  target.innerHTML = `<b>${escapeHtml(table.label || type)}</b><br>${rows}`;
+};
+
+function getCareerScoreConvertedValue(type, raw) {
+  const table = careerScoreConfig?.conversionTables?.[type];
+  if (!table) return null;
+  const matched = (table.rows || []).find((row) => raw >= row.min);
+  return matched ? matched.converted : null;
+}
+
+window.calculateConversion = function calculateConversion() {
+  const type = qs('#certType')?.value;
+  const raw = Number(qs('#certRawScore')?.value || 0);
+  const converted = getCareerScoreConvertedValue(type, raw);
+  renderConversionTablePreview();
+  const scoreEl = qs('#convertScore');
+  const textEl = qs('#convertText');
+  if (!scoreEl || !textEl) return;
+  if (converted === null) {
+    careerScoreLastConvertedScore = 0;
+    scoreEl.textContent = '--';
+    textEl.textContent = 'Chưa đạt mức tối thiểu trong bảng quy đổi hiện tại.';
+    return;
+  }
+  careerScoreLastConvertedScore = converted;
+  scoreEl.textContent = roundCareerScoreValue(converted, 2);
+  textEl.textContent = `Điểm gốc ${raw} của ${type} được khớp theo mốc gần nhất trong bảng cấu hình.`;
+};
+
+window.fillConversionExample = function fillConversionExample() {
+  const certs = Object.keys(careerScoreConfig?.conversionTables || {});
+  const select = qs('#certType');
+  const input = qs('#certRawScore');
+  if (!select || !input || !certs.length) return;
+  select.value = certs.includes('IELTS') ? 'IELTS' : certs[0];
+  input.value = '6.5';
+  calculateConversion();
+};
+
+window.pullConvertedIntoAdmission = function pullConvertedIntoAdmission() {
+  const input = qs('#convertedExtra');
+  if (!input) return;
+  input.value = String(careerScoreLastConvertedScore || 0);
+  calculateAdmission();
+};
+
+window.calculateAdmission = function calculateAdmission() {
+  const s1 = Number(qs('#sub1')?.value || 0);
+  const s2 = Number(qs('#sub2')?.value || 0);
+  const s3 = Number(qs('#sub3')?.value || 0);
+  const priority = Number(qs('#priorityPoint')?.value || 0);
+  const bonus = Number(qs('#bonusPoint')?.value || 0);
+  const convertedExtra = Number(qs('#convertedExtra')?.value || 0);
+  const maxScore = Number(qs('#admissionMax')?.value || careerScoreConfig?.admission?.maxScore || 30);
+  let total = s1 + s2 + s3 + priority + bonus + convertedExtra;
+  total = Math.min(total, maxScore);
+  const digits = careerScoreConfig?.admission?.roundDigits || 2;
+  const scoreEl = qs('#admissionScore');
+  const textEl = qs('#admissionText');
+  if (!scoreEl || !textEl) return;
+  scoreEl.textContent = roundCareerScoreValue(total, digits);
+  textEl.textContent = `Tổ hợp ${qs('#comboSelect')?.value || ''}: (${s1} + ${s2} + ${s3}) + ${priority} ưu tiên + ${bonus} cộng thêm + ${convertedExtra} quy đổi. Giới hạn tối đa ${maxScore}.`;
+};
+
+function getCareerTranscriptAverage(prefix, weights) {
+  const values = {
+    y10: Number(qs(`#${prefix}_y10`)?.value || 0),
+    y11: Number(qs(`#${prefix}_y11`)?.value || 0),
+    y12: Number(qs(`#${prefix}_y12`)?.value || 0)
+  };
+  let weightedSum = 0;
+  let weightTotal = 0;
+  ['y10', 'y11', 'y12'].forEach((key) => {
+    if ((weights[key] || 0) > 0) {
+      weightedSum += values[key] * weights[key];
+      weightTotal += weights[key];
+    }
+  });
+  return weightTotal ? weightedSum / weightTotal : 0;
+}
+
+window.calculateTranscript = function calculateTranscript() {
+  const mode = qs('#transcriptMode')?.value || 'threeYears';
+  const weights = careerScoreConfig?.transcript?.modeWeights?.[mode] || { y10: 1, y11: 1, y12: 1 };
+  const s1 = getCareerTranscriptAverage('t_s1', weights);
+  const s2 = getCareerTranscriptAverage('t_s2', weights);
+  const s3 = getCareerTranscriptAverage('t_s3', weights);
+  const bonus = Number(qs('#transcriptBonus')?.value || 0);
+  const total = s1 + s2 + s3 + bonus;
+  const digits = careerScoreConfig?.transcript?.roundDigits || 2;
+  const scoreEl = qs('#transcriptScore');
+  const textEl = qs('#transcriptText');
+  if (!scoreEl || !textEl) return;
+  scoreEl.textContent = roundCareerScoreValue(total, digits);
+  textEl.textContent = `Mode ${mode}: môn 1 = ${roundCareerScoreValue(s1)}, môn 2 = ${roundCareerScoreValue(s2)}, môn 3 = ${roundCareerScoreValue(s3)}, cộng thêm ${bonus}.`;
+};
+
+window.fillTranscriptExample = function fillTranscriptExample() {
+  const mode = qs('#transcriptMode');
+  const bonus = qs('#transcriptBonus');
+  if (mode) mode.value = 'threeYears';
+  if (bonus) bonus.value = '0.5';
+  calculateTranscript();
+};
+
+window.calculateGraduation = function calculateGraduation() {
+  const examAvg = Number(qs('#gradExamAvg')?.value || 0);
+  const studyAvg = Number(qs('#gradStudyAvg')?.value || 0);
+  const bonus = Number(qs('#gradBonus')?.value || 0);
+  const penalty = Number(qs('#gradPenalty')?.value || 0);
+  const conf = careerScoreConfig?.graduation || { examWeight: 0.5, studyWeight: 0.5, roundDigits: 2 };
+  const total = (examAvg * conf.examWeight) + (studyAvg * conf.studyWeight) + bonus - penalty;
+  const scoreEl = qs('#graduationScore');
+  const textEl = qs('#graduationText');
+  if (!scoreEl || !textEl) return;
+  scoreEl.textContent = roundCareerScoreValue(total, conf.roundDigits || 2);
+  textEl.textContent = `(${examAvg} × ${conf.examWeight}) + (${studyAvg} × ${conf.studyWeight}) + ${bonus} - ${penalty}`;
+};
+
+window.applyConfig = function applyConfig() {
+  const editor = qs('#configEditor');
+  if (!editor) return;
+  try {
+    const parsed = JSON.parse(editor.value);
+    if (!parsed.conversionTables || !parsed.admission || !parsed.transcript || !parsed.graduation) {
+      throw new Error('JSON chưa có đủ các khối chính: conversionTables, admission, transcript, graduation.');
+    }
+    careerScoreConfig = parsed;
+    saveCareerScoreConfig();
+    fillCareerScoreCertTypes();
+    fillCareerScoreCombos();
+    loadCareerScoreConfigEditor();
+    renderConversionTablePreview();
+    setCareerScoreStatus('Áp dụng cấu hình thành công.', 'ok');
+    calculateAdmission();
+    calculateTranscript();
+    calculateGraduation();
+  } catch (error) {
+    setCareerScoreStatus(`Lỗi cấu hình: ${error.message}`, 'err');
+  }
+};
+
+window.resetConfig = function resetConfig() {
+  careerScoreConfig = getCareerScoreDefaultConfig();
+  saveCareerScoreConfig();
+  fillCareerScoreCertTypes();
+  fillCareerScoreCombos();
+  loadCareerScoreConfigEditor();
+  renderConversionTablePreview();
+  setCareerScoreStatus('', 'ok');
+  fillConversionExample();
+  calculateAdmission();
+  calculateTranscript();
+  calculateGraduation();
+};
+
+window.copyConfig = async function copyConfig() {
+  const editor = qs('#configEditor');
+  if (!editor) return;
+  try {
+    await navigator.clipboard.writeText(editor.value);
+    setCareerScoreStatus('Đã copy JSON vào clipboard.', 'ok');
+  } catch (error) {
+    setCareerScoreStatus('Không copy được. Bạn hãy copy thủ công trong ô JSON.', 'err');
+  }
+};
+
+function initCareerScoreTool() {
+  if (!qs('#careerScoreSuite')) return;
+  loadCareerScoreConfig();
+  initCareerScoreTabs();
+  fillCareerScoreCertTypes();
+  fillCareerScoreCombos();
+  loadCareerScoreConfigEditor();
+  fillConversionExample();
+  calculateAdmission();
+  calculateTranscript();
+  calculateGraduation();
+  qs('#certType')?.addEventListener('change', renderConversionTablePreview);
+}
+
 function initCareerTools() {
   const calcForm = qs('#careerCalcForm');
   if (calcForm && !calcForm.dataset.enhancedBound) {
@@ -2935,6 +3299,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderStudentCommunityGrid();
   renderCareerTeamSection();
   initCareerTools();
+  initCareerScoreTool();
 });
 
 
