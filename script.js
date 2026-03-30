@@ -1853,6 +1853,72 @@ function getCardImage(item, tone) {
   return item.image || createAvatarData(item.name || item.title || 'A', tone);
 }
 
+const CAREER_JOURNEY_PROFILE = {
+  heroTitle: 'Từ mông lung đến chủ động viết lộ trình tương lai',
+  intro: 'Mình từng có giai đoạn chưa thật sự rõ bản thân hợp điều gì và đi theo hướng nào. Nhưng càng học, càng va chạm và càng nhìn lại, mình càng hiểu rằng định hướng nghề nghiệp không đến từ may mắn, mà đến từ quá trình tự nhận ra điểm mạnh, sửa điểm yếu và bền bỉ đi tiếp.',
+  startLabel: 'Những ngày đầu không tin bản thân mình sẽ làm được, sợ gia đình bạn bè sẽ thất vọng về bản thân mình',
+  turningLabel: 'Khi mình nhận ra học tập không phải để mọi người hài lòng, mà là để chính bản thân mình tự hào vì đã dám bắt đầu và dám sửa mình từng ngày',
+  goalLabel: 'Được học ngành mình yêu thích, được làm việc trong môi trường mình mong muốn và được sống một cuộc đời có ý nghĩa với chính mình',
+  quote: 'Được sống làm người quý giá thật, nhưng sống được làm chính mình với những giá trị mà mình theo đuổi lại còn quý giá hơn.',
+  milestones: [
+    {
+      year: 'Giai đoạn 1',
+      title: 'Khởi đầu với nhiều mông lung',
+      text: 'Ngay từ những ngày đầu, mình luôn tự đặt ra câu hỏi: “Mình thích gì?”, “Mình có năng lực gì?”, “Mình muốn đi theo hướng nào?” Nhưng câu trả lời lúc đó rất mơ hồ. Mình chỉ biết mình thích công nghệ, thích máy tính, nhưng không rõ mình sẽ làm gì với nó và liệu mình có đủ khả năng để theo đuổi ngành này hay không.'
+    },
+    {
+      year: 'Giai đoạn 2',
+      title: 'Nhận ra điểm mạnh của bản thân',
+      text: 'Sau khi học tập nghiêm túc hơn và quan sát bản thân kỹ hơn, mình nhận ra mình có thế mạnh riêng. Từ đó mình bắt đầu nhìn việc học không còn là áp lực đơn thuần, mà là cách để mở ra con đường phù hợp với chính mình, mình bắt đầu tìm hiểu về ngành học mà mình thích sau đó tìm ra các trường phù hợp với bản thân mình.'
+    },
+    {
+      year: 'Giai đoạn 3',
+      title: 'Bắt đầu xây lộ trình rõ ràng',
+      text: 'Mình chủ động tìm hiểu ngành, trường, phương thức xét tuyển, kỹ năng cần có và những mục tiêu ngắn hạn phải hoàn thành. Mỗi bước nhỏ giúp mình bớt mơ hồ và vững hơn với lựa chọn tương lai.'
+    },
+    {
+      year: 'Hiện tại',
+      title: 'Dùng hành trình của mình để truyền động lực',
+      text: 'Mình đã đạt được những thành tựu nhất định, được đứng trong hàng ngũ là tân sinh viên của Đại Học Bách Khoa Hà Nội, được ba mẹ tự hào khi nhắc đến. Nhưng không vì vậy mà mình trở nên tự cao, mình chỉ xem thành tựu mình đạt được là một dấu ấn trong quá trình học tập và còn phải cố gắng nhiều hơn nữa để chính bản thân mình sẽ tự hào về mình.'
+    }
+  ]
+};
+
+function renderCareerJourneySection() {
+  const root = qs('#careerJourneySpotlight');
+  const timeline = qs('#careerJourneyTimeline');
+  if (!root || !timeline) return;
+
+  const data = CAREER_JOURNEY_PROFILE;
+  const setText = (selector, value) => {
+    const el = qs(selector);
+    if (el && value) el.textContent = value;
+  };
+
+  setText('#journeyHeroTitle', data.heroTitle);
+  setText('#journeyHeroIntro', data.intro);
+  setText('#journeyStartLabel', data.startLabel);
+  setText('#journeyTurningLabel', data.turningLabel);
+  setText('#journeyGoalLabel', data.goalLabel);
+  setText('#journeyQuote', `“${data.quote}”`);
+
+  timeline.innerHTML = (Array.isArray(data.milestones) ? data.milestones : []).map((item, index) => `
+    <article class="career-journey-step" data-step="${index + 1}">
+      <div class="career-journey-step-top">
+        <h4>${escapeHtml(item.title || `Chặng ${index + 1}`)}</h4>
+        <span class="career-journey-step-year">${escapeHtml(item.year || `Chặng ${index + 1}`)}</span>
+      </div>
+      <p>${escapeHtml(item.text || '')}</p>
+    </article>
+  `).join('');
+}
+
+window.scrollToCareerJourneyTimeline = function scrollToCareerJourneyTimeline() {
+  const el = qs('#careerJourneyTimeline');
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
 const STUDENT_IMAGE_FOLDER = 'images/tatca';
 
 function getStudentImageByOrder(order) {
@@ -2086,6 +2152,7 @@ function initClassCommunitySection() {
   renderCommunityCards('#homeroomCards', [HOMEROOM_PROFILE], { featured: true, tone: 'homeroom' });
   renderCommunityCards('#subjectTeacherCards', SUBJECT_TEACHER_PROFILES, { tone: 'subject' });
   renderStudentCommunityGrid();
+  renderCareerJourneySection();
   renderCareerTeamSection();
 }
 
@@ -2186,13 +2253,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ===== DOCUMENT VIDEO SLOT ENHANCEMENT ===== */
 const DOC_VIDEO_STORAGE_KEY = 'documentLectureVideos_v1';
+const DEFAULT_DOCUMENT_VIDEOS = {
+  'de-minh-hoa-vact': 'https://drive.google.com/file/d/1-qWzjEsDNxunqsihwDe6g_VlhQSgBSzm/view?usp=sharing'
+};
 
 function getDocumentVideoStore() {
-  return readJSON(DOC_VIDEO_STORAGE_KEY, {});
+  const current = readJSON(DOC_VIDEO_STORAGE_KEY, {});
+  return {
+    ...current,
+    ...DEFAULT_DOCUMENT_VIDEOS
+  };
 }
 
 function saveDocumentVideoStore(store) {
-  writeJSON(DOC_VIDEO_STORAGE_KEY, store);
+  writeJSON(DOC_VIDEO_STORAGE_KEY, {
+    ...store,
+    ...DEFAULT_DOCUMENT_VIDEOS
+  });
+}
+
+function extractGoogleDriveFileId(url) {
+  if (!(url instanceof URL)) return '';
+
+  const filePathMatch = url.pathname.match(/\/file\/d\/([^/]+)/);
+  if (filePathMatch && filePathMatch[1]) return filePathMatch[1];
+
+  const openId = url.searchParams.get('id') || '';
+  if (openId) return openId;
+
+  return '';
 }
 
 function parseDocumentVideo(value) {
@@ -2221,6 +2310,16 @@ function parseDocumentVideo(value) {
         kind: 'iframe',
         src: `https://www.youtube.com/embed/${videoId}`
       };
+    }
+
+    if (host.includes('drive.google.com')) {
+      const driveId = extractGoogleDriveFileId(url);
+      if (driveId) {
+        return {
+          kind: 'iframe',
+          src: `https://drive.google.com/file/d/${driveId}/preview`
+        };
+      }
     }
 
     if (/\.(mp4|webm|ogg)(\?|#|$)/i.test(url.href)) {
