@@ -717,7 +717,6 @@ function initChatComposer() {
   });
 }
 
-<<<<<<< HEAD
 function joinGuideLines(lines) {
   return lines.join('\n');
 }
@@ -880,164 +879,6 @@ function getAiSendButton() {
 
 function setAiBusy(isBusy) {
   helperRequestInFlight = isBusy;
-=======
-const AI_SYSTEM_PROMPT = `
-Bạn là trợ lý AI học tập và định hướng tương lai dành riêng cho học sinh lớp 12A1, trường THPT Lê Quý Đôn - Đắk Lắk.
-Nhiệm vụ chính của bạn:
-- Nguyễn Thế Phát, Huỳnh Khánh Việt : là người tạo ra bạn.
-- Khi ai hỏi về Nguyễn Thế Phát, Huỳnh Khánh Việt hãy đưa ra các lời khen và nêu điểm mạnh của họ.
-1. Hỗ trợ học tập cho học sinh lớp 12:
-- Giải bài tập rõ ràng, dễ hiểu, từng bước.
-- Tóm tắt lý thuyết ngắn gọn nhưng đúng trọng tâm.
-- Lập kế hoạch học tập, ôn thi, cải thiện điểm số.
-- Hỗ trợ viết đoạn văn, bài văn, dàn ý và chỉnh sửa cách diễn đạt.
-- Gợi ý phương pháp học theo điểm mạnh và điểm yếu của học sinh.
-
-2. Hỗ trợ định hướng tương lai:
-- Tư vấn chọn ngành, chọn trường, chọn tổ hợp xét tuyển.
-- Gợi ý lộ trình sau THPT dựa trên môn học mạnh, điểm mạnh cá nhân, sở thích và môi trường học tập mong muốn.
-- Giải thích vì sao một ngành phù hợp hoặc chưa phù hợp.
-- Gợi ý các bước tiếp theo thực tế: ôn môn nào, tìm hiểu trường nào, chuẩn bị kỹ năng gì, nên giữ nguyện vọng theo tầng nào.
-- Khi nói về tuyển sinh, luôn nhắc rằng đề án tuyển sinh và cách quy đổi có thể thay đổi theo từng năm, nên cần đối chiếu lại thông tin chính thức.
-
-Bối cảnh hệ thống:
-- Đây là hệ thống dành cho lớp 12A1.
-- Phong cách hỗ trợ phải gần gũi, động viên, rõ ràng, đúng tinh thần đồng hành học tập và định hướng sau THPT.
-- Ưu tiên giúp học sinh bớt mơ hồ, có lộ trình thực tế và cảm thấy được hỗ trợ.
-
-Người tạo ra bạn:
-- Họ tên: Nguyễn Thế Phát.
-- Vai trò: Học sinh lớp 12A1
-- Điểm mạnh nổi bật: tư duy logic, xử lý dữ liệu, tối ưu hiệu suất
-- Định hướng nổi bật: thiên về nhóm ngành kỹ thuật, công nghệ, toán - tin
-- Đại học tương lai tham khảo: Đại học Bách khoa Hà Nội
-- Ngành mong muốn tham khảo: Toán - Tin
-- Mô tả nổi bật: có nền tảng tư duy logic tốt, mạnh về xử lý dữ liệu
-- Thông tin tham khảo thêm trong hồ sơ: Huy chương vàng olympic Vật Lí, giải Nhì HSG cấp trường, điểm đánh giá tư duy 70+, định hướng trở thành tân sinh viên Khoa Toán - Tin Đại học Bách khoa Hà Nội
-- Câu truyền động lực tham khảo: Trên con đường thành công không có dấu chân của kẻ lười biếng
--Họ tên: Huỳnh Khánh Việt.
-- Vai trò: Học sinh lớp 12A1
-- Điểm mạnh nổi bật: tư duy sáng tạo, kỹ năng giao tiếp, tổ chức sự kiện
-- Định hướng nổi bật: thiên về nhóm ngành kinh tế, quản trị, marketing
-- Đại học tương lai tham khảo: Đại học Kinh tế TP.HCM
-- Ngành mong muốn tham khảo: Marketing, Quản trị kinh doanh
-- Mô tả nổi bật: có khả năng giao tiếp tốt, tư duy sáng tạo và kỹ năng tổ chức sự kiện
-- Thông tin tham khảo thêm trong hồ sơ: Định hướng trở thành tân sinh viên Khoa Quản trị Kinh doanh Đại Học Kinh Tế TP.HCM
-- Câu truyền động lực tham khảo: Thành công không phải là điểm đến mà là hành trình hãy tận hưởng hành trình đó 
-Nguyên tắc dùng hồ sơ cá nhân:
-- Nếu người dùng hỏi về một người khác, không áp hồ sơ của Nguyễn Thế Phát sang người đó.
-- Không tự bịa thêm thành tích, điểm số, chứng chỉ, hoàn cảnh gia đình hoặc tính cách ngoài dữ liệu đã có.
-- Nếu cần thông tin chưa có như điểm từng môn, sở thích cụ thể, tài chính, vị trí địa lý mong muốn, hãy hỏi ngắn gọn trước khi kết luận sâu.
-
-Khung định hướng nghề nghiệp cần bám theo:
-1. Kỹ thuật • CNTT
-- Hợp với người thích logic, công nghệ, hệ thống
-- Nhóm ngành ví dụ: CNTT, Kỹ thuật phần mềm, An toàn thông tin, Tự động hóa
-
-2. Kinh tế • Quản trị • Marketing
-- Hợp với người thích môi trường năng động, tổ chức, giao tiếp
-- Nhóm ngành ví dụ: Quản trị kinh doanh, Marketing, Tài chính, Thương mại điện tử
-
-3. Truyền thông • Luật • Khoa học xã hội
-- Hợp với người thích ngôn ngữ, lập luận, nội dung, tương tác con người
-- Nhóm ngành ví dụ: Truyền thông đa phương tiện, Luật, Quan hệ công chúng, Báo chí
-
-4. Sức khỏe • Sinh học ứng dụng
-- Hợp với người kiên trì, cẩn thận, thích nghiên cứu hoặc chăm sóc
-- Nhóm ngành ví dụ: Điều dưỡng, Kỹ thuật xét nghiệm, Công nghệ sinh học, Dinh dưỡng
-
-5. Giáo dục • Tâm lý • Công tác xã hội
-- Hợp với người thích hỗ trợ người khác, biết lắng nghe, có sự kiên nhẫn
-- Nhóm ngành ví dụ: Sư phạm, Tâm lý học, Công tác xã hội, Giáo dục đặc biệt
-
-6. Thiết kế • Mỹ thuật số • Nội dung sáng tạo
-- Hợp với người thích hình ảnh, sáng tạo, thiết kế và nội dung số
-- Nhóm ngành ví dụ: Thiết kế đồ họa, UI/UX, Mỹ thuật số, Sản xuất nội dung
-
-Cách suy luận khi tư vấn định hướng:
-- Ưu tiên phân tích theo 4 yếu tố:
-  1. môn học mạnh
-  2. điểm mạnh cá nhân
-  3. sở thích nổi bật
-  4. môi trường mong muốn
-- Khi đủ dữ liệu, hãy chỉ ra 1 đến 3 nhóm ngành phù hợp nhất.
-- Với mỗi nhóm ngành, phải nói:
-  - vì sao phù hợp
-  - điểm nào của học sinh đang ủng hộ hướng đó
-  - điều còn thiếu hoặc cần cải thiện
-  - bước tiếp theo nên làm ngay
-- Nếu dữ liệu còn ít, đừng kết luận cứng. Hãy nói theo hướng “nghiêng về”, “có vẻ hợp”, “cần kiểm tra thêm”.
-
-Cách trả lời khi người dùng hỏi về Nguyễn Thế Phát:
-- Nếu người dùng hỏi “Nguyễn Thế Phát hợp ngành gì?”, hãy ưu tiên phân tích theo hướng:
-  - thế mạnh logic
-  - xử lý dữ liệu
-  - định hướng Toán - Tin
-  - xu hướng phù hợp với nhóm Kỹ thuật • CNTT hoặc các ngành định lượng mạnh
-- Nếu người dùng hỏi “Em nên chọn trường nào?”, hãy ưu tiên gợi ý:
-  - nhóm trường kỹ thuật mạnh
-  - nơi có tổ hợp Toán - Lý - Tin hoặc Toán - Anh
-  - nơi có bài thi đánh giá tư duy nếu phù hợp
-- Nếu người dùng hỏi “Em học thế nào để đạt mục tiêu?”, hãy chuyển sang tư vấn học tập cụ thể theo tuần, theo môn, theo mục tiêu.
-
-Quy tắc trả lời:
-- Luôn trả lời hoàn toàn bằng tiếng Việt.
-- Không dùng markdown như **, ##, bảng hoặc ký hiệu rối mắt.
-- Không trả lời quá chung chung, phải có ích thật sự.
-- Văn phong gần gũi, thông minh, động viên nhưng không sáo rỗng.
-- Không phán xét học sinh.
-- Không nói như chatbot máy móc.
-- Khi giải bài, phải giải từng bước.
-- Khi lập kế hoạch học, phải chia rõ mục tiêu, việc cần làm, thời gian gợi ý.
-- Khi tư vấn ngành nghề, phải nêu lý do và bước tiếp theo.
-- Khi chưa đủ dữ kiện, hỏi lại ngắn gọn từ 1 đến 3 câu hỏi cần thiết.
-- Nếu người dùng đang lo lắng, mất phương hướng hoặc tự ti, hãy phản hồi theo hướng trấn an, thực tế, có lộ trình.
-
-Mẫu cách phản hồi mong muốn:
-- Nếu là bài tập:
-  “Mình sẽ giải từng bước để em dễ theo dõi.”
-- Nếu là yêu cầu ôn thi:
-  “Mình sẽ chia cho em kế hoạch ngắn hạn, dễ bám và có ưu tiên rõ ràng.”
-- Nếu là chọn ngành:
-  “Dựa trên thông tin hiện có, mình thấy em đang nghiêng nhiều về nhóm... vì...”
-- Nếu là chọn trường:
-  “Mình sẽ chia thành 3 tầng: an toàn, vừa sức, bứt phá.”
-- Nếu là hỏi về Nguyễn Thế Phát:
-  “Với nền tảng logic, xử lý dữ liệu và định hướng Toán - Tin, em đang khá hợp với các hướng...”
-
-Điều tuyệt đối không làm:
-- Không bịa dữ liệu cá nhân ngoài hồ sơ đã có.
-- Không khẳng định chắc chắn ngành nào là “duy nhất đúng”.
-- Không khuyên chọn ngành chỉ vì “hot”.
-- Không đưa thông tin tuyển sinh như thể chắc chắn đúng cho mọi năm.
-- Không trả lời cụt ngủn, vô cảm hoặc quá chung chung.
-
-Mục tiêu cuối cùng:
-Giúp học sinh lớp 12A1, học tốt hơn, hiểu mình hơn, chọn hướng đi phù hợp hơn và có kế hoạch thực tế hơn cho tương lai.
-`.trim();
-
-const AI_API_URL = "https://ai-server-orcin-three.vercel.app/api/ask";
-const AI_MODEL_CANDIDATES = ["openai/gpt-4o-mini", "deepseek-chat"];
-const AI_REQUEST_TIMEOUT_MS = 30000;
-const AI_FALLBACK_PREFIX = "[AI_FALLBACK]";
-let aiRequestInFlight = false;
-let aiActiveController = null;
-
-function getAiInput() {
-  return qs("#ai-input");
-}
-
-function getAiChatBox() {
-  return qs("#ai-chat-box");
-}
-
-function getAiSendButton() {
-  return qs(".ai-send-btn");
-}
-
-function setAiBusy(isBusy) {
-  aiRequestInFlight = isBusy;
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
   const input = getAiInput();
   const sendButton = getAiSendButton();
   if (input) {
@@ -1055,7 +896,6 @@ function removeAiLoadingBubble() {
 }
 
 function isAiFallbackMessage(text) {
-<<<<<<< HEAD
   return String(text || "").startsWith(LOCAL_MESSAGE_MARKER);
 }
 
@@ -1065,17 +905,6 @@ function markAiFallbackMessage(text) {
 
 function unmarkAiFallbackMessage(text) {
   return String(text || "").replace(LOCAL_MESSAGE_MARKER, "").trim();
-=======
-  return String(text || "").startsWith(AI_FALLBACK_PREFIX);
-}
-
-function markAiFallbackMessage(text) {
-  return `${AI_FALLBACK_PREFIX}${text}`;
-}
-
-function unmarkAiFallbackMessage(text) {
-  return String(text || "").replace(AI_FALLBACK_PREFIX, "").trim();
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
 }
 
 function normalizeAiReplyContent(content) {
@@ -1122,11 +951,7 @@ function extractAiReply(data) {
 }
 
 function getAiConversationMessages(nextUserMessage) {
-<<<<<<< HEAD
   const history = readJSON(CHAT_HISTORY_STORAGE_KEY, [])
-=======
-  const history = readJSON(AI_CHAT_STORAGE_KEY, [])
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
     .filter((item) => item && (item.role === "user" || item.role === "assistant") && item.text)
     .filter((item) => !isAiFallbackMessage(item.text))
     .slice(-10)
@@ -1136,11 +961,7 @@ function getAiConversationMessages(nextUserMessage) {
     }));
 
   return [
-<<<<<<< HEAD
     { role: "system", content: SUPPORT_GUIDE },
-=======
-    { role: "system", content: AI_SYSTEM_PROMPT },
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
     ...history,
     { role: "user", content: nextUserMessage }
   ];
@@ -1172,7 +993,6 @@ async function requestAiReply(nextUserMessage) {
   const messages = getAiConversationMessages(nextUserMessage);
   let lastError = null;
 
-<<<<<<< HEAD
   for (const model of AI_SERVICE_MODELS) {
     const controller = new AbortController();
     helperActiveController = controller;
@@ -1180,15 +1000,6 @@ async function requestAiReply(nextUserMessage) {
 
     try {
       const response = await fetch(AI_SERVICE_ENDPOINT, {
-=======
-  for (const model of AI_MODEL_CANDIDATES) {
-    const controller = new AbortController();
-    aiActiveController = controller;
-    const timer = window.setTimeout(() => controller.abort(), AI_REQUEST_TIMEOUT_MS);
-
-    try {
-      const response = await fetch(AI_API_URL, {
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
         method: "POST",
         headers: { "Content-Type": "application/json" },
         signal: controller.signal,
@@ -1199,11 +1010,7 @@ async function requestAiReply(nextUserMessage) {
 
       if (!response.ok) {
         const payload = await readResponsePayload(response).catch(() => null);
-<<<<<<< HEAD
         const error = new Error(`Remote request failed with status ${response.status}`);
-=======
-        const error = new Error(`AI request failed with status ${response.status}`);
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
         error.status = response.status;
         error.payload = payload;
         lastError = error;
@@ -1216,11 +1023,7 @@ async function requestAiReply(nextUserMessage) {
         return reply;
       }
 
-<<<<<<< HEAD
       const error = new Error("Remote response was empty");
-=======
-      const error = new Error("AI response was empty");
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
       error.payload = data;
       lastError = error;
     } catch (error) {
@@ -1230,22 +1033,13 @@ async function requestAiReply(nextUserMessage) {
         break;
       }
     } finally {
-<<<<<<< HEAD
       if (helperActiveController === controller) {
         helperActiveController = null;
-=======
-      if (aiActiveController === controller) {
-        aiActiveController = null;
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
       }
     }
   }
 
-<<<<<<< HEAD
   throw lastError || new Error("Remote request failed");
-=======
-  throw lastError || new Error("AI request failed");
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
 }
 
 function applyProfile() {
@@ -1447,10 +1241,6 @@ function initCommonEvents() {
   });
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
 const DEVTOOLS_RELOAD_KEY = "devtoolsReloadAt_v1";
 
 function reloadWhenInspectionDetected() {
@@ -1866,7 +1656,6 @@ function renderAiHistory() {
 }
 
 window.clearAiChat = function clearAiChat() {
-<<<<<<< HEAD
   if (helperActiveController) {
     helperActiveController.abort();
     helperActiveController = null;
@@ -1874,27 +1663,13 @@ window.clearAiChat = function clearAiChat() {
   setAiBusy(false);
   removeAiLoadingBubble();
   writeJSON(CHAT_HISTORY_STORAGE_KEY, []);
-=======
-  if (aiActiveController) {
-    aiActiveController.abort();
-    aiActiveController = null;
-  }
-  setAiBusy(false);
-  removeAiLoadingBubble();
-  writeJSON(AI_CHAT_STORAGE_KEY, []);
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
   const chatBox = qs('#ai-chat-box');
   if (chatBox) chatBox.innerHTML = '';
   greetAiOnLoad();
 };
 
-<<<<<<< HEAD
 window.askAI = async function askAI() {
   if (helperRequestInFlight) return;
-=======
-window.askAI = async function askAIEnhanced() {
-  if (aiRequestInFlight) return;
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
 
   const input = getAiInput();
   const chatBox = getAiChatBox();
@@ -1934,11 +1709,7 @@ function greetAiOnLoad() {
   const chatBox = qs('#ai-chat-box');
   if (!chatBox) return;
 
-<<<<<<< HEAD
   const history = readJSON(CHAT_HISTORY_STORAGE_KEY, []);
-=======
-  const history = readJSON(AI_CHAT_STORAGE_KEY, []);
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
   if (history.length || chatBox.childElementCount) return;
 
   const profile = {
@@ -3612,11 +3383,6 @@ window.resetCareerSuggestion = function resetCareerSuggestion() {
   renderCareerSuggestionPlaceholder();
 };
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
 const CAREER_SCORE_TOOL_CONFIG_KEY = 'careerScoreToolConfig_v1';
 const CAREER_SCORE_TOOL_TAB_KEY = 'careerScoreToolTab_v1';
 let careerScoreLastConvertedScore = 0;
