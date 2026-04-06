@@ -6865,6 +6865,11 @@ body.dark .doc-video-link-fallback {
 .doc-video-slot-note {
   color: var(--muted) !important;
 }
+<<<<<<< HEAD
+=======
+
+/* ===== contrast hotfix for dashboard / attendance / timetable ===== */
+>>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
 
 .attendance-banner .mini-permission-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 245, 247, 0.92)) !important;
@@ -8557,6 +8562,10 @@ body.dark .photo-preview-stage {
   }
 }
 
+<<<<<<< HEAD
+=======
+/* ===== FINAL RESPONSIVE OVERRIDES 2026 ===== */
+>>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
 :root {
   --responsive-desktop-max: 1400px;
   --responsive-tablet: 1180px;
@@ -8679,7 +8688,11 @@ video {
 .school-feature-card,
 .school-feature-card.reverse,
 .attendance-control-row,
+<<<<<<< HEAD
 .attendance-grid.attendance-grid-layout,
+=======
+.attendance-grid.enhanced-attendance-grid,
+>>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
 .settings-shell,
 .chat-wrapper,
 .map-guide-grid,
@@ -8760,7 +8773,11 @@ video {
   #cai-dat .settings-shell,
   #cai-dat .settings-shell-single,
   .attendance-control-row,
+<<<<<<< HEAD
   .attendance-grid.attendance-grid-layout,
+=======
+  .attendance-grid.enhanced-attendance-grid,
+>>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
   .career-calculator-layout,
   .career-bottom-grid,
   .career-fit-layout {
@@ -8872,7 +8889,11 @@ video {
   .docs-filter-row,
   .attendance-actions,
   .attendance-bulk-actions,
+<<<<<<< HEAD
   .attendance-toolbar,
+=======
+  .enhanced-actions,
+>>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
   .career-form-actions {
     flex-wrap: wrap;
   }
@@ -8964,7 +8985,11 @@ video {
   .topbar-vip-actions,
   .attendance-actions,
   .attendance-bulk-actions,
+<<<<<<< HEAD
   .attendance-toolbar,
+=======
+  .enhanced-actions,
+>>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
   .career-form-actions,
   .docs-filter-row,
   .toolbar,
@@ -9075,6 +9100,11 @@ video {
   }
 }
 
+<<<<<<< HEAD
+=======
+
+/* ===== Career score suite replacement ===== */
+>>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
 .career-score-suite {
   display: grid;
   gap: 18px;
@@ -9296,6 +9326,11 @@ video {
   }
 }
 
+<<<<<<< HEAD
+=======
+
+/* ===== Career journey spotlight ===== */
+>>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
 .career-journey-spotlight {
   display: grid;
   gap: 22px;
@@ -9522,6 +9557,7 @@ body.dark .career-journey-spotlight {
     align-items: flex-start;
   }
 }
+<<<<<<< HEAD
 
 .class-memory-page {
   padding: 0;
@@ -10310,3 +10346,5 @@ body.dark .photo-preview-story-card {
     grid-template-columns: 1fr;
   }
 }
+=======
+>>>>>>> 6c4a253f57c39871152027c5387bb95f7a31237e
