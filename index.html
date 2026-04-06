@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 
 <html lang="vi">
 <head>
@@ -18,12 +17,15 @@
 <h4>Trang chủ</h4>
 <a class="active" href="#" onclick="showPage('truong-hoc', this)">Trường học</a>
 <a href="#" onclick="showPage('tong-quan', this)">Tổng quan</a>
-<a href="#" onclick="showPage('diem-danh', this)">Điểm danh</a>
+<a href="#" onclick="showPage('hinh-anh-lop-hoc', this)">Hình ảnh lớp học</a>
+
 <a href="#" onclick="showPage('hoc-sinh', this)">Quản lý học sinh</a>
 <a href="#" onclick="showPage('thoi-khoa-bieu', this)">Thời khóa biểu</a>
 <h4>TIỆN ÍCH</h4>
+
 <a href="#" onclick="showPage('thong-bao', this)">Thông Báo</a>
 <a href="#" onclick="showPage('tai-lieu', this)">Tài Liệu</a>
+<a href="#" onclick="showPage('diem-danh', this)">Điểm danh</a>
 <a href="#" onclick="showPage('dinh-huong-nghe-nghiep', this)">Định hướng nghề nghiệp</a>
 <a href="#" onclick="showPage('ban-do', this)">Bản đồ</a>
 <a href="#" onclick="showPage('tin-nhan', this)">Tin Nhắn</a>
@@ -31,7 +33,7 @@
 <h4>HỆ THỐNG</h4>
 <a href="#" onclick="showPage('cai-dat', this)">Cài đặt</a>
 </div>
-<div class="semester"><small>Năm học 2025–2026</small><br/><strong>Học kỳ 1</strong></div>
+<div class="semester"><small>Năm học 2025–2026</small><br/><strong>Học kỳ 2</strong></div>
 </aside>
 <main class="main">
 <div class="topbar-actions quick-tools" id="quickTools">
@@ -54,7 +56,7 @@
 <div class="utility-user-pill vip-pill"><span>👤 Ng The Phat</span><b>Premium</b></div>
 </div>
 </div>
-<section class="page school-page school-page-v13 active" id="truong-hoc">
+<section class="page school-page school-page-main active" id="truong-hoc">
 <div class="school-shell">
 <header class="school-header-card">
 <div class="school-header-copy">
@@ -336,6 +338,72 @@
 <div class="student-mini-grid" id="studentCommunityGrid"></div>
 </div>
 </section></div></section>
+
+<section class="page class-memory-page" id="hinh-anh-lop-hoc" style="width: 100%;">
+<div class="class-memory-shell">
+<header class="class-memory-hero">
+<div class="class-memory-copy">
+<span class="class-memory-kicker">📸 Hình ảnh lớp học</span>
+<h2>Thanh xuân của chúng tớ</h2>
+<p>
+          Nơi đây không chỉ là một bộ sưu tập ảnh, mà còn là một không gian lưu giữ những khoảnh khắc đáng nhớ của lớp 12A1,
+          Từ những giờ học căng thẳng đến những phút giây vui chơi, tất cả đều được tái hiện qua phong cách scrapbook độc đáo, mang đậm dấu ấn cá nhân và tinh thần đoàn kết của lớp.
+        </p>
+<div class="class-memory-chip-row">
+<span class="class-memory-chip">Phong cách scrapbook</span>
+<span class="class-memory-chip">36 khung ảnh</span>
+<span class="class-memory-chip">Click vào ảnh để xem kỉ niệm của chúng tớ</span>
+</div>
+</div>
+<div class="class-memory-hero-side">
+<article class="class-memory-stat-card">
+<span class="class-memory-kicker">Đi đâu mà vội mà vàng!!!</span>
+<p>Ở lại đây để chúng tớ kể cho nghe về ba năm cấp ba của chúng tớ nè.</p>
+</article>
+</div>
+</header>
+
+<section class="class-memory-board-wrap">
+<div class="class-memory-board-head">
+<div>
+<span class="class-memory-subtag">🪵 Scrapbook board</span>
+<h3>Khoảnh khắc của 12A1</h3>
+<p>
+            Cảm giác như một bảng ghim trong lớp học: ảnh dán lệch nhẹ, có ghim, có giấy note và bóng đổ mềm để tạo chiều sâu.
+          </p>
+</div>
+<div class="class-memory-board-meta">
+<div class="class-memory-meta-pill">
+<strong id="classPhotoReadyCount">36</strong>
+<span>thẻ ảnh hiển thị</span>
+</div>
+</div>
+</div>
+<div class="class-memory-stage">
+<div aria-hidden="true" class="class-memory-fairy-lights">
+<span class="light warm"></span>
+<span class="light pink"></span>
+<span class="light blue"></span>
+<span class="light warm"></span>
+<span class="light lavender"></span>
+<span class="light mint"></span>
+<span class="light warm"></span>
+<span class="light pink"></span>
+<span class="light blue"></span>
+</div>
+<div aria-hidden="true" class="class-memory-hanging-note">12A1 memories</div>
+<div aria-hidden="true" class="class-memory-decor flower flower-top-left">🌼🌸</div>
+<div aria-hidden="true" class="class-memory-decor flower flower-top-right">🌷🌼</div>
+<div aria-hidden="true" class="class-memory-decor flower flower-bottom-left">🌸🌿</div>
+<div aria-hidden="true" class="class-memory-decor flower flower-bottom-right">🌻🌼</div>
+<div aria-hidden="true" class="class-memory-decor teddy teddy-left">🧸</div>
+<div aria-hidden="true" class="class-memory-decor teddy teddy-right">🧸</div>
+<div class="class-memory-board" id="classPhotoBoard"></div>
+</div>
+</section>
+</div>
+</section>
+
 <section class="page" id="hoc-sinh" style="width: 100%;">
 <div class="toolbar">
 <div>
@@ -644,13 +712,6 @@
 <small style="color: #94a3b8;">25 tài liệu • 19,720KB</small>
 </div>
 </a>
-<a class="doc-folder-link" href="#" onclick="showPage('dinh-huong-nghe-nghiep'); return false;" style="text-decoration:none;">
-<div class="folder-card career-folder-card" style="--folder-color: #7c3aed;">
-<div class="folder-icon">🧭</div>
-<strong style="display:block; font-size: 16px;">Định hướng nghề nghiệp</strong>
-<small style="color: #94a3b8;">Công thức điểm • Kỳ thi riêng • Tư vấn trường</small>
-</div>
-</a>
 </div><div class="docs-library-panel" style="background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
 <h3 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 18px;">
 <span style="background: #eef2ff; padding: 8px; border-radius: 10px;">📄</span> Tài liệu mới cập nhật
@@ -665,6 +726,21 @@
 </tr>
 </thead>
 <tbody>
+
+<tr class="doc-file-row" data-video-key="de-minh-hoa-vact">
+<td>
+<div style="display:flex; align-items: center; gap: 12px;">
+<div style="width: 40px; height: 40px; background: #fee2e2; border-radius: 10px; display: flex; align-items: center; justify-content: center;">🎯</div>
+<div>
+<div style="font-weight: 600; color: #1e293b;">Đề minh họa VACT</div>
+<div style="font-size: 12px; color: #94a3b8;">Đăng bởi Hệ thống • Hôm qua</div>
+</div>
+</div>
+</td>
+<td><span class="file-type" style="background:#fee2e2; color:#b91c1c;">VIDEO</span></td>
+<td style="color: #64748b; font-size: 14px;">Google Drive</td>
+<td class="doc-video-cell"><div class="doc-video-slot"><span class="doc-video-slot-title">🎥 Video bài giảng</span><small>Video chữa đề minh họa VACT</small></div></td><td style="text-align: right;"><button class="btn-download">📥 Tải về</button></td>
+</tr>
 <tr class="doc-file-row">
 <td>
 <div style="display:flex; align-items: center; gap: 12px;">
@@ -682,20 +758,6 @@
 <button class="btn-download">📥 Tải về</button>
 </a>
 </td>
-</tr>
-<tr class="doc-file-row">
-<td>
-<div style="display:flex; align-items: center; gap: 12px;">
-<div style="width: 40px; height: 40px; background: #e0f2fe; border-radius: 10px; display: flex; align-items: center; justify-content: center;">📘</div>
-<div>
-<div style="font-weight: 600; color: #1e293b;">100 Câu trắc nghiệm Anh Văn</div>
-<div style="font-size: 12px; color: #94a3b8;">Đăng bởi Hệ thống • Hôm qua</div>
-</div>
-</div>
-</td>
-<td><span class="file-type" style="background:#e0f2fe; color:#0369a1;">DOCX</span></td>
-<td style="color: #64748b; font-size: 14px;">6.1 MB</td>
-<td class="doc-video-cell"><div class="doc-video-slot"><span class="doc-video-slot-title">🎥 Video bài giảng</span><small>Chỗ gắn video cho 100 Câu trắc nghiệm Anh Văn</small></div></td><td style="text-align: right;"><button class="btn-download">📥 Tải về ( sắp có )</button></td>
 </tr>
 </tbody>
 </table>
@@ -735,6 +797,56 @@
 </article>
 </div>
 </header>
+<section class="career-journey-spotlight" id="careerJourneySpotlight">
+  <div class="career-journey-head">
+    <div>
+      <span class="career-journey-panel-label">🔥 Hành trình truyền động lực</span>
+      <h3>Nguyễn Thế Phát và hành trình chinh phục 70+ TSA.</h3>
+    </div>
+    <div class="career-journey-actions">
+      <button class="btn-gradient" onclick="scrollToCareerJourneyTimeline()" type="button">✨ Xem hành trình nổi bật</button>
+      <button class="btn-download" onclick="showPage('ai-hoc-tap'); return false;" type="button">💬 Viết lại cùng AI</button>
+    </div>
+  </div>
+
+  <div class="career-journey-featured">
+    <div class="career-journey-featured-copy">
+      <span class="career-journey-kicker">Điểm nhấn cá nhân</span>
+      <h2 id="journeyHeroTitle">Từ mông lung đến chủ động viết lộ trình tương lai</h2>
+      <p id="journeyHeroIntro">
+        Mình từng có giai đoạn chưa thật sự rõ bản thân hợp điều gì và đi theo hướng nào. Nhưng càng học, càng va chạm và càng nhìn lại,
+        mình càng hiểu rằng định hướng nghề nghiệp không đến từ may mắn, mà đến từ quá trình tự nhận ra điểm mạnh, sửa điểm yếu và bền bỉ đi tiếp.
+      </p>
+      <div class="career-journey-highlight-grid">
+        <article class="career-journey-highlight-card">
+          <span>Bắt đầu từ</span>
+          <strong id="journeyStartLabel">Những ngày đầu không tin bản thân mình sẽ làm được, sợ gia đình bạn bè sẽ thất vọng về bản thân mình</strong>
+        </article>
+        <article class="career-journey-highlight-card">
+          <span>Bước ngoặt</span>
+          <strong id="journeyTurningLabel">Khi mình nhận ra học tập không phải để mọi người hài lòng, mà là để chính bản thân mình tự hào vì đã dám bắt đầu và dám sửa mình từng ngày</strong>
+        </article>
+        <article class="career-journey-highlight-card">
+          <span>Mục tiêu hiện tại</span>
+          <strong id="journeyGoalLabel">Được học ngành mình yêu thích, được làm việc trong môi trường mình mong muốn và được sống một cuộc đời có ý nghĩa với chính mình</strong>
+        </article>
+      </div>
+      <blockquote class="career-journey-quote" id="journeyQuote">“Được sống làm người quý giá thật, nhưng sống được làm chính mình với những giá trị mà mình theo đuổi lại còn quý giá hơn.”</blockquote>
+    </div>
+    <div class="career-journey-badge-panel">
+      <span class="career-journey-panel-label">Vậy hành trình đó mình đã từng bước đi qua như thế nào.</span>
+      <ul>
+        <li>Từng bước thay đổi tư duy</li>
+        <li>Đặt ra từng mục tiêu rõ ràng</li>
+        <li>Thực hiện các bước nhỏ mỗi ngày</li>
+        <li>Không được thỏa mãn với những điều đã đạt được</li>
+      </ul>
+      <a class="teacher-link" href="#careerJourneyTimeline">Đi tới hành trình</a>
+    </div>
+  </div>
+
+  <div class="career-journey-timeline" id="careerJourneyTimeline"></div>
+</section>
 <div class="career-overview-grid">
 <article class="career-overview-card">
 <div class="career-overview-icon">🎯</div>
@@ -770,71 +882,182 @@
 <section class="career-section-card career-calculator-section">
 <div class="career-section-head">
 <div>
-<span class="school-badge warn">🧮 Tính điểm tự động</span>
-<h3>Chọn dạng xét tuyển và nhập điểm</h3>
+<span class="school-badge warn">🧮 Bộ công cụ tính điểm mới</span>
+<h3>Quy đổi điểm • Xét tuyển • Học bạ • Tốt nghiệp</h3>
 </div>
-<p>Học sinh không cần tự dò công thức nữa. Chỉ cần chọn dạng xét tuyển, nhập điểm 3 môn và điểm ưu tiên để hệ thống tính ngay.</p>
+<p>Mình đã thay phần tính điểm cũ bằng bộ công cụ nhiều tab, có cấu hình JSON để bạn đổi bảng quy đổi và công thức ngay trên trình duyệt.</p>
 </div>
-<div class="career-calculator-layout">
-<form class="career-tool-card career-form-shell" id="careerCalcForm" onsubmit="event.preventDefault(); calculateCareerScore();">
-<div class="career-form-grid">
-<label class="career-field">
-<span>Dạng xét tuyển</span>
-<select class="input-field" id="careerCalcType">
-<option value="thpt-standard">Thi THPT • 3 môn</option>
-<option value="thpt-weighted">Thi THPT • có 1 môn nhân hệ số</option>
-<option value="hoc-ba">Học bạ • 3 môn</option>
+<div class="career-score-suite" id="careerScoreSuite">
+<div class="career-score-tabs" role="tablist" aria-label="Các tab tính điểm">
+<button class="career-score-tab active" data-score-tab="convert" type="button">Quy đổi điểm</button>
+<button class="career-score-tab" data-score-tab="admission" type="button">Tính điểm xét tuyển</button>
+<button class="career-score-tab" data-score-tab="transcript" type="button">Tính điểm học bạ</button>
+<button class="career-score-tab" data-score-tab="graduation" type="button">Tính điểm tốt nghiệp</button>
+<button class="career-score-tab" data-score-tab="config" type="button">Cấu hình</button>
+</div>
+
+<div class="career-score-panel active" id="scorePanel-convert">
+<div class="career-score-grid">
+<div class="career-score-block career-score-span-7">
+<h2>Quy đổi chứng chỉ / bài thi</h2>
+<div class="career-score-form-grid">
+<label class="career-score-field">
+<span>Loại chứng chỉ</span>
+<select id="certType"></select>
+</label>
+<label class="career-score-field">
+<span>Điểm gốc</span>
+<input id="certRawScore" type="number" step="0.01" value="6.5" />
+</label>
+</div>
+<div class="career-score-actions">
+<button class="btn-gradient" onclick="calculateConversion()" type="button">Tra cứu quy đổi</button>
+<button class="btn-download" onclick="fillConversionExample()" type="button">Điền ví dụ</button>
+</div>
+</div>
+<div class="career-score-block career-score-span-5">
+<div class="career-score-result">
+<div class="career-score-kicker">Kết quả quy đổi</div>
+<div id="convertScore" class="career-score-value">--</div>
+<div id="convertText" class="career-score-help">Chọn loại chứng chỉ và nhập điểm để xem mức quy đổi.</div>
+</div>
+</div>
+<div class="career-score-block career-score-span-12">
+<h3>Bảng đang dùng</h3>
+<div id="convertTablePreview" class="career-score-help"></div>
+</div>
+</div>
+</div>
+
+<div class="career-score-panel" id="scorePanel-admission">
+<div class="career-score-grid">
+<div class="career-score-block career-score-span-7">
+<h2>Tính điểm xét tuyển</h2>
+<div class="career-score-form-grid">
+<label class="career-score-field"><span>Tổ hợp</span><select id="comboSelect"></select></label>
+<label class="career-score-field"><span>Môn 1</span><input id="sub1" type="number" step="0.01" value="8.0" /></label>
+<label class="career-score-field"><span>Môn 2</span><input id="sub2" type="number" step="0.01" value="8.5" /></label>
+<label class="career-score-field"><span>Môn 3</span><input id="sub3" type="number" step="0.01" value="7.75" /></label>
+<label class="career-score-field"><span>Điểm ưu tiên</span><input id="priorityPoint" type="number" step="0.01" value="0" /></label>
+<label class="career-score-field"><span>Điểm cộng thêm</span><input id="bonusPoint" type="number" step="0.01" value="0" /></label>
+<label class="career-score-field"><span>Điểm quy đổi chứng chỉ</span><input id="convertedExtra" type="number" step="0.01" value="0" /></label>
+<label class="career-score-field"><span>Thang tối đa</span><input id="admissionMax" type="number" step="0.01" value="30" /></label>
+</div>
+<div class="career-score-actions">
+<button class="btn-gradient" onclick="calculateAdmission()" type="button">Tính điểm xét tuyển</button>
+<button class="btn-download" onclick="pullConvertedIntoAdmission()" type="button">Lấy điểm quy đổi từ tab 1</button>
+</div>
+</div>
+<div class="career-score-block career-score-span-5">
+<div class="career-score-result">
+<div class="career-score-kicker">Điểm xét tuyển</div>
+<div id="admissionScore" class="career-score-value">--</div>
+<div id="admissionText" class="career-score-help">Công thức mặc định: tổng 3 môn + ưu tiên + điểm cộng + điểm quy đổi.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="career-score-panel" id="scorePanel-transcript">
+<div class="career-score-grid">
+<div class="career-score-block career-score-span-7">
+<h2>Tính điểm học bạ</h2>
+<div class="career-score-form-grid">
+<label class="career-score-field">
+<span>Phương thức</span>
+<select id="transcriptMode">
+<option value="threeYears">3 năm THPT</option>
+<option value="grade12">Chỉ lớp 12</option>
+<option value="fiveSemesters">5 học kỳ</option>
 </select>
 </label>
-<label class="career-field">
-<span>Tổ hợp đang tính (không bắt buộc)</span>
-<input class="input-field" id="careerCombination" placeholder="Ví dụ: A00, D01, B00" type="text"/>
-</label>
-<label class="career-field" hidden="" id="careerWeightedSubjectField">
-<span>Môn nhân hệ số</span>
-<select class="input-field" id="careerWeightedSubject">
-<option value="1">Môn 1</option>
-<option value="2">Môn 2</option>
-<option value="3">Môn 3</option>
-</select>
-</label>
-<label class="career-field">
-<span>Điểm môn 1</span>
-<input class="input-field" id="careerScore1" max="10" min="0" placeholder="0 - 10" step="0.01" type="number"/>
-</label>
-<label class="career-field">
-<span>Điểm môn 2</span>
-<input class="input-field" id="careerScore2" max="10" min="0" placeholder="0 - 10" step="0.01" type="number"/>
-</label>
-<label class="career-field">
-<span>Điểm môn 3</span>
-<input class="input-field" id="careerScore3" max="10" min="0" placeholder="0 - 10" step="0.01" type="number"/>
-</label>
-<label class="career-field">
-<span>Điểm ưu tiên</span>
-<input class="input-field" id="careerPriority" max="5" min="0" step="0.01" type="number" value="0"/>
-</label>
+<label class="career-score-field"><span>Điểm cộng thêm</span><input id="transcriptBonus" type="number" step="0.01" value="0" /></label>
 </div>
-<div class="career-form-actions">
-<button class="btn-gradient" type="submit">🧮 Tính điểm ngay</button>
-<button class="btn-download" onclick="resetCareerCalculator()" type="button">↺ Nhập lại</button>
+<div class="career-score-subsection">
+<h3>Điểm trung bình theo môn</h3>
+<p class="career-score-help">Nhập theo thứ tự cho 3 môn trong tổ hợp. Nếu trường có công thức khác, bạn sửa tại tab Cấu hình hoặc thay trực tiếp dữ liệu ở đây.</p>
+<div class="career-score-form-grid">
+<label class="career-score-field"><span>Môn 1 - lớp 10</span><input id="t_s1_y10" type="number" step="0.01" value="8.0"></label>
+<label class="career-score-field"><span>Môn 1 - lớp 11</span><input id="t_s1_y11" type="number" step="0.01" value="8.2"></label>
+<label class="career-score-field"><span>Môn 1 - lớp 12</span><input id="t_s1_y12" type="number" step="0.01" value="8.6"></label>
+<label class="career-score-field"><span>Môn 2 - lớp 10</span><input id="t_s2_y10" type="number" step="0.01" value="8.3"></label>
+<label class="career-score-field"><span>Môn 2 - lớp 11</span><input id="t_s2_y11" type="number" step="0.01" value="8.4"></label>
+<label class="career-score-field"><span>Môn 2 - lớp 12</span><input id="t_s2_y12" type="number" step="0.01" value="8.8"></label>
+<label class="career-score-field"><span>Môn 3 - lớp 10</span><input id="t_s3_y10" type="number" step="0.01" value="7.9"></label>
+<label class="career-score-field"><span>Môn 3 - lớp 11</span><input id="t_s3_y11" type="number" step="0.01" value="8.1"></label>
+<label class="career-score-field"><span>Môn 3 - lớp 12</span><input id="t_s3_y12" type="number" step="0.01" value="8.5"></label>
 </div>
-</form>
-<div class="career-tool-card career-result-card" id="careerCalcResult">
-<span class="career-result-kicker">Kết quả sẽ hiển thị ở đây</span>
-<h4>Nhập điểm để xem tổng điểm xét tuyển</h4>
-<p>Hệ thống sẽ tự áp dụng công thức phù hợp, hiển thị tổng điểm ước lượng và gợi ý cách chia nguyện vọng.</p>
-<div class="career-result-placeholder">
-<span>• Tự động đổi công thức theo dạng xét tuyển</span>
-<span>• Có mức tham khảo: an toàn • vừa sức • bứt phá</span>
-<span>• Lưu lại dữ liệu ngay trên trình duyệt</span>
+</div>
+<div class="career-score-actions">
+<button class="btn-gradient" onclick="calculateTranscript()" type="button">Tính điểm học bạ</button>
+<button class="btn-download" onclick="fillTranscriptExample()" type="button">Điền ví dụ</button>
+</div>
+</div>
+<div class="career-score-block career-score-span-5">
+<div class="career-score-result">
+<div class="career-score-kicker">Kết quả học bạ</div>
+<div id="transcriptScore" class="career-score-value">--</div>
+<div id="transcriptText" class="career-score-help">Mặc định: lấy trung bình theo phương thức đã chọn cho từng môn, rồi cộng lại và cộng điểm thưởng.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="career-score-panel" id="scorePanel-graduation">
+<div class="career-score-grid">
+<div class="career-score-block career-score-span-7">
+<h2>Tính điểm tốt nghiệp</h2>
+<div class="career-score-form-grid">
+<label class="career-score-field"><span>Điểm trung bình các bài thi</span><input id="gradExamAvg" type="number" step="0.01" value="7.8" /></label>
+<label class="career-score-field"><span>Điểm trung bình học tập</span><input id="gradStudyAvg" type="number" step="0.01" value="8.1" /></label>
+<label class="career-score-field"><span>Điểm ưu tiên / khuyến khích</span><input id="gradBonus" type="number" step="0.01" value="0" /></label>
+<label class="career-score-field"><span>Điểm trừ vi phạm</span><input id="gradPenalty" type="number" step="0.01" value="0" /></label>
+</div>
+<div class="career-score-actions">
+<button class="btn-gradient" onclick="calculateGraduation()" type="button">Tính điểm tốt nghiệp</button>
+</div>
+<div class="career-score-note">Công cụ dùng công thức có thể chỉnh lại: điểm thi × trọng số + điểm học tập × trọng số + điểm cộng - điểm trừ.</div>
+</div>
+<div class="career-score-block career-score-span-5">
+<div class="career-score-result">
+<div class="career-score-kicker">Điểm xét tốt nghiệp</div>
+<div id="graduationScore" class="career-score-value">--</div>
+<div id="graduationText" class="career-score-help">Bạn có thể đổi trọng số ở tab Cấu hình.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="career-score-panel" id="scorePanel-config">
+<div class="career-score-grid">
+<div class="career-score-block career-score-span-7">
+<h2>Cấu hình toàn bộ công cụ</h2>
+<p class="career-score-help">Nếu trường các cậu có cách tính điểm khác thì hãy copy JSON cấu hình vào đây, rồi bấm áp dụng thì sẽ cập nhật lại các công thức tính toán.</p>
+<textarea id="configEditor"></textarea>
+<div class="career-score-actions">
+<button class="btn-gradient" onclick="applyConfig()" type="button">Áp dụng cấu hình</button>
+<button class="btn-download" onclick="resetConfig()" type="button">Khôi phục mặc định</button>
+<button class="btn" onclick="copyConfig()" type="button">Copy JSON</button>
+</div>
+<div id="configStatus" class="career-score-status"></div>
+</div>
+<div class="career-score-block career-score-span-5">
+<h3>Cách tính điểm hiện có</h3>
+<ul class="career-score-list">
+<li><span class="career-score-mono">Điểm chứng chỉ</span>: bảng quy đổi chứng chỉ.</li>
+<li><span class="career-score-mono">Thang điểm</span>: thang 30 hay thang khác.</li>
+<li><span class="career-score-mono">Xét học bạ</span>: bật / tắt 3 năm, lớp 12, 5 học kỳ.</li>
+<li><span class="career-score-mono">Trọng số điểm thi</span> và <span class="career-score-mono">studyWeight</span>: đổi trọng số.</li>
+</ul>
+<div class="career-score-note">Công cụ này được mình tích hợp từ nhiều nguồn và được cập nhật liên tục khi các trường cập nhật phương án xét tuyển mới.</div>
+</div>
 </div>
 </div>
 </div>
 <div class="career-calc-note-grid">
-<div class="career-mini-note"><strong>Mẹo 1</strong><span>Thử nhiều kịch bản điểm để biết biên dao động thực tế của mình.</span></div>
-<div class="career-mini-note"><strong>Mẹo 2</strong><span>Nếu bạn xét nhiều phương thức, hãy lưu lại từng lần tính để dễ so sánh.</span></div>
-<div class="career-mini-note"><strong>Mẹo 3</strong><span>Kết quả này là tham khảo nhanh, vẫn cần đối chiếu đề án của từng trường.</span></div>
+<div class="career-mini-note"><strong>Mẹo 1</strong><span>Dùng tab Quy đổi trước, rồi bơm điểm sang tab Xét tuyển để tính nhanh.</span></div>
+<div class="career-mini-note"><strong>Mẹo 2</strong><span>Tab Cấu hình cho phép đổi bảng điểm mà không cần sửa code lần nữa.</span></div>
+<div class="career-mini-note"><strong>Mẹo 3</strong><span>Kết quả là tham khảo nhanh, vẫn cần đối chiếu đề án chính thức của từng trường.</span></div>
 </div>
 </section>
 <section class="career-section-card">
@@ -1185,7 +1408,6 @@
 </div>
 </div>
 </section>
-<!-- ================= AI HỌC TẬP ================= -->
 <section class="page ai-section utility-stretch-page ai-page" id="ai-hoc-tap">
 <div class="ai-hero">
 <h2>🤖 Trợ lý học tập AI 12A1</h2>
@@ -1278,18 +1500,16 @@
 </div></div></div>
 </section>
 <section class="page attendance-page" id="diem-danh" style="width: 100%;">
-<div class="attendance-shell-v2">
+<div class="attendance-shell">
 <div class="attendance-banner">
 <div>
 <div class="attendance-label">Khu vực thao tác điểm danh</div>
 <h2>Điểm danh lớp theo ngày</h2>
-<p>Thiết kế này giữ dữ liệu theo từng ngày và từng học sinh. Về sau bạn có thể gắn thêm quyền cho giáo viên chủ nhiệm, lớp trưởng hoặc cán sự mà không bị khóa theo kiểu một tài khoản chỉ điểm danh một lần.</p>
 </div>
 <div class="attendance-banner-side">
 <div class="mini-permission-card">
 <span>Phân quyền sau này</span>
 <strong>Giáo viên chủ nhiệm • Lớp trưởng • Cán sự</strong>
-<small>Khung này đã chừa sẵn để sau bạn nối quyền tài khoản vào.</small>
 </div>
 </div>
 </div>
@@ -1300,7 +1520,7 @@
 <h3>Buổi điểm danh hôm nay</h3>
 <p>Chọn ngày, người phụ trách và lưu danh sách có mặt hoặc vắng.</p>
 </div>
-<div class="attendance-actions enhanced-actions">
+<div class="attendance-actions attendance-toolbar">
 <input class="input-field" id="attendanceDate" type="date"/>
 <select class="input-field" id="attendanceOwner">
 <option>Giáo viên chủ nhiệm</option>
@@ -1327,7 +1547,7 @@
 </ul>
 </div>
 </div>
-<div class="attendance-grid enhanced-attendance-grid">
+<div class="attendance-grid attendance-grid-layout">
 <div class="attendance-card attendance-roster-card">
 <div class="attendance-card-head">
 <h3>Danh sách học sinh</h3>
@@ -1369,6 +1589,40 @@
 </section>
 </main>
 </div>
+<!-- CLASS PHOTO GALLERY MODAL -->
+<div aria-hidden="true" class="gallery-modal class-photo-modal" id="classPhotoGalleryModal">
+<div class="gallery-backdrop" onclick="closeClassPhotoGallery()"></div>
+<div class="gallery-shell class-photo-gallery-shell">
+<button aria-label="Đóng thư viện ảnh lớp" class="gallery-close" onclick="closeClassPhotoGallery()" type="button">✕</button>
+<div class="gallery-topbar">
+<div>
+<span class="gallery-kicker">Thư viện ảnh lớp 12A1</span>
+<h3 id="classPhotoGalleryTitle">Khoảnh khắc lớp học</h3>
+</div>
+<div class="gallery-counter" id="classPhotoGalleryCounter">1 / 1</div>
+</div>
+<div class="gallery-stage-wrap">
+<button aria-label="Ảnh trước" class="gallery-nav prev" onclick="changeClassPhotoGallery(-1)" type="button">❮</button>
+<div class="gallery-stage class-photo-gallery-stage">
+<img alt="Ảnh lớp học" id="classPhotoGalleryImage" src=""/>
+<div class="gallery-stage-glow"></div>
+</div>
+<button aria-label="Ảnh tiếp theo" class="gallery-nav next" onclick="changeClassPhotoGallery(1)" type="button">❯</button>
+</div>
+<div class="gallery-detail-grid">
+<article class="gallery-detail-card gallery-detail-card-name">
+<span class="gallery-detail-kicker">Mô tả ngắn</span>
+<h4 id="classPhotoGalleryCaption">Mô tả ảnh</h4>
+</article>
+<article class="gallery-detail-card gallery-detail-card-story">
+<span class="gallery-detail-kicker">Câu chuyện</span>
+<p id="classPhotoGalleryStory">Nội dung miêu tả của bức ảnh sẽ hiển thị tại đây.</p>
+</article>
+</div>
+<div class="gallery-thumbs" id="classPhotoGalleryThumbs"></div>
+</div>
+</div>
+
 <!-- SCHOOL GALLERY MODAL -->
 <div aria-hidden="true" class="gallery-modal" id="schoolGalleryModal">
 <div class="gallery-backdrop" onclick="closeSchoolGallery()"></div>
